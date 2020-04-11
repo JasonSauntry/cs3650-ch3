@@ -98,14 +98,16 @@ storage_read(const char* path, char* buf, size_t size, off_t offset)
 int
 storage_write(const char* path, const char* buf, size_t size, off_t offset, int version)
 {
-	int trv = storage_truncate(path, offset + size, version);
-	if (trv < 0) {
-		return trv;
-	}
-
 	int inum = tree_lookup(path);
 	if (inum < 0) {
 		return inum;
+	}
+
+	inum = storage_copy(inum, 1, version);
+
+	int trv = storage_truncate(path, offset + size, version);
+	if (trv < 0) {
+		return trv;
 	}
 
 	inode* node = get_inode(inum);
@@ -178,7 +180,7 @@ storage_mknod(const char* path, int mode, int dir, int version)
 		return -EEXIST;
 	} // TODO move
 
-	int inum = alloc_inode();
+	int inum = alloc_inode(version);
 	inode* node = get_inode(inum);
 	node->mode = mode;
 	node->size = 0;
@@ -337,3 +339,33 @@ int* storage_get_inc_version() {
 	printf("Version: %d\n", *rv);
 	return rv;
 }
+
+int storage_copy(int old_inum, int cpy_data, int version) {
+	printf("+ storage_copy %d\n", old_inum);
+	inode* old = get_inode(old_inum);
+	if (old->version == version) {
+		return old_inum;
+	}
+
+	int new_inum = alloc_inode(version);
+	inode* new = get_inode(new_inum);
+
+	memcpy(new, old, sizeof(inode));
+	new->version = version;
+
+	// TODO inlinks
+	// Invariant: Inlinks are all dirs.
+	for (int i = 0; i < MAX_HARD_LINKS; i++) {
+		if (new->in_links[i] != -1) {
+			// stuff
+			char* name = strdup(directory_name(new->in_links[i], old_inum));
+			directory_delete(new->in_links[i], name, version);
+			directory_put(new->in_links[i], name, new_inum, version);
+			free(name);
+		}
+	}
+
+	return new_inum;
+	
+}
+

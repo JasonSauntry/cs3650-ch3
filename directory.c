@@ -81,6 +81,20 @@ directory_lookup(int dirnode, const char* name)
 	abort();
 }
 
+const char* directory_name(int dirnode, int inum) {
+	inode* node = get_inode(dirnode);
+	node->last_access = now();
+	int entries = node->size / ENT_SIZE;
+	for (int ii = 0; ii < entries; ++ii) {
+		dir_ent* ent = directory_get(dirnode, ii);
+		if (ent->filename[0] && ent->inode_num == inum) {
+			return ent->filename;
+		}
+	}
+
+	abort();
+}
+
 int
 tree_lookup(const char* path)
 {

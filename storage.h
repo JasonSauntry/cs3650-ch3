@@ -26,6 +26,11 @@ slist* storage_list(const char* path);
 int    storage_symlink(const char* dest, const char* name, int version);
 int    storage_readlink(const char* path, char* buf, size_t size);
 
+/**
+ * Copies an inode and possibly its data.
+ */
+int storage_copy(int inum, int cpy_data, int version);
+
 // Get AND increment.
 int* storage_get_inc_version();
 

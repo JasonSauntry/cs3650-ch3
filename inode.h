@@ -33,7 +33,7 @@ typedef struct inode {
 
 void print_inode(inode* node);
 inode* get_inode(int inum);
-int alloc_inode();
+int alloc_inode(int version);
 void free_inode();
 int inode_get_pnum(inode* node, int fpn);
 int inode_add_ref(inode* node, int dirnode);

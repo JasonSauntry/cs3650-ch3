@@ -50,6 +50,8 @@ void directory_init(int dirnode, int n, int versions);
  */
 int directory_lookup(int dirnode, const char* name);
 
+const char* directory_name(int dirnode, int inum);
+
 /**
  * Given a path to a file or directory, return the corresponding inode.
  */
