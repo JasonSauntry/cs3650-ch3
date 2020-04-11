@@ -106,6 +106,9 @@ storage_write(const char* path, const char* buf, size_t size, off_t offset, int 
 	}
 
 	inode* node = get_inode(inum);
+	if (node->version < version) {
+		puts("====== :( VERSION ======");
+	}
 
 	size_t size_bytes = size * sizeof(char);
 	size_t offset_bytes = offset * sizeof(char);
@@ -126,6 +129,9 @@ storage_truncate(const char *path, off_t newsize, int version)
 	}
 
 	inode* node = get_inode(inum);
+	if (node->version < version) {
+		puts("====== :( VERSION ======");
+	}
 	off_t oldsize = node->size;
 	if (newsize == oldsize) { }
 	else if (newsize < oldsize) {
@@ -248,6 +254,9 @@ int storage_set_mode(const char* path, const int mode, int version) {
 		return inum;
 	}
 	inode* node = get_inode(inum);
+	if (node->version < version) {
+		puts("====== :( VERSION ======");
+	}
 
 	node->mode = mode;
 	if (node->directory) {
@@ -269,6 +278,9 @@ storage_set_time(const char* path, const struct timespec ts[2], int version)
 	}
 
 	inode* node = get_inode(inum);
+	if (node->version < version) {
+		puts("====== :( VERSION ======");
+	}
 	node->last_access = ts[0];
 	node->last_modified = ts[0];
 

@@ -124,10 +124,13 @@ tree_lookup(const char* path)
 }
 
 int
-directory_put(int dirnode, const char* name, int inum, int verions)
+directory_put(int dirnode, const char* name, int inum, int version)
 {
 	// TODO use empty slots if available.
 	inode* node = get_inode(dirnode);
+	if (node->version < version) {
+		puts("====== :( VERSION ======");
+	}
 	node->last_access = node->last_modified = now();
 	int cur_objs = node->size / ENT_SIZE;
 	int first_empty;
@@ -171,7 +174,7 @@ directory_put(int dirnode, const char* name, int inum, int verions)
 }
 
 int
-directory_delete(int dirnode, const char* name, int verions)
+directory_delete(int dirnode, const char* name, int version)
 {
 	printf(" + directory_delete(%s)\n", name);
 
@@ -181,6 +184,9 @@ directory_delete(int dirnode, const char* name, int verions)
 	}
 	dir_ent* ent = directory_get(dirnode, index);
 	inode* dir = get_inode(dirnode);
+	if (dir->version < version) {
+		puts("====== :( VERSION ======");
+	}
 	dir->last_access = dir->last_modified = now();
 	inode* file_inode = get_inode(ent->inode_num);
 	file_inode->refs--;
