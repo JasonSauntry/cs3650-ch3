@@ -42,6 +42,9 @@
 *.idb
 *.pdb
 
+# Swp
+*.swp
+
 # Kernel Module Compile Results
 *.mod*
 *.cmd

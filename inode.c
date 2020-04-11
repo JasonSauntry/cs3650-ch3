@@ -46,6 +46,9 @@ alloc_inode(int version)
 		for (int i = 0; i < MAX_HARD_LINKS; i++) {
 			node->in_links[i] = -1;
 		}
+    for (int i = 0; i < PAGE_ARRAY_SIZE; i++) {
+      node->pages[i] = 0;
+    } 
 		return i;
 	}
 
@@ -94,9 +97,10 @@ int inode_add_ref(inode* node, int dirnode) {
 	node->refs++;
 	int i;
 	for (i = 0; node->in_links[i] != -1; i++) {
-		if (node->in_links[i] == dirnode) {
-			return 0;
-		}
+    assert(i < MAX_HARD_LINKS);
+//		if (node->in_links[i] == dirnode) {
+//			return 0;
+//		}
 	}
 	assert(i < MAX_HARD_LINKS);
 	node->in_links[i] = dirnode;
@@ -107,7 +111,9 @@ int inode_add_ref(inode* node, int dirnode) {
 int inode_del_ref(inode* node, int dirnode) {
 	node->refs--;
 	int i;
-	for (i = 0; node->in_links[i] != dirnode; i++);
+	for (i = 0; node->in_links[i] != dirnode; i++) {
+    assert(i < MAX_HARD_LINKS);
+  }
 	node->in_links[i] = -1;
 	return 0;
 }

@@ -1,0 +1,2 @@
+cowmount: cowmount.c:66: nufs_readdir: Assertion `rv == 0' failed.
+make: *** [Makefile:30: mount] Aborted

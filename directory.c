@@ -17,6 +17,7 @@
 #include "util.h"
 #include "inode.h"
 #include "super.h"
+#include "storage.h"
 
 // Only called on init.
 void
@@ -142,9 +143,17 @@ directory_put(int dirnode, const char* name, int inum, int version)
 {
 	// TODO use empty slots if available.
 	inode* node = get_inode(dirnode);
+
+  if (get_super()->root_inode != inum) {
+    inum = storage_copy(inum, 1, version);
+  } else {
+		puts("====== :( ROOT VERSION ======");
+  }
+
 	if (node->version < version) {
 		puts("====== :( VERSION ======");
 	}
+
 	node->last_access = node->last_modified = now();
 	int cur_objs = node->size / ENT_SIZE;
 	int first_empty;
@@ -165,7 +174,7 @@ directory_put(int dirnode, const char* name, int inum, int version)
 		if (new_page) {
 			int page = map_page();
 			node->pages[page_number] = page;
-		}
+		  }
 
 		node->size += sizeof(dir_ent);
 		index = new_index;
@@ -196,13 +205,20 @@ directory_delete(int dirnode, const char* name, int version)
 {
 	printf(" + directory_delete(%s)\n", name);
 
+  if (get_super()->root_inode != dirnode ) {
+    dirnode = storage_copy(dirnode, 1, version);
+  } else {
+		puts("====== :( ROOT VERSION ======");
+  }
+  
 	int index = directory_lookup(dirnode, name);
 	if (index < 0) {
 		return index;
 	}
 	dir_ent* ent = directory_get(dirnode, index);
 	inode* dir = get_inode(dirnode);
-	if (dir->version < version) {
+
+  if (dir->version < version) {
 		puts("====== :( VERSION ======");
 	}
 	dir->last_access = dir->last_modified = now();
@@ -211,11 +227,6 @@ directory_delete(int dirnode, const char* name, int version)
 	int dinum = ent->inode_num;
 	ent->inode_num = -1;
 	ent->filename[0] = 0;
-	if (file_inode->refs == 0) {
-		inode* node = file_inode;
-		assert(node->refs == 0);
-		free_inode(dinum);
-	}
 
 	return 0;
 }

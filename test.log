@@ -1,0 +1,1698 @@
+make: Nothing to be done for 'all'.
+make disk0.cow
+make[1]: Entering directory '/home/kelly/Documents/cs3650-ch3'
+make[1]: 'disk0.cow' is up to date.
+make[1]: Leaving directory '/home/kelly/Documents/cs3650-ch3'
+./cowmount -s -f mnt disk0.cow
++ storage_stat(/BDMV)
+tree_lookup error
+-2
+getattr(/BDMV) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/.xdg-volume-info)
+tree_lookup error
+-2
+getattr(/.xdg-volume-info) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/autorun.inf)
+tree_lookup error
+-2
+getattr(/autorun.inf) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
+access(/, 0004) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/.Trash)
+tree_lookup error
+-2
+getattr(/.Trash) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/.Trash-1000)
+tree_lookup error
+-2
+getattr(/.Trash-1000) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
++ storage_stat(/autorun.inf)
+tree_lookup error
+-2
+getattr(/autorun.inf) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/one.txt)
+tree_lookup error
+-2
+getattr(/one.txt) -> (-2) {mode: 0000, size: 0}
+Version: 1
++ mknod create /one.txt [100644] - #1
++ storage_copy 1
+====== :( VERSION ======
++ dirent = 'one.txt'
++ directory_put(..., one.txt, 1) -> 0
+node{mode: 40755, size: 20}
+mknod(/one.txt, 100644) -> 0
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 1
+node{mode: 100644, size: 0}
+getattr(/one.txt) -> (0) {mode: 100644, size: 0}
+access(/one.txt, 0000) -> 0
+open(/one.txt) -> 0
+ioctl(/one.txt, 21505, ...) -> -1
+Version: 2
++ storage_copy 1
+ + directory_delete(one.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 2
+====== :( VERSION ======
++ dirent = 'one.txt'
++ directory_put(..., one.txt, 2) -> 0
+node{mode: 40755, size: 20}
++ storage_copy 2
+write(/one.txt, 11 bytes, @+0) -> 11
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+getattr(/one.txt) -> (0) {mode: 100644, size: 11}
+access(/one.txt, 0000) -> 0
+open(/one.txt) -> 0
+ioctl(/one.txt, 21505, ...) -> -1
+In link 0:	0
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/one.txt); inode 2
+node{mode: 100644, size: 11}
+read(/one.txt, 4096 bytes, @+0) -> 11
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+getattr(/one.txt) -> (0) {mode: 100644, size: 11}
++ storage_stat(/two.txt)
+tree_lookup error
+-2
+getattr(/two.txt) -> (-2) {mode: 0000, size: 0}
+Version: 3
++ mknod create /two.txt [100644] - #3
++ storage_copy 3
+====== :( VERSION ======
++ dirent = 'two.txt'
++ directory_put(..., two.txt, 3) -> 0
+node{mode: 40755, size: 40}
+mknod(/two.txt, 100644) -> 0
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 3
+node{mode: 100644, size: 0}
+getattr(/two.txt) -> (0) {mode: 100644, size: 0}
+access(/two.txt, 0000) -> 0
+open(/two.txt) -> 0
+ioctl(/two.txt, 21505, ...) -> -1
+Version: 4
++ storage_copy 3
+ + directory_delete(two.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 4
+====== :( VERSION ======
++ dirent = 'two.txt'
++ directory_put(..., two.txt, 4) -> 0
+node{mode: 40755, size: 40}
++ storage_copy 4
+write(/two.txt, 11 bytes, @+0) -> 11
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
+getattr(/two.txt) -> (0) {mode: 100644, size: 11}
+access(/two.txt, 0000) -> 0
+open(/two.txt) -> 0
+ioctl(/two.txt, 21505, ...) -> -1
+In link 0:	0
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/two.txt); inode 4
+node{mode: 100644, size: 11}
+read(/two.txt, 4096 bytes, @+0) -> 11
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: fusermount -u mnt || true
+11}
+getattr(/two.txt) -> (0) {mode: 100644, size: 11}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 40}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/2k.txt)
+tree_lookup error
+-2
+getattr(/2k.txt) -> (-2) {mode: 0000, size: 0}
+Version: 5
++ mknod create /2k.txt [100644] - #5
++ storage_copy 5
+====== :( VERSION ======
++ dirent = '2k.txt'
++ directory_put(..., 2k.txt, 5) -> 0
+node{mode: 40755, size: 60}
+mknod(/2k.txt, 100644) -> 0
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 5
+node{mode: 100644, size: 0}
+getattr(/2k.txt) -> (0) {mode: 100644, size: 0}
+access(/2k.txt, 0000) -> 0
+open(/2k.txt) -> 0
+ioctl(/2k.txt, 21505, ...) -> -1
+Version: 6
++ storage_copy 5
+ + directory_delete(2k.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 6
+====== :( VERSION ======
++ dirent = '2k.txt'
++ directory_put(..., 2k.txt, 6) -> 0
+node{mode: 40755, size: 60}
++ storage_copy 6
+write(/2k.txt, 2001 bytes, @+0) -> 2001
+access(/2k.txt, 0000) -> 0
+open(/2k.txt) -> 0
+ioctl(/2k.txt, 21505, ...) -> -1
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
+getattr(/2k.txt) -> (0) {mode: 100644, size: 2001}
+In link 0:	0
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
+read(/2k.txt, 4096 bytes, @+0) -> 2001
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
+getattr(/2k.txt) -> (0) {mode: 100644, size: 2001}
+access(/2k.txt, 0000) -> 0
+open(/2k.txt) -> 0
+ioctl(/2k.txt, 21505, ...) -> -1
+In link 0:	0
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
+read(/2k.txt, 4096 bytes, @+0) -> 2001
+make disk0.cow
+make[1]: Entering directory '/home/kelly/Documents/cs3650-ch3'
+make[1]: 'disk0.cow' is up to date.
+make[1]: Leaving directory '/home/kelly/Documents/cs3650-ch3'
+./cowmount -s -f mnt disk0.cow
+access(/, 0004) -> 0
++ storage_stat(/.Trash)
+tree_lookup error
+-2
+getattr(/.Trash) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/.Trash-1000)
+tree_lookup error
+-2
+getattr(/.Trash-1000) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/BDMV)
+tree_lookup error
+-2
+getattr(/BDMV) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/.xdg-volume-info)
+tree_lookup error
+-2
+getattr(/.xdg-volume-info) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/autorun.inf)
+tree_lookup error
+-2
+getattr(/autorun.inf) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/autorun.inf)
+tree_lookup error
+-2
+getattr(/autorun.inf) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+getattr(/one.txt) -> (0) {mode: 100644, size: 11}
+access(/one.txt, 0000) -> 0
+open(/one.txt) -> 0
+ioctl(/one.txt, 21505, ...) -> -1
+In link 0:	0
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/one.txt); inode 2
+node{mode: 100644, size: 11}
+read(/one.txt, 4096 bytes, @+0) -> 11
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 2
+node{mode: 100644, size: 11}
+getattr(/one.txt) -> (0) {mode: 100644, size: 11}
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
+getattr(/two.txt) -> (0) {mode: 100644, size: 11}
+access(/two.txt, 0000) -> 0
+open(/two.txt) -> 0
+ioctl(/two.txt, 21505, ...) -> -1
+In link 0:	0
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/two.txt); inode 4
+node{mode: 100644, size: 11}
+read(/two.txt, 4096 bytes, @+0) -> 11
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
+getattr(/two.txt) -> (0) {mode: 100644, size: 11}
+Version: 7
+ + directory_delete(one.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
+unlink(/one.txt) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 4
+node{mode: 100644, size: 11}
+readdir(/) -> 0
++ storage_stat(/abc.txt)
+tree_lookup error
+-2
+getattr(/abc.txt) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/abc.txt)
+tree_lookup error
+-2
+getattr(/abc.txt) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/abc.txt)
+tree_lookup error
+-2
+getattr(/abc.txt) -> (-2) {mode: 0000, size: 0}
+Version: 8
++ storage_copy 4
+ + directory_delete(two.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 7
+====== :( VERSION ======
++ dirent = 'two.txt'
++ directory_put(..., two.txt, 7) -> 0
+node{mode: 40755, size: 60}
+====== :( VERSION ======
++ dirent = 'abc.txt'
++ directory_put(..., abc.txt, 7) -> 0
+node{mode: 40755, size: 60}
+ + directory_delete(two.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
+rename(/two.txt => /abc.txt) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
++ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 60}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 6
+node{mode: 100644, size: 2001}
++ looking at path: 'abc.txt'
++ storage_stat(/abc.txt)
++ storage_stat(/abc.txt); inode 7
+node{mode: 100644, size: 11}
+readdir(/) -> 0
+access(/abc.txt, 0000) -> 0
+open(/abc.txt) -> 0
+ioctl(/abc.txt, 21505, ...) -> -1
++ storage_stat(/abc.txt)
++ storage_stat(/abc.txt); inode 7
+node{mode: 100644, size: 11}
+getattr(/abc.txt) -> (0) {mode: 100644, size: 11}
+In link 0:	-1
+In link 1:	0
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/abc.txt); inode 7
+node{mode: 100644, size: 11}
+read(/abc.txt, 4096 bytes, @+0) -> 11
++ storage_stat(/abc.txt)
++ storage_stat(/abc.txt); inode 7
+node{mode: 100644, size: 11}
+getattr(/abc.txt) -> (0) {mode: 100644, size: 11}
++ storage_stat(/def.txt)
+tree_lookup error
+-2
+getattr(/def.txt) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/def.txt)
+tree_lookup error
+-2
+getattr(/def.txt) -> (-2) {mode: 0000, size: 0}
+Version: 9
++ storage_copy 7
+ + directory_delete(abc.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 8
+====== :( VERSION ======
++ dirent = 'abc.txt'
++ directory_put(..., abc.txt, 8) -> 0
+node{mode: 40755, size: 60}
+====== :( VERSION ======
++ dirent = 'def.txt'
++ directory_put(..., def.txt, 8) -> 0
+node{mode: 40755, size: 60}
+link(/abc.txt => /def.txt) -> 0
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 8
+node{mode: 100644, size: 11}
+getattr(/def.txt) -> (0) {mode: 100644, size: 11}
+access(/def.txt, 0000) -> 0
+open(/def.txt) -> 0
+ioctl(/def.txt, 21505, ...) -> -1
+In link 0:	0
+In link 1:	0
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/def.txt); inode 8
+node{mode: 100644, size: 11}
+read(/def.txt, 4096 bytes, @+0) -> 11
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 8
+node{mode: 100644, size: 11}
+getattr(/def.txt) -> (0) {mode: 100644, size: 11}
++ storage_stat(/abc.txt)
++ storage_stat(/abc.txt); inode 8
+node{mode: 100644, size: 11}
+getattr(/abc.txt) -> (0) {mode: 100644, size: 11}
+Version: 10
+ + directory_delete(abc.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
+unlink(/abc.txt) -> 0
+access(/def.txt, 0000) -> 0
+open(/def.txt) -> 0
+ioctl(/def.txt, 21505, ...) -> -1
+In link 0:	-1
+In link 1:	0
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/def.txt); inode 8
+node{mode: 100644, size: 11}
+read(/def.txt, 4096 bytes, @+0) -> 11
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 8
+node{mode: 100644, size: 11}
+getattr(/def.txt) -> (0) {mode: 100644, size: 11}
++ storage_stat(/foo)
+tree_lookup error
+-2
+getattr(/foo) -> (-2) {mode: 0000, size: 0}
+Version: 11
++ mknod create /foo [0755] - #9
++ storage_copy 9
+====== :( VERSION ======
++ dirent = 'foo'
++ directory_put(..., foo, 9) -> 0
+node{mode: 40755, size: 60}
+mkdir(/foo) -> 0
++ storage_stat(/foo)
++ storage_stat(/foo); inode 9
+node{mode: 40755, size: 0}
+getattr(/foo) -> (0) {mode: 40755, size: 0}
++ storage_stat(/foo/abc.txt)
+tree_lookup error
+-2
+getattr(/foo/abc.txt) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/foo/abc.txt)
+tree_lookup error
+-2
+getattr(/foo/abc.txt) -> (-2) {mode: 0000, size: 0}
+access(/def.txt, 0000) -> 0
+open(/def.txt) -> 0
++ storage_stat(/foo/abc.txt)
+tree_lookup error
+-2
+getattr(/foo/abc.txt) -> (-2) {mode: 0000, size: 0}
+Version: 12
++ mknod create /foo/abc.txt [100644] - #10
++ storage_copy 10
+====== :( VERSION ======
++ dirent = 'abc.txt'
++ directory_put(..., abc.txt, 10) -> 0
+node{mode: 40755, size: 20}
+mknod(/foo/abc.txt, 100644) -> 0
++ storage_stat(/foo/abc.txt)
++ storage_stat(/foo/abc.txt); inode 10
+node{mode: 100644, size: 0}
+getattr(/foo/abc.txt) -> (0) {mode: 100644, size: 0}
+access(/foo/abc.txt, 0000) -> 0
+open(/foo/abc.txt) -> 0
+In link 0:	-1
+In link 1:	0
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/def.txt); inode 8
+node{mode: 100644, size: 11}
+read(/def.txt, 4096 bytes, @+0) -> 11
+Version: 13
++ storage_copy 10
+ + directory_delete(abc.txt)
++ storage_copy 9
+ + directory_delete(foo)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 12
+====== :( VERSION ======
++ dirent = 'foo'
++ directory_put(..., foo, 12) -> 0
+node{mode: 40755, size: 60}
++ storage_copy 11
+====== :( VERSION ======
++ dirent = 'abc.txt'
++ directory_put(..., abc.txt, 11) -> 0
+node{mode: 40755, size: 20}
++ storage_copy 11
+write(/foo/abc.txt, 11 bytes, @+0) -> 11
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 8
+node{mode: 100644, size: 11}
+getattr(/def.txt) -> (0) {mode: 100644, size: 11}
+access(/foo/abc.txt, 0000) -> 0
+open(/foo/abc.txt) -> 0
+ioctl(/foo/abc.txt, 21505, ...) -> -1
++ storage_stat(/foo/abc.txt)
++ storage_stat(/foo/abc.txt); inode 11
+node{mode: 100644, size: 11}
+getattr(/foo/abc.txt) -> (0) {mode: 100644, size: 11}
+In link 0:	9
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/foo/abc.txt); inode 11
+node{mode: 100644, size: 11}
+read(/foo/abc.txt, 4096 bytes, @+0) -> 11
++ storage_stat(/foo/abc.txt)
++ storage_stat(/foo/abc.txt); inode 11
+node{mode: 100644, size: 11}
+getattr(/foo/abc.txt) -> (0) {mode: 100644, size: 11}
++ storage_stat(/40k.txt)
+tree_lookup error
+-2
+getattr(/40k.txt) -> (-2) {mode: 0000, size: 0}
+Version: 14
++ mknod create /40k.txt [100644] - #13
++ storage_copy 13
+====== :( VERSION ======
++ dirent = '40k.txt'
++ directory_put(..., 40k.txt, 13) -> 0
+node{mode: 40755, size: 80}
+mknod(/40k.txt, 100644) -> 0
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 13
+node{mode: 100644, size: 0}
+getattr(/40k.txt) -> (0) {mode: 100644, size: 0}
+access(/40k.txt, 0000) -> 0
+open(/40k.txt) -> 0
+ioctl(/40k.txt, 21505, ...) -> -1
+Version: 15
++ storage_copy 13
+ + directory_delete(40k.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 14
+====== :( VERSION ======
++ dirent = '40k.txt'
++ directory_put(..., 40k.txt, 14) -> 0
+node{mode: 40755, size: 80}
++ storage_copy 14
+write(/40k.txt, 4096 bytes, @+0) -> 4096
+Version: 16
++ storage_copy 14
+ + directory_delete(40k.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 15
+====== :( VERSION ======
++ dirent = '40k.txt'
++ directory_put(..., 40k.txt, 15) -> 0
+node{mode: 40755, size: 80}
++ storage_copy 15
+write(/40k.txt, 4096 bytes, @+4096) -> 4096
+Version: 17
++ storage_copy 15
+ + directory_delete(40k.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 16
+====== :( VERSION ======
++ dirent = '40k.txt'
++ directory_put(..., 40k.txt, 16) -> 0
+node{mode: 40755, size: 80}
++ storage_copy 16
+write(/40k.txt, 4096 bytes, @+8192) -> 4096
+Version: 18
++ storage_copy 16
+ + directory_delete(40k.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 17
+====== :( VERSION ======
++ dirent = '40k.txt'
++ directory_put(..., 40k.txt, 17) -> 0
+node{mode: 40755, size: 80}
++ storage_copy 17
+write(/40k.txt, 4096 bytes, @+12288) -> 4096
+Version: 19
++ storage_copy 17
+ + directory_delete(40k.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 18
+====== :( VERSION ======
++ dirent = '40k.txt'
++ directory_put(..., 40k.txt, 18) -> 0
+node{mode: 40755, size: 80}
++ storage_copy 18
+write(/40k.txt, 4096 bytes, @+16384) -> 4096
+Version: 20
++ storage_copy 18
+ + directory_delete(40k.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 19
+====== :( VERSION ======
++ dirent = '40k.txt'
++ directory_put(..., 40k.txt, 19) -> 0
+node{mode: 40755, size: 80}
++ storage_copy 19
+write(/40k.txt, 4096 bytes, @+20480) -> 4096
+Version: 21
++ storage_copy 19
+ + directory_delete(40k.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 20
+====== :( VERSION ======
++ dirent = '40k.txt'
++ directory_put(..., 40k.txt, 20) -> 0
+node{mode: 40755, size: 80}
++ storage_copy 20
+write(/40k.txt, 4096 bytes, @+24576) -> 4096
+Version: 22
++ storage_copy 20
+ + directory_delete(40k.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 21
+====== :( VERSION ======
++ dirent = '40k.txt'
++ directory_put(..., 40k.txt, 21) -> 0
+node{mode: 40755, size: 80}
++ storage_copy 21
+write(/40k.txt, 4096 bytes, @+28672) -> 4096
+Version: 23
++ storage_copy 21
+ + directory_delete(40k.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 22
+====== :( VERSION ======
++ dirent = '40k.txt'
++ directory_put(..., 40k.txt, 22) -> 0
+node{mode: 40755, size: 80}
++ storage_copy 22
+write(/40k.txt, 4096 bytes, @+32768) -> 4096
+Version: 24
++ storage_copy 22
+ + directory_delete(40k.txt)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 23
+====== :( VERSION ======
++ dirent = '40k.txt'
++ directory_put(..., 40k.txt, 23) -> 0
+node{mode: 40755, size: 80}
++ storage_copy 23
+write(/40k.txt, 3137 bytes, @+36864) -> 3137
+access(/40k.txt, 0000) -> 0
+open(/40k.txt) -> 0
+ioctl(/40k.txt, 21505, ...) -> -1
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 23
+node{mode: 100644, size: 40001}
+getattr(/40k.txt) -> (0) {mode: 100644, size: 40001}
+In link 0:	0
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/40k.txt); inode 23
+node{mode: 100644, size: 40001}
+read(/40k.txt, 16384 bytes, @+0) -> 16384
+In link 0:	0
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/40k.txt); inode 23
+node{mode: 100644, size: 40001}
+read(/40k.txt, 24576 bytes, @+16384) -> 23617
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 23
+node{mode: 100644, size: 40001}
+getattr(/40k.txt) -> (0) {mode: 100644, size: 40001}
+access(/40k.txt, 0000) -> 0
+open(/40k.txt) -> 0
+ioctl(/40k.txt, 21505, ...) -> -1
+In link 0:	0
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/40k.txt); inode 23
+node{mode: 100644, size: 40001}
+read(/40k.txt, 12288 bytes, @+4096) -> 12288
+access(/, 0001) -> 0
++ storage_stat(/dir1)
+tree_lookup error
+-2
+getattr(/dir1) -> (-2) {mode: 0000, size: 0}
+Version: 25
++ mknod create /dir1 [0755] - #24
++ storage_copy 24
+====== :( VERSION ======
++ dirent = 'dir1'
++ directory_put(..., dir1, 24) -> 0
+node{mode: 40755, size: 100}
+mkdir(/dir1) -> 0
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 24
+node{mode: 40755, size: 0}
+getattr(/dir1) -> (0) {mode: 40755, size: 0}
+access(/dir1, 0001) -> 0
++ storage_stat(/dir1/dir2)
+tree_lookup error
+-2
+getattr(/dir1/dir2) -> (-2) {mode: 0000, size: 0}
+Version: 26
++ mknod create /dir1/dir2 [0755] - #25
++ storage_copy 25
+====== :( VERSION ======
++ dirent = 'dir2'
++ directory_put(..., dir2, 25) -> 0
+node{mode: 40755, size: 20}
+mkdir(/dir1/dir2) -> 0
++ storage_stat(/dir1/dir2)
++ storage_stat(/dir1/dir2); inode 25
+node{mode: 40755, size: 0}
+getattr(/dir1/dir2) -> (0) {mode: 40755, size: 0}
+access(/dir1/dir2, 0001) -> 0
++ storage_stat(/dir1/dir2/dir3)
+tree_lookup error
+-2
+getattr(/dir1/dir2/dir3) -> (-2) {mode: 0000, size: 0}
+Version: 27
++ mknod create /dir1/dir2/dir3 [0755] - #26
++ storage_copy 26
+====== :( VERSION ======
++ dirent = 'dir3'
++ directory_put(..., dir3, 26) -> 0
+node{mode: 40755, size: 20}
+mkdir(/dir1/dir2/dir3) -> 0
++ storage_stat(/dir1/dir2/dir3)
++ storage_stat(/dir1/dir2/dir3); inode 26
+node{mode: 40755, size: 0}
+getattr(/dir1/dir2/dir3) -> (0) {mode: 40755, size: 0}
+access(/dir1/dir2/dir3, 0001) -> 0
++ storage_stat(/dir1/dir2/dir3/dir4)
+tree_lookup error
+-2
+getattr(/dir1/dir2/dir3/dir4) -> (-2) {mode: 0000, size: 0}
+Version: 28
++ mknod create /dir1/dir2/dir3/dir4 [0755] - #27
++ storage_copy 27
+====== :( VERSION ======
++ dirent = 'dir4'
++ directory_put(..., dir4, 27) -> 0
+node{mode: 40755, size: 20}
+mkdir(/dir1/dir2/dir3/dir4) -> 0
++ storage_stat(/dir1/dir2/dir3/dir4)
++ storage_stat(/dir1/dir2/dir3/dir4); inode 27
+node{mode: 40755, size: 0}
+getattr(/dir1/dir2/dir3/dir4) -> (0) {mode: 40755, size: 0}
+access(/dir1/dir2/dir3/dir4, 0001) -> 0
++ storage_stat(/dir1/dir2/dir3/dir4/dir5)
+tree_lookup error
+-2
+getattr(/dir1/dir2/dir3/dir4/dir5) -> (-2) {mode: 0000, size: 0}
+Version: 29
++ mknod create /dir1/dir2/dir3/dir4/dir5 [0755] - #28
++ storage_copy 28
+====== :( VERSION ======
++ dirent = 'dir5'
++ directory_put(..., dir5, 28) -> 0
+node{mode: 40755, size: 20}
+mkdir(/dir1/dir2/dir3/dir4/dir5) -> 0
++ storage_stat(/dir1/dir2/dir3/dir4/dir5)
++ storage_stat(/dir1/dir2/dir3/dir4/dir5); inode 28
+node{mode: 40755, size: 0}
+getattr(/dir1/dir2/dir3/dir4/dir5) -> (0) {mode: 40755, size: 0}
++ storage_stat(/dir1/dir2/dir3/dir4/dir5/hello.txt)
+tree_lookup error
+-2
+getattr(/dir1/dir2/dir3/dir4/dir5/hello.txt) -> (-2) {mode: 0000, size: 0}
+Version: 30
++ mknod create /dir1/dir2/dir3/dir4/dir5/hello.txt [100644] - #29
++ storage_copy 29
+====== :( VERSION ======
++ dirent = 'hello.txt'
++ directory_put(..., hello.txt, 29) -> 0
+node{mode: 40755, size: 20}
+mknod(/dir1/dir2/dir3/dir4/dir5/hello.txt, 100644) -> 0
++ storage_stat(/dir1/dir2/dir3/dir4/dir5/hello.txt)
++ storage_stat(/dir1/dir2/dir3/dir4/dir5/hello.txt); inode 29
+node{mode: 100644, size: 0}
+getattr(/dir1/dir2/dir3/dir4/dir5/hello.txt) -> (0) {mode: 100644, size: 0}
+access(/dir1/dir2/dir3/dir4/dir5/hello.txt, 0000) -> 0
+open(/dir1/dir2/dir3/dir4/dir5/hello.txt) -> 0
+ioctl(/dir1/dir2/dir3/dir4/dir5/hello.txt, 21505, ...) -> -1
+Version: 31
++ storage_copy 29
+ + directory_delete(hello.txt)
++ storage_copy 28
+ + directory_delete(dir5)
++ storage_copy 27
+ + directory_delete(dir4)
++ storage_copy 26
+ + directory_delete(dir3)
++ storage_copy 25
+ + directory_delete(dir2)
++ storage_copy 24
+ + directory_delete(dir1)
+====== :( ROOT VERSION ======
+====== :( VERSION ======
++ storage_copy 35
+====== :( VERSION ======
++ dirent = 'dir1'
++ directory_put(..., dir1, 35) -> 0
+node{mode: 40755, size: 100}
++ storage_copy 34
+====== :( VERSION ======
++ dirent = 'dir2'
++ directory_put(..., dir2, 34) -> 0
+node{mode: 40755, size: 20}
++ storage_copy 33
+====== :( VERSION ======
++ dirent = 'dir3'
++ directory_put(..., dir3, 33) -> 0
+node{mode: 40755, size: 20}
++ storage_copy 32
+====== :( VERSION ======
++ dirent = 'dir4'
++ directory_put(..., dir4, 32) -> 0
+node{mode: 40755, size: 20}
++ storage_copy 31
+====== :( VERSION ======
++ dirent = 'dir5'
++ directory_put(..., dir5, 31) -> 0
+node{mode: 40755, size: 20}
++ storage_copy 30
+====== :( VERSION ======
++ dirent = 'hello.txt'
++ directory_put(..., hello.txt, 36) -> 0
+node{mode: 40755, size: 20}
+tree_lookup error
+-1
+tree_lookup error
+-1
+tree_lookup error
+-1
+tree_lookup error
+-1
+tree_lookup error
+-1
+write(/dir1/dir2/dir3/dir4/dir5/hello.txt, 12 bytes, @+0) -> -1
+access(/dir1/dir2/dir3/dir4/dir5/hello.txt, 0000) -> 0
+open(/dir1/dir2/dir3/dir4/dir5/hello.txt) -> 0
+ioctl(/dir1/dir2/dir3/dir4/dir5/hello.txt, 21505, ...) -> -1
++ storage_stat(/dir1/dir2/dir3/dir4/dir5/hello.txt)
+tree_lookup error
+-1
+tree_lookup error
+-1
+tree_lookup error
+-1
+tree_lookup error
+-1
+tree_lookup error
+-1
+getattr(/dir1/dir2/dir3/dir4/dir5/hello.txt) -> (-1) {mode: 0000, size: 0}
++ storage_stat(/dir1)
+getattr(/dir1) -> (-1) {mode: 0000, size: 0}
++ storage_stat(/dir1)
+gcowmount: cowmount.c:66: nufs_readdir: Assertion `rv == 0' failed.
+make: *** [Makefile:30: mount] Aborted

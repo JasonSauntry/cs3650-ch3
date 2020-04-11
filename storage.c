@@ -133,6 +133,8 @@ storage_truncate(const char *path, off_t newsize, int version)
 		return inum;
 	}
 
+	inum = storage_copy(inum, 1, version);
+
 	inode* node = get_inode(inum);
 	if (node->version < version) {
 		puts("====== :( VERSION ======");
@@ -261,6 +263,9 @@ int storage_set_mode(const char* path, const int mode, int version) {
 	if (inum < 0) {
 		return inum;
 	}
+	
+  inum = storage_copy(inum, 1, version);
+
 	inode* node = get_inode(inum);
 	if (node->version < version) {
 		puts("====== :( VERSION ======");
@@ -284,6 +289,8 @@ storage_set_time(const char* path, const struct timespec ts[2], int version)
 	if (inum < 0) {
 		return inum;
 	}
+
+	inum = storage_copy(inum, 1, version);
 
 	inode* node = get_inode(inum);
 	if (node->version < version) {
@@ -351,16 +358,18 @@ int storage_copy(int old_inum, int cpy_data, int version) {
 	inode* new = get_inode(new_inum);
 
 	memcpy(new, old, sizeof(inode));
+  new->refs = 0;
 	new->version = version;
 
 	// TODO inlinks
 	// Invariant: Inlinks are all dirs.
 	for (int i = 0; i < MAX_HARD_LINKS; i++) {
-		if (new->in_links[i] != -1) {
-			// stuff
-			char* name = strdup(directory_name(new->in_links[i], old_inum));
-			directory_delete(new->in_links[i], name, version);
-			directory_put(new->in_links[i], name, new_inum, version);
+    new->in_links[i] = -1;
+		if (old->in_links[i] != -1) {
+      int link = old->in_links[i];
+			char* name = strdup(directory_name(link, old_inum));
+			directory_delete(link, name, version);
+			directory_put(link, name, new_inum, version);
 			free(name);
 		}
 	}
