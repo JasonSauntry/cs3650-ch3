@@ -72,6 +72,9 @@ storage_read(const char* path, char* buf, size_t size, off_t offset)
 		return inum;
 	}
 	inode* node = get_inode(inum);
+	for (int i = 0; i < MAX_HARD_LINKS; i++) {
+		printf("In link %d:\t%d\n", i, node->in_links[i]);
+	}
 	node->last_access = now();
 	printf("+ storage_read(%s); inode %d\n", path, inum);
 	print_inode(node);
@@ -227,7 +230,10 @@ storage_link(const char* to, const char* from, int version)
 
 	char* from_name = strrchr(from, '/') + 1;
 
-	directory_put(from_parent, from_name, tarinum, version);
+	int rv = directory_put(from_parent, from_name, tarinum, version);
+	if (rv < 0) {
+		return rv;
+	}
 	
 	return 0;
 }

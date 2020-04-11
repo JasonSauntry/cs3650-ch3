@@ -164,7 +164,11 @@ directory_put(int dirnode, const char* name, int inum, int version)
 	strlcpy(entity->filename, name, NAME_LEN);
 
 	inode* tarnode = get_inode(inum);
-	tarnode->refs++;
+	int rv = inode_add_ref(tarnode, dirnode);
+	if (rv < 0) {
+		puts("directory_put inode_add_ref :(");
+		return rv;
+	}
 	printf("+ dirent = '%s'\n", entity->filename);
 
 	printf("+ directory_put(..., %s, %d) -> 0\n", name, inum);
@@ -189,7 +193,7 @@ directory_delete(int dirnode, const char* name, int version)
 	}
 	dir->last_access = dir->last_modified = now();
 	inode* file_inode = get_inode(ent->inode_num);
-	file_inode->refs--;
+	inode_del_ref(file_inode, dirnode);
 	int dinum = ent->inode_num;
 	ent->inode_num = -1;
 	ent->filename[0] = 0;

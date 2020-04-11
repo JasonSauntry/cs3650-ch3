@@ -1,5 +1,6 @@
 
 #include <stdint.h>
+#include <assert.h>
 
 #include "pages.h"
 #include "inode.h"
@@ -42,6 +43,9 @@ alloc_inode(int version)
 		inode* node = get_inode(i);
 		node->refs = 0;
 		node->version = version;
+		for (int i = 0; i < MAX_HARD_LINKS; i++) {
+			node->in_links[i] = -1;
+		}
 		return i;
 	}
 
@@ -78,5 +82,29 @@ void alloc_inode_pages() {
 	for (int i = INODE_START_PAGE; i < INODE_AFTER_PAGE; i++) {
 		pagemap->bits[i] = 1;
 	}
+}
+
+int inode_add_ref(inode* node, int dirnode) {
+	assert(dirnode >= 0);
+	if (node->refs >= MAX_HARD_LINKS) {
+		// TODO indirect refs?
+		puts("No more hard links!");
+		return -1;
+	}
+	node->refs++;
+	int i;
+	for (i = 0; node->in_links[i] != -1; i++);
+	assert(i < MAX_HARD_LINKS);
+	node->in_links[i] = dirnode;
+
+	return 0;
+}
+
+int inode_del_ref(inode* node, int dirnode) {
+	node->refs--;
+	int i;
+	for (i = 0; node->in_links[i] != dirnode; i++);
+	node->in_links[i] = -1;
+	return 0;
 }
 

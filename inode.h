@@ -20,6 +20,7 @@ typedef struct inode {
     int refs; // Ref counter for hard links.
     struct timespec last_access;
     struct timespec last_modified;
+    // -1 if inused.
     int in_links[MAX_HARD_LINKS]; // All inodes that point to us.
     int version;
     
@@ -35,6 +36,8 @@ inode* get_inode(int inum);
 int alloc_inode();
 void free_inode();
 int inode_get_pnum(inode* node, int fpn);
+int inode_add_ref(inode* node, int dirnode);
+int inode_del_ref(inode* node, int dirnode);
 
 /**
  * Allocate pages for the appropriate number of inodes.
