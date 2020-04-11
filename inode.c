@@ -93,7 +93,11 @@ int inode_add_ref(inode* node, int dirnode) {
 	}
 	node->refs++;
 	int i;
-	for (i = 0; node->in_links[i] != -1; i++);
+	for (i = 0; node->in_links[i] != -1; i++) {
+		if (node->in_links[i] == dirnode) {
+			return 0;
+		}
+	}
 	assert(i < MAX_HARD_LINKS);
 	node->in_links[i] = dirnode;
 
