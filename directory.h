@@ -40,7 +40,8 @@ typedef struct dir_page {
  * Return 0 if invalid;
  */
 dir_ent* directory_get(int dirnode, int ii);
-void directory_init(int dirnode, int new);
+
+void directory_init(int dirnode, int n, int versions);
 
 /**
  * Given a directory and a filename, find the file's entry index.
@@ -57,12 +58,12 @@ int tree_lookup(const char* path);
 /**
  * Add a file to the dir.
  */
-int directory_put(int dirnode, const char* name, int inum);
+int directory_put(int dirnode, const char* name, int inum, int verions);
 
 /**
  * Delete the directory. It must be empty.
  */
-int directory_delete(int dirnode, const char* name);
+int directory_delete(int dirnode, const char* name, int verions);
 
 /**
  * List the names of all files in the directory.

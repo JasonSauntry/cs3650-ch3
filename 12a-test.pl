@@ -2,17 +2,16 @@
 use 5.16.0;
 use warnings FATAL => 'all';
 
-use Test::Simple tests => 42;
+use Test::Simple tests => 28;
 use IO::Handle;
-use Data::Dumper;
 
 sub mount {
-    system("(make mount 2>> error.log) >> test.log &");
+    system("(make mount 2>&1) >> test.log &");
     sleep 1;
 }
 
 sub unmount {
-    system("(make unmount 2>> error.log) >> test.log");
+    system("(make unmount 2>&1) >> test.log");
 }
 
 sub write_text {
@@ -42,17 +41,9 @@ sub read_text_slice {
     return $data;
 }
 
-sub write_text_off {
-    my ($name, $offset, $data) = @_;
-    open my $fh, "+<", "mnt/$name" or return "";
-    seek $fh, $offset, 0;
-    syswrite $fh, $data;
-    close $fh;
-}
-
-#system("rm -f data.cow test.log");
-system("(make 2>error.log) > test.log");
-#system("./cowtool new data.cow");
+system("rm -f data.nufs test.log");
+system("(make 2>&1) > test.log");
+system("./nufstool new data.nufs");
 
 say "#           == Basic Tests ==";
 mount();
@@ -205,184 +196,8 @@ ok($mm == 46, "deleted 4 files");
 
 unmount();
 
-sub run_tool {
-    my ($cmd, $arg1) = @_;
-    $arg1 ||= "";
-    my $cmd1 = "./cowtool $cmd disk0.cow $arg1";
-    #say "# $cmd1";
-    my $text = `timeout -k 5 2 $cmd1`;
-    if ($?) {
-        say "# command failed: $cmd1";
-        exit(1);
-    }
-    return $text;
-}
-
-sub get_vers {
-    my $text = run_tool("versions");
-    my @lines = split /\n/, $text;
-    (scalar @lines > 1) or return -2;
-    $lines[1] =~ /^(\d+)\s/ or return -1;
-    return +$1;
-}
-
-sub set_vers {
-    my ($v1) = @_;
-    run_tool("rollback", $v1);
-}
-
-sub get_list() {
-    my $text = run_tool("ls");
-    my @lines = split /\n/, $text;
-    my $ii = 0;
-    $ii++ until (!$lines[$ii] || $lines[$ii] =~ /^List for/);
-    my @ys = ();
-    for ($ii++; $ii < scalar @lines; ++$ii) {
-        push @ys, $lines[$ii];
-    }
-    return @ys;
-}
-
-sub disk_contains {
-    my ($path) = @_;
-    my @paths = get_list();
-    for my $pp (@paths) {
-        return 1 if $path eq $pp;
-    }
-    return 0;
-}
-
-my $size = `wc -c disk0.cow`;
+my $size = `wc -c data.nufs`;
 ok($size =~ /^(\d+)/ && +$1 == 1048576, "correct size disk image");
 
-my $list = run_tool("ls");
-ok($list =~ /25\.num/, "cowtool ls shows nesting");
-
-say "#           == Copy on Write Tests ==";
-my ($ok1, $ok2, $ver0, $ver1, $txt0, $txt1);
-my @ls0;
-my @ls1;
-
-system("rm -f disk0.cow");
-mount();
-
-for my $ii (1..5) {
-    write_text("x$ii.txt", "file x$ii");
-}
-
-unmount();
-
-$list = run_tool("versions");
-
-$ok1 = 1;
-for my $op (qw(mknod write truncate)) {
-    for my $fn (qw(x4 x5)) {
-        unless ($list =~ /$op \/$fn\.txt/) {
-            $ok1 = 0;
-            say "# missing version for: $op /$fn.txt";
-        }
-    }
-}
-ok($ok1, "have last six expected versions");
-
-
-# Test unlink
-
-$ver0 = get_vers();
-ok(disk_contains("/x4.txt"), "unlink precond");
-
-mount();
-system("rm -f mnt/x4.txt");
-unmount();
-ok(!disk_contains("/x4.txt"), "unlink postcond");
-
-set_vers($ver0);
-mount();
-$txt0 = read_text("x4.txt");
-ok($txt0 eq "file x4", "unlink rollback");
-unmount();
-
-# Test mknod
-
-$ver0 = get_vers();
-ok(!disk_contains("/mknod.txt"), "mknod precond");
-
-mount();
-write_text("mknod.txt", "mknod");
-unmount();
-ok(disk_contains("/mknod.txt"), "mknod postcond");
-
-set_vers($ver0);
-ok(!disk_contains("/mknod.txt"), "mknod rollback");
-
-# Test write
-
-$ver0 = get_vers();
-
-mount();
-$txt0 = read_text("x3.txt");
-ok($txt0 eq "file x3", "write precond");
-$txt1 = "the quick brown fox jumps over the lazy dog";
-write_text("x3.txt", $txt1);
-$txt0 = read_text("x3.txt");
-ok($txt0 eq $txt1, "write postcond");
-unmount();
-
-set_vers($ver0);
-mount();
-$txt0 = read_text("x3.txt");
-say "# '$txt0' eq 'file x3'";
-ok($txt0 eq "file x3", "write rollback");
-unmount();
-
-# Test link
-
-$ver0 = get_vers();
-
-ok(!disk_contains("/y2.txt"), "link precond");
-
-mount();
-system("(cd mnt && ln x2.txt y2.txt)");
-$txt0 = read_text("y2.txt");
-say "# '$txt0' eq 'file x2'";
-ok($txt0 eq "file x2", "link postcond");
-unmount();
-
-set_vers($ver0);
-ok(!disk_contains("/y2.txt"), "link rollback");
-
-# Test write to later block
-
-my $okl_ok = 1;
-sub okl {
-    my ($ok, $msg) = @_;
-    unless ($ok) {
-        say "# fail: $msg";
-        $okl_ok = 0;
-    }
-}
-
-mount();
-my $twelve = "0123456789" x (12 * 100);
-write_text("twelve.dat", $twelve);
-
-$txt0 = read_text_slice("twelve.dat", 4, 9000);
-okl($txt0 eq "0123", "seekwrite precond");
-unmount();
-
-$ver0 = get_vers();
-
-mount();
-write_text_off("twelve.dat", 9000, "abcdefghij");
-$txt0 = read_text_slice("twelve.dat", 4, 9000);
-okl($txt0 eq "abcd", "seekwrite postcond");
-unmount();
-
-set_vers($ver0);
-mount();
-$txt0 = read_text_slice("twelve.dat", 4, 9000);
-okl($txt0 eq "0123", "seekwrite rollback");
-unmount();
-
-
-ok($okl_ok, "seekwrite overall");
+my $list = `timeout -k 5 2 ./nufstool ls data.nufs`;
+ok($list =~ /25\.num/, "nufstool ls shows nesting");

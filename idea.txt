@@ -1,0 +1,5 @@
+Idea: When something gets deprecated, mark it as such. Mark what version
+increment deprecated it. Also mark what version created it. For garbage
+collection, begin the root corresponding to a given version. Follow the tree,
+until we reach things that are either older then the root or were deprecated by
+something newer.

@@ -3,6 +3,8 @@
 
 #include "inode.h"
 
+// Invariant: We only deal with most recent version.
+
 /**
  * Get data from the file. Assumes input is valid.
  *

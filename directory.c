@@ -20,7 +20,7 @@
 
 // Only called on init.
 void
-directory_init(int dirnode, int new)
+directory_init(int dirnode, int new, int version)
 {
 	inode* rn = get_inode(dirnode);
 	get_super()->maps.inode_map.bits[dirnode] = 1;
@@ -29,6 +29,7 @@ directory_init(int dirnode, int new)
 		rn->mode = 0755;
 		rn->last_access = now();
 		rn->last_modified = now();
+		rn->version = version;
 	}
 	rn->mode = rn->mode | DIRMODE;
 	rn->directory = 1;
@@ -123,7 +124,7 @@ tree_lookup(const char* path)
 }
 
 int
-directory_put(int dirnode, const char* name, int inum)
+directory_put(int dirnode, const char* name, int inum, int verions)
 {
 	// TODO use empty slots if available.
 	inode* node = get_inode(dirnode);
@@ -170,7 +171,7 @@ directory_put(int dirnode, const char* name, int inum)
 }
 
 int
-directory_delete(int dirnode, const char* name)
+directory_delete(int dirnode, const char* name, int verions)
 {
 	printf(" + directory_delete(%s)\n", name);
 

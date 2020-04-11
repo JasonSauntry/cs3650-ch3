@@ -10,7 +10,7 @@
 #define DIRMODE  040000
 #define SLNMODE 0120000
 
-
+#define MAX_HARD_LINKS 16
 
 typedef struct inode {
     int mode; // permission & type; zero for unused
@@ -20,6 +20,8 @@ typedef struct inode {
     int refs; // Ref counter for hard links.
     struct timespec last_access;
     struct timespec last_modified;
+    int in_links[MAX_HARD_LINKS]; // All inodes that point to us.
+    int version;
     
     /**
      * The pages containing the data. No indirect links as of now. 0 is null.

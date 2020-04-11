@@ -29,7 +29,7 @@ get_inode(int inum)
 }
 
 int
-alloc_inode()
+alloc_inode(int version)
 {
 	bitmap* inode_bitmap = &(get_super()->maps.inode_map);
 	int i;
@@ -41,6 +41,7 @@ alloc_inode()
 		inode_bitmap->bits[i] = 1;
 		inode* node = get_inode(i);
 		node->refs = 0;
+		node->version = version;
 		return i;
 	}
 

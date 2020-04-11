@@ -32,7 +32,7 @@ storage_init(const char* path, int create)
 		init_super(get_super());
 		// Since the filesystem is fresh, we can assume 0 is available.
 		alloc_inode_pages();
-		directory_init(DEFAULT_ROOT_INODE, 1);
+		directory_init(DEFAULT_ROOT_INODE, 1, 0);
 		get_super()->root_inode = DEFAULT_ROOT_INODE;
 	}
 	assert(get_super()->root_inode == DEFAULT_ROOT_INODE);
@@ -93,9 +93,9 @@ storage_read(const char* path, char* buf, size_t size, off_t offset)
 }
 
 int
-storage_write(const char* path, const char* buf, size_t size, off_t offset)
+storage_write(const char* path, const char* buf, size_t size, off_t offset, int version)
 {
-	int trv = storage_truncate(path, offset + size);
+	int trv = storage_truncate(path, offset + size, version);
 	if (trv < 0) {
 		return trv;
 	}
@@ -118,7 +118,7 @@ storage_write(const char* path, const char* buf, size_t size, off_t offset)
 }
 
 int
-storage_truncate(const char *path, off_t newsize)
+storage_truncate(const char *path, off_t newsize, int version)
 {
 	int inum = tree_lookup(path);
 	if (inum < 0) {
@@ -155,7 +155,7 @@ int parent_inode(const char* cpath) {
 }
 
 int
-storage_mknod(const char* path, int mode, int dir)
+storage_mknod(const char* path, int mode, int dir, int version)
 {
 	char* tmp1 = alloca(strlen(path));
 	char* tmp2 = alloca(strlen(path));
@@ -176,7 +176,7 @@ storage_mknod(const char* path, int mode, int dir)
 	node->directory = dir;
 	node->last_modified = node->last_access = now();
 	if (dir) {
-		directory_init(inum, 0);
+		directory_init(inum, 0, version);
 	}
 
 	printf("+ mknod create %s [%04o] - #%d\n", path, mode, inum);
@@ -187,7 +187,7 @@ storage_mknod(const char* path, int mode, int dir)
 		return -ENOENT;
 	}
 
-	return directory_put(parent, name, inum);
+	return directory_put(parent, name, inum, version);
 }
 
 slist*
@@ -198,17 +198,17 @@ storage_list(const char* path)
 }
 
 int
-storage_unlink(const char* path)
+storage_unlink(const char* path, int version)
 {
 	int parent_inum = parent_inode(path);
 	const char* name = strrchr(path, '/') + 1;
-	return directory_delete(parent_inum, name);
+	return directory_delete(parent_inum, name, version);
 }
 
 // The arguments meant the exact opposite of what I thought they did. So I
 // swapped them.
 int
-storage_link(const char* to, const char* from)
+storage_link(const char* to, const char* from, int version)
 {
 	int tarinum = (tree_lookup(to));
 	int from_parent = (parent_inode(from));
@@ -221,20 +221,20 @@ storage_link(const char* to, const char* from)
 
 	char* from_name = strrchr(from, '/') + 1;
 
-	directory_put(from_parent, from_name, tarinum);
+	directory_put(from_parent, from_name, tarinum, version);
 	
 	return 0;
 }
 
 int
-storage_rename(const char* from, const char* to)
+storage_rename(const char* from, const char* to, int version)
 {
-	int rv = storage_link(from, to);
+	int rv = storage_link(from, to, version);
 	if (rv < 0) {
 		return rv;
 	}
 
-	rv = storage_unlink(from);
+	rv = storage_unlink(from, version);
 	if (rv < 0) {
 		return rv;
 	}
@@ -242,7 +242,7 @@ storage_rename(const char* from, const char* to)
 	return rv;
 }
 
-int storage_set_mode(const char* path, const int mode) {
+int storage_set_mode(const char* path, const int mode, int version) {
 	int inum = tree_lookup(path);
 	if (inum < 0) {
 		return inum;
@@ -261,7 +261,7 @@ int storage_set_mode(const char* path, const int mode) {
 
 // TODO fix timestamps.
 int
-storage_set_time(const char* path, const struct timespec ts[2])
+storage_set_time(const char* path, const struct timespec ts[2], int version)
 {
 	int inum = tree_lookup(path);
 	if (inum < 0) {
@@ -279,24 +279,24 @@ bitmaps* get_bitmaps() {
 	return &get_super()->maps;
 }
 
-int storage_symlink(const char* dest, const char* name) {
+int storage_symlink(const char* dest, const char* name, int version) {
 	int parent = parent_inode(name);
 	if (parent < 0) {
 		return parent;
 	}
 
-	int rv = storage_mknod(name, DEFAULT_SYMLINK_MODE, parent);
+	int rv = storage_mknod(name, DEFAULT_SYMLINK_MODE, parent, version);
 	if (rv < 0) {
 		return rv;
 	}
 
 	long len = strlen(dest) + 1; // Include the null-terminator!
-	rv = storage_truncate(name, len);
+	rv = storage_truncate(name, len, version);
 	if (rv < 0) {
 		return rv;
 	}
 
-	rv = storage_write(name, dest, len, 0);
+	rv = storage_write(name, dest, len, 0, version);
 	if (rv < 0) {
 		return rv;
 	}
@@ -309,4 +309,10 @@ int storage_readlink(const char* path, char* buf, size_t size) {
 		return rv;
 	}
 	return 0;
+}
+
+int* storage_get_inc_version() {
+	int* thing = malloc(sizeof(int));
+	*thing = 0;
+	return thing;
 }

@@ -8,6 +8,12 @@ File System Layout:
 *	Rest of pages: Data
 *	256 inodes
 
+#### COW:
+*	Add a thing in every inode that is a list of incoming hard links.
+*	Every `inode` has  version number. On write, copy iff version number is
+	older than global version number. Inc global version only on callback from
+	Fuse.
+
 ## Credit
 
 Used throughout:
