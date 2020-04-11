@@ -312,7 +312,10 @@ int storage_readlink(const char* path, char* buf, size_t size) {
 }
 
 int* storage_get_inc_version() {
-	int* thing = malloc(sizeof(int));
-	*thing = 0;
-	return thing;
+	int* rv;
+	super_block* super = get_super();
+	rv = &super->most_recent_version;
+	(*rv)++;
+	printf("Version: %d\n", *rv);
+	return rv;
 }

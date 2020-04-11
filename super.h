@@ -10,6 +10,7 @@ typedef struct super_block {
 			// TODO maybe I should fix that.
 	int root_inode;
 	bitmaps maps;
+	int most_recent_version;
 } super_block;
 
 super_block* get_super();
