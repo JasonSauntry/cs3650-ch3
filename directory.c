@@ -87,7 +87,7 @@ tree_lookup(const char* path)
 	assert(path[0] == '/');
 
 	if (streq(path, "/")) {
-		return get_super()->root_inode;
+		return get_root_inum();
 	} else {
 		// We have a parent directory.
 		char* last_dir_pointer = strrchr(path, '/');

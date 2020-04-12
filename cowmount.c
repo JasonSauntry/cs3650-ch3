@@ -77,8 +77,8 @@ nufs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 int
 nufs_mknod(const char *path, mode_t mode, dev_t rdev)
 {
-	int* version = storage_get_inc_version();
-	int rv = storage_mknod(path, mode, 0, *version);
+	int version = storage_get_inc_version();
+	int rv = storage_mknod(path, mode, 0, version);
 	printf("mknod(%s, %04o) -> %d\n", path, mode, rv);
 	return rv;
 }
@@ -88,8 +88,8 @@ nufs_mknod(const char *path, mode_t mode, dev_t rdev)
 int
 nufs_mkdir(const char *path, mode_t mode)
 {
-	int* version = storage_get_inc_version();
-	int rv = storage_mknod(path, mode, 1, *version);
+	int version = storage_get_inc_version();
+	int rv = storage_mknod(path, mode, 1, version);
 	printf("mkdir(%s) -> %d\n", path, rv);
 	return rv;
 }
@@ -97,8 +97,8 @@ nufs_mkdir(const char *path, mode_t mode)
 int
 nufs_unlink(const char *path)
 {
-	int* version = storage_get_inc_version();
-	int rv = storage_unlink(path, *version);
+	int version = storage_get_inc_version();
+	int rv = storage_unlink(path, version);
 	printf("unlink(%s) -> %d\n", path, rv);
 	return rv;
 }
@@ -106,8 +106,8 @@ nufs_unlink(const char *path)
 int
 nufs_link(const char *from, const char *to)
 {
-	int* version = storage_get_inc_version();
-	int rv = storage_link(from, to, *version);
+	int version = storage_get_inc_version();
+	int rv = storage_link(from, to, version);
 	printf("link(%s => %s) -> %d\n", from, to, rv);
 	return rv;
 }
@@ -115,8 +115,8 @@ nufs_link(const char *from, const char *to)
 int
 nufs_rmdir(const char *path)
 {
-	int* version = storage_get_inc_version();
-	int rv = storage_unlink(path, *version);
+	int version = storage_get_inc_version();
+	int rv = storage_unlink(path, version);
 	printf("rmdir(%s) -> %d\n", path, rv);
 	return rv;
 }
@@ -126,8 +126,8 @@ nufs_rmdir(const char *path)
 int
 nufs_rename(const char *from, const char *to)
 {
-	int* version = storage_get_inc_version();
-	int rv = storage_rename(from, to, *version);
+	int version = storage_get_inc_version();
+	int rv = storage_rename(from, to, version);
 	printf("rename(%s => %s) -> %d\n", from, to, rv);
 	return rv;
 }
@@ -135,8 +135,8 @@ nufs_rename(const char *from, const char *to)
 int
 nufs_chmod(const char *path, mode_t mode)
 {
-	int* version = storage_get_inc_version();
-	int rv = storage_set_mode(path, mode, *version);
+	int version = storage_get_inc_version();
+	int rv = storage_set_mode(path, mode, version);
 	printf("chmod(%s, %04o) -> %d\n", path, mode, rv);
 	return rv;
 }
@@ -144,8 +144,8 @@ nufs_chmod(const char *path, mode_t mode)
 int
 nufs_truncate(const char *path, off_t size)
 {
-	int* version = storage_get_inc_version();
-	int rv = storage_truncate(path, size, *version);
+	int version = storage_get_inc_version();
+	int rv = storage_truncate(path, size, version);
 	printf("truncate(%s, %ld bytes) -> %d\n", path, size, rv);
 	return rv;
 }
@@ -174,8 +174,8 @@ nufs_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_fi
 int
 nufs_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi)
 {
-	int* version = storage_get_inc_version();
-	int rv = storage_write(path, buf, size, offset, *version);
+	int version = storage_get_inc_version();
+	int rv = storage_write(path, buf, size, offset, version);
 	printf("write(%s, %ld bytes, @+%ld) -> %d\n", path, size, offset, rv);
 	return rv;
 }
@@ -184,8 +184,8 @@ nufs_write(const char *path, const char *buf, size_t size, off_t offset, struct 
 int
 nufs_utimens(const char* path, const struct timespec ts[2])
 {
-	int* version = storage_get_inc_version();
-	int rv = storage_set_time(path, ts, *version);
+	int version = storage_get_inc_version();
+	int rv = storage_set_time(path, ts, version);
 	printf("utimens(%s, [%ld, %ld; %ld %ld]) -> %d\n",
 		   path, ts[0].tv_sec, ts[0].tv_nsec, ts[1].tv_sec, ts[1].tv_nsec, rv);
 	  return rv;
@@ -198,8 +198,8 @@ int nufs_readlink(const char* path, char* buf, size_t size) {
 }
 
 int nufs_symlink(const char* to, const char* from) {
-	int* version = storage_get_inc_version();
-	int rv = storage_symlink(to, from, *version);
+	int version = storage_get_inc_version();
+	int rv = storage_symlink(to, from, version);
 	printf("symlink(%s, %s) -> %d\n", to, from, rv);
 	return rv;
 }

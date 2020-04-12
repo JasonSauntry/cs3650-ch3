@@ -33,9 +33,8 @@ storage_init(const char* path, int create)
 		// Since the filesystem is fresh, we can assume 0 is available.
 		alloc_inode_pages();
 		directory_init(DEFAULT_ROOT_INODE, 1, 0);
-		get_super()->root_inode = DEFAULT_ROOT_INODE;
 	}
-	assert(get_super()->root_inode == DEFAULT_ROOT_INODE);
+	assert(get_root_inum() == DEFAULT_ROOT_INODE);
 }
 
 int
@@ -160,7 +159,7 @@ int parent_inode(const char* cpath) {
 	*last_dir_pointer = 0;
 
 	if (strlen(path) == 0) {
-		return get_super()->root_inode;
+		return get_root_inum();
 	} else { 
 		return tree_lookup(path);
 	}
@@ -333,13 +332,20 @@ int storage_readlink(const char* path, char* buf, size_t size) {
 	return 0;
 }
 
-int* storage_get_inc_version() {
-	int* rv;
+int storage_get_inc_version() {
+	int rv;
 	super_block* super = get_super();
-	rv = &super->most_recent_version;
-	(*rv)++;
-	printf("Version: %d\n", *rv);
+	rv = super->most_recent_version;
 	return rv;
+
+	// version* old_version = &super->versions[*rv % VERSIONS_KEPT];
+	// (*rv)++;
+	// version* new_version = &super->versions[*rv % VERSIONS_KEPT];
+
+	// memcpy(new_version, old_version, sizeof(version));
+
+	// printf("Version: %d\n", *rv);
+	// return rv;
 }
 
 // Copy this and modify (for now) all parents.
@@ -386,16 +392,27 @@ int storage_copy_file(int old_inum, int version) {
 }
 
 int storage_copy_dir(int old_inum, int version) {
-	// inode* old = get_inode(old_inum);
-	// if (old->version >= version) {
-	// 	return old_inum;
-	// }
+	inode* old = get_inode(old_inum);
+	if (old->version >= version) {
+		return old_inum;
+	}
+	
 
 	// Check if I'm root.
 	super_block* super = get_super();
-	if (super->root_inode == old_inum) {
+	if (get_root_inum() == old_inum) {
 		puts("I am root. ¯\\_(ツ)_/¯");
-		return old_inum;
+		int new_inum = storage_copy_file(old_inum, version);
+
+		super_block* super = get_super();
+
+		super->most_recent_version++;
+
+		struct version* mrv = &super->versions[super->most_recent_version % VERSIONS_KEPT];
+
+		mrv->root = new_inum;
+		mrv->version_number = super->most_recent_version;
+
 	} else {
 		return storage_copy_file(old_inum, version);
 	}
