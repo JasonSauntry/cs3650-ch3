@@ -10,6 +10,9 @@
 #include "util.h"
 #include "directory.h"
 #include "inode.h"
+#include "super.h"
+
+#define VERSION_KEPT 16
 
 slist* build_ls_tree(slist* list, const char* dir) {
 	slist* contents = storage_list(dir);
@@ -75,11 +78,28 @@ main(int argc, char* argv[])
         slist* xs = image_ls_tree("/");
         for (slist* it = xs; it != 0; it = it->next) {
             //printf("%s\n", it->data);
-		puts(it->data);
+						puts(it->data);
         }
         s_free(xs);
         return 0;
     }
+
+		if (streq(cmd, "versions")) {
+			printf("Version for %s: \n", img);
+			super_block* block = get_super();
+			int num_versions = (block->most_recent_version > VERSIONS_KEPT ? VERSIONS_KEPT : block->most_recent_version);
+			for (int i = 0; i < num_versions; i++){
+				version* v = block->versions[i];
+				printf("%d %s %s\n", v->version_number, v->trigger, "path");
+			}	
+
+		}
+
+		if (streq(cmd, "rollback") && argc == 4) {
+			int v_req = argv[3];
+			printf("Rollback %s to version %d\n", img, v_req);
+			super_rollback(v_req);
+		}
 
     print_usage(argv[0]);
 }
