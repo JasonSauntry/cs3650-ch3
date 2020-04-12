@@ -10,6 +10,13 @@ void pages_free();
 void* pages_get_page(int pnum);
 
 /**
+ * Map a new page, copying data from the old page.
+ *
+ * @return	The new page number.
+ */
+int pages_cpy(int oldpage);
+
+/**
  * Find an unused page, allocate it, return its index.
  */
 int map_page();

@@ -219,6 +219,7 @@ int directory_replace_ref(int dirnode, int old_node, int new_node) {
 		}
 		assert(directory_get(dirnode, i)->inode_num != old_node);
 	}
+	return 0;
 }
 
 slist*

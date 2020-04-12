@@ -244,6 +244,7 @@ storage_link(const char* to, const char* from, int version)
 int
 storage_rename(const char* from, const char* to, int version)
 {
+	// TODO what if it's a dir?
 	int rv = storage_link(from, to, version);
 	if (rv < 0) {
 		return rv;
@@ -344,7 +345,7 @@ int* storage_get_inc_version() {
 // Copy this and modify (for now) all parents.
 int storage_copy_file(int old_inum, int version) {
 	inode* old_node = get_inode(old_inum);
-	assert(old_node->directory == 0);
+	// assert(old_node->directory == 0);
 
 	if (old_node->version >= version) {
 		// assert(old_node->version == version);
@@ -372,9 +373,45 @@ int storage_copy_file(int old_inum, int version) {
 		}
 	}
 
+	// Now copy data.
+	if (1) {
+		// TODO don't do this if unneccesary.
+		for (int i = 0; i < PAGE_ARRAY_SIZE && new_node->pages[i]; i++) {
+			new_node->pages[i] = pages_cpy(new_node->pages[i]);
+		}
+
+	}
+
 	return new_inum;
 }
 
 int storage_copy_dir(int old_inum, int version) {
-	return old_inum;
+	// inode* old = get_inode(old_inum);
+	// if (old->version >= version) {
+	// 	return old_inum;
+	// }
+
+	// Check if I'm root.
+	super_block* super = get_super();
+	if (super->root_inode == old_inum) {
+		puts("I am root. ¯\\_(ツ)_/¯");
+		return old_inum;
+	} else {
+		return storage_copy_file(old_inum, version);
+	}
+
+	// // Copy the dir.
+	// int new_inum = alloc_inode(version);
+
+	// inode* new = get_inode(new_inum);
+
+	// memcpy(new, old, sizeof(inode));
+	// 
+	// // Copy the entries.
+	// 
+	// // Update the parent, of which there is exactly 1.
+
+	// puts(":(");
+	// abort();
+
 }
