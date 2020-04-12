@@ -12,6 +12,8 @@
 
 #define MAX_HARD_LINKS 16
 
+#define INODE_COUNT 256
+
 typedef struct inode {
     int mode; // permission & type; zero for unused
     int size; // bytes, regardless of type.

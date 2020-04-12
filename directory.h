@@ -65,6 +65,8 @@ int directory_put(int dirnode, const char* name, int inum, int verions);
  */
 int directory_delete(int dirnode, const char* name, int verions);
 
+int directory_replace_ref(int parent_node, int old_node, int new_node);
+
 /**
  * List the names of all files in the directory.
  */

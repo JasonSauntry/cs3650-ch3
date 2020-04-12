@@ -206,6 +206,21 @@ directory_delete(int dirnode, const char* name, int version)
 	return 0;
 }
 
+int directory_replace_ref(int dirnode, int old_node, int new_node) {
+	// Assume version is sufficiently high.
+	assert(dirnode >= 0 && dirnode < INODE_COUNT);
+	inode* dir = get_inode(dirnode);
+	int entries = dir->size / ENT_SIZE;
+
+	for (int i = 0; i < entries; i++) {
+		dir_ent* ent = directory_get(dirnode, i);
+		if (ent->inode_num == old_node) {
+			ent->inode_num = new_node;
+		}
+		assert(directory_get(dirnode, i)->inode_num != old_node);
+	}
+}
+
 slist*
 directory_list(int dirnode)
 {
@@ -238,3 +253,5 @@ print_directory(int dd)
 	printf("(end of contents)\n");
 	s_free(items);
 }
+
+

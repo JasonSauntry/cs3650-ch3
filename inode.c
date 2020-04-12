@@ -7,7 +7,6 @@
 #include "util.h"
 #include "super.h"
 
-#define INODE_COUNT 256
 #define INODE_TOTAL_SIZE (INODE_COUNT * sizeof(inode))
 #define INODE_PAGES (INODE_TOTAL_SIZE / PAGE_SIZE)
 #define INODE_START_PAGE 1
@@ -17,6 +16,7 @@
 inode*
 get_inode(int inum)
 {
+	assert(0 <= inum && inum < INODE_COUNT);
 	int page_after_start = inum / INODES_PER_PAGE;
 	int pagenum = page_after_start + 1;
 	int first_on_page = page_after_start * INODES_PER_PAGE;

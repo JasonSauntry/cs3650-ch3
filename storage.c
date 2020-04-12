@@ -98,17 +98,20 @@ storage_read(const char* path, char* buf, size_t size, off_t offset)
 int
 storage_write(const char* path, const char* buf, size_t size, off_t offset, int version)
 {
-	int trv = storage_truncate(path, offset + size, version);
-	if (trv < 0) {
-		return trv;
-	}
-
 	int inum = tree_lookup(path);
 	if (inum < 0) {
 		return inum;
 	}
 
+	inum = storage_copy_file(inum, version);
+
+	int trv = storage_truncate(path, offset + size, version);
+	if (trv < 0) {
+		return trv;
+	}
+
 	inode* node = get_inode(inum);
+	printf("+ storage_write inum: %d\n", inum);
 	if (node->version < version) {
 		puts("====== :( VERSION ======");
 	}
@@ -336,4 +339,42 @@ int* storage_get_inc_version() {
 	(*rv)++;
 	printf("Version: %d\n", *rv);
 	return rv;
+}
+
+// Copy this and modify (for now) all parents.
+int storage_copy_file(int old_inum, int version) {
+	inode* old_node = get_inode(old_inum);
+	assert(old_node->directory == 0);
+
+	if (old_node->version >= version) {
+		// assert(old_node->version == version);
+		return old_inum;
+	}
+
+	int new_inum = alloc_inode(version);
+
+	inode* new_node = get_inode(new_inum);
+
+	memcpy(new_node, old_node, sizeof(inode));
+
+	new_node->version = version;
+
+	for (int i = 0; i < MAX_HARD_LINKS; i++) {
+		int parent_node = new_node->in_links[i];
+		if (parent_node != -1) {
+			parent_node = storage_copy_dir(parent_node, version);
+
+			// Update parent's link.
+			directory_replace_ref(parent_node, old_inum, new_inum);
+
+			// Update my link.
+			new_node->in_links[i] = parent_node;
+		}
+	}
+
+	return new_inum;
+}
+
+int storage_copy_dir(int old_inum, int version) {
+	return old_inum;
 }
