@@ -20,6 +20,7 @@
 int
 nufs_access(const char *path, int mask)
 {
+	printf("%s...\n", "access");
 	int rv = 0;
 	printf("access(%s, %04o) -> %d\n", path, mask, rv);
 	return rv;
@@ -30,6 +31,7 @@ nufs_access(const char *path, int mask)
 int
 nufs_getattr(const char *path, struct stat *st)
 {
+	printf("%s...\n", "getattr");
 	int rv = storage_stat(path, st);
 	printf("getattr(%s) -> (%d) {mode: %04o, size: %ld}\n", path, rv, st->st_mode, st->st_size);
 	return rv;
@@ -41,6 +43,7 @@ int
 nufs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 			 off_t offset, struct fuse_file_info *fi)
 {
+	printf("%s...\n", "readdir");
 	const int buflen = 128;
 	struct stat st;
 	char item_path[buflen];
@@ -77,6 +80,7 @@ nufs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 int
 nufs_mknod(const char *path, mode_t mode, dev_t rdev)
 {
+	printf("%s...\n", "mknod");
 	int* version = storage_get_inc_version();
 	int rv = storage_mknod(path, mode, 0, *version);
 	printf("mknod(%s, %04o) -> %d\n", path, mode, rv);
@@ -88,6 +92,7 @@ nufs_mknod(const char *path, mode_t mode, dev_t rdev)
 int
 nufs_mkdir(const char *path, mode_t mode)
 {
+	printf("%s...\n", "mkdir");
 	int* version = storage_get_inc_version();
 	int rv = storage_mknod(path, mode, 1, *version);
 	printf("mkdir(%s) -> %d\n", path, rv);
@@ -97,6 +102,7 @@ nufs_mkdir(const char *path, mode_t mode)
 int
 nufs_unlink(const char *path)
 {
+	printf("%s...\n", "unlink");
 	int* version = storage_get_inc_version();
 	int rv = storage_unlink(path, *version);
 	printf("unlink(%s) -> %d\n", path, rv);
@@ -106,6 +112,7 @@ nufs_unlink(const char *path)
 int
 nufs_link(const char *from, const char *to)
 {
+	printf("%s...\n", "link");
 	int* version = storage_get_inc_version();
 	int rv = storage_link(from, to, *version);
 	printf("link(%s => %s) -> %d\n", from, to, rv);
@@ -115,6 +122,7 @@ nufs_link(const char *from, const char *to)
 int
 nufs_rmdir(const char *path)
 {
+	printf("%s...\n", "rmdir");
 	int* version = storage_get_inc_version();
 	int rv = storage_unlink(path, *version);
 	printf("rmdir(%s) -> %d\n", path, rv);
@@ -126,6 +134,7 @@ nufs_rmdir(const char *path)
 int
 nufs_rename(const char *from, const char *to)
 {
+	printf("%s...\n", "rename");
 	int* version = storage_get_inc_version();
 	int rv = storage_rename(from, to, *version);
 	printf("rename(%s => %s) -> %d\n", from, to, rv);
@@ -135,6 +144,7 @@ nufs_rename(const char *from, const char *to)
 int
 nufs_chmod(const char *path, mode_t mode)
 {
+	printf("%s...\n", "chmod");
 	int* version = storage_get_inc_version();
 	int rv = storage_set_mode(path, mode, *version);
 	printf("chmod(%s, %04o) -> %d\n", path, mode, rv);
@@ -144,6 +154,7 @@ nufs_chmod(const char *path, mode_t mode)
 int
 nufs_truncate(const char *path, off_t size)
 {
+	printf("%s...\n", "truncate");
 	int* version = storage_get_inc_version();
 	int rv = storage_truncate(path, size, *version);
 	printf("truncate(%s, %ld bytes) -> %d\n", path, size, rv);
@@ -156,6 +167,7 @@ nufs_truncate(const char *path, off_t size)
 int
 nufs_open(const char *path, struct fuse_file_info *fi)
 {
+	printf("%s...\n", "open");
 	int rv = nufs_access(path, 0);
 	printf("open(%s) -> %d\n", path, rv);
 	return rv;
@@ -165,6 +177,7 @@ nufs_open(const char *path, struct fuse_file_info *fi)
 int
 nufs_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi)
 {
+	printf("%s...\n", "read");
 	int rv = storage_read(path, buf, size, offset);
 	printf("read(%s, %ld bytes, @+%ld) -> %d\n", path, size, offset, rv);
 	return rv;
@@ -174,6 +187,7 @@ nufs_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_fi
 int
 nufs_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi)
 {
+	printf("%s...\n", "write");
 	int* version = storage_get_inc_version();
 	int rv = storage_write(path, buf, size, offset, *version);
 	printf("write(%s, %ld bytes, @+%ld) -> %d\n", path, size, offset, rv);
@@ -184,6 +198,7 @@ nufs_write(const char *path, const char *buf, size_t size, off_t offset, struct 
 int
 nufs_utimens(const char* path, const struct timespec ts[2])
 {
+	printf("%s...\n", "utimens");
 	int* version = storage_get_inc_version();
 	int rv = storage_set_time(path, ts, *version);
 	printf("utimens(%s, [%ld, %ld; %ld %ld]) -> %d\n",
@@ -192,12 +207,14 @@ nufs_utimens(const char* path, const struct timespec ts[2])
 }
 
 int nufs_readlink(const char* path, char* buf, size_t size) {
+	printf("%s...\n", "readlink");
 	int rv = storage_readlink(path, buf, size);
 	printf("readlink(%s, %ld) -> %d\n ==> %s\n", path, size, rv, buf);
 	return rv;
 }
 
 int nufs_symlink(const char* to, const char* from) {
+	printf("%s...\n", "symlink");
 	int* version = storage_get_inc_version();
 	int rv = storage_symlink(to, from, *version);
 	printf("symlink(%s, %s) -> %d\n", to, from, rv);
@@ -209,6 +226,7 @@ int
 nufs_ioctl(const char* path, int cmd, void* arg, struct fuse_file_info* fi,
 		   unsigned int flags, void* data)
 {
+	printf("%s...\n", "ioctl");
 	int rv = -1;
 	printf("ioctl(%s, %d, ...) -> %d\n", path, cmd, rv);
 	return rv;

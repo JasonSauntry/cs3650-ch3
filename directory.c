@@ -31,6 +31,9 @@ directory_init(int dirnode, int new, int version)
 		rn->last_access = now();
 		rn->last_modified = now();
 		rn->version = version;
+		for (int i = 0; i < MAX_HARD_LINKS; i++) {
+			rn->in_links[i] = -1;
+		}
 	}
 	rn->mode = rn->mode | DIRMODE;
 	rn->directory = 1;
@@ -141,14 +144,12 @@ tree_lookup(const char* path)
 int
 directory_put(int dirnode, const char* name, int inum, int version)
 {
-	// TODO use empty slots if available.
-	inode* node = get_inode(dirnode);
-
-  if (get_super()->root_inode != inum) {
-    inum = storage_copy(inum, 1, version);
-  } else {
+	if (get_super()->root_inode != dirnode) {
+		dirnode = storage_copy(dirnode, 1, version);
+	} else {
 		puts("====== :( ROOT VERSION ======");
-  }
+	}
+	inode* node = get_inode(dirnode);
 
 	if (node->version < version) {
 		puts("====== :( VERSION ======");
@@ -174,7 +175,7 @@ directory_put(int dirnode, const char* name, int inum, int version)
 		if (new_page) {
 			int page = map_page();
 			node->pages[page_number] = page;
-		  }
+			}
 
 		node->size += sizeof(dir_ent);
 		index = new_index;
@@ -205,12 +206,12 @@ directory_delete(int dirnode, const char* name, int version)
 {
 	printf(" + directory_delete(%s)\n", name);
 
-  if (get_super()->root_inode != dirnode ) {
-    dirnode = storage_copy(dirnode, 1, version);
-  } else {
+	if (get_super()->root_inode != dirnode ) {
+		dirnode = storage_copy(dirnode, 1, version);
+	} else {
 		puts("====== :( ROOT VERSION ======");
-  }
-  
+	}
+	
 	int index = directory_lookup(dirnode, name);
 	if (index < 0) {
 		return index;
@@ -218,7 +219,7 @@ directory_delete(int dirnode, const char* name, int version)
 	dir_ent* ent = directory_get(dirnode, index);
 	inode* dir = get_inode(dirnode);
 
-  if (dir->version < version) {
+	if (dir->version < version) {
 		puts("====== :( VERSION ======");
 	}
 	dir->last_access = dir->last_modified = now();

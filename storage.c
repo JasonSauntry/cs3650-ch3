@@ -264,7 +264,7 @@ int storage_set_mode(const char* path, const int mode, int version) {
 		return inum;
 	}
 	
-  inum = storage_copy(inum, 1, version);
+	inum = storage_copy(inum, 1, version);
 
 	inode* node = get_inode(inum);
 	if (node->version < version) {
@@ -358,18 +358,28 @@ int storage_copy(int old_inum, int cpy_data, int version) {
 	inode* new = get_inode(new_inum);
 
 	memcpy(new, old, sizeof(inode));
-  new->refs = 0;
+	new->refs = 0;
 	new->version = version;
 
 	// TODO inlinks
 	// Invariant: Inlinks are all dirs.
 	for (int i = 0; i < MAX_HARD_LINKS; i++) {
-    new->in_links[i] = -1;
+		new->in_links[i] = -1;
 		if (old->in_links[i] != -1) {
-      int link = old->in_links[i];
+			int link = old->in_links[i];
 			char* name = strdup(directory_name(link, old_inum));
-			directory_delete(link, name, version);
-			directory_put(link, name, new_inum, version);
+			// directory_delete(link, name, version);
+			// directory_put(link, name, new_inum, version);
+			
+			inode* old_link = get_inode(link);
+			if (old_link->version < version) {
+				link = storage_copy(link, 1, version);
+			}
+			int index = directory_lookup(link, name);
+			dir_ent* ent = directory_get(link, index);
+			assert(ent->inode_num == old_inum);
+			ent->inode_num = new_inum;
+
 			free(name);
 		}
 	}
