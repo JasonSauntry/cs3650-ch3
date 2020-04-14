@@ -29,8 +29,8 @@ directory_init(int dirnode, int new, int version)
 		rn->mode = 0755;
 		rn->last_access = now();
 		rn->last_modified = now();
-		rn->version = version;
 	}
+		rn->version = version;
 	rn->mode = rn->mode | DIRMODE;
 	rn->directory = 1;
 	// Don't allocate any data pages yet.
@@ -87,7 +87,7 @@ tree_lookup(const char* path)
 	assert(path[0] == '/');
 
 	if (streq(path, "/")) {
-		return get_super()->root_inode;
+		return get_root_inum();
 	} else {
 		// We have a parent directory.
 		char* last_dir_pointer = strrchr(path, '/');
@@ -157,8 +157,6 @@ directory_put(int dirnode, const char* name, int inum, int version)
 		index = new_index;
 	}
 
-	// dir_page* page = pages_get_page(node->pages[page_number]);
-
 	dir_ent* entity = directory_get(dirnode, index);
 	entity->inode_num = inum;
 	strlcpy(entity->filename, name, NAME_LEN);
@@ -172,7 +170,7 @@ directory_put(int dirnode, const char* name, int inum, int version)
 	printf("+ dirent = '%s'\n", entity->filename);
 
 	printf("+ directory_put(..., %s, %d) -> 0\n", name, inum);
-	print_inode(node);
+	print_inode(get_inode(inum));
 
 	return 0;
 }
@@ -219,6 +217,7 @@ int directory_replace_ref(int dirnode, int old_node, int new_node) {
 		}
 		assert(directory_get(dirnode, i)->inode_num != old_node);
 	}
+	return 0;
 }
 
 slist*

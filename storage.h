@@ -27,7 +27,7 @@ int    storage_symlink(const char* dest, const char* name, int version);
 int    storage_readlink(const char* path, char* buf, size_t size);
 
 // Get AND increment.
-int* storage_get_inc_version();
+int storage_get_inc_version();
 int storage_copy_file(int inum, int version);
 int storage_copy_dir(int inum, int version);
 

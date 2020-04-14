@@ -58,6 +58,14 @@ pages_get_page(int pnum)
     return pages_base + 4096 * pnum;
 }
 
+int pages_cpy(int oldnum) {
+	int newnum = map_page();
+	void* old = pages_get_page(oldnum);
+	void* new = pages_get_page(newnum);
+	memcpy(new, old, PAGE_SIZE);
+	return newnum;
+}
+
 int map_page() {
 	bitmap* page_bitmap = &(get_super()->maps.block_bitmap);
 	int i;
