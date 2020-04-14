@@ -69,8 +69,8 @@ void
 print_inode(inode* node)
 {
     if (node) {
-        printf("node{mode: %04o, size: %d, version: %d}\n",
-               node->mode, node->size, node->version);
+        printf("node{inum: %d, mode: %04o, size: %d, version: %d}\n",
+               get_inode(node), node->mode, node->size, node->version);
     }
     else {
         printf("node{null}\n");
