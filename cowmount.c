@@ -16,11 +16,14 @@
 #include "util.h"
 #include "directory.h"
 #include "super.h"
+#include "garbage.h"
 
 int nufs_cpy_actually(const char* path, const char* trigger) {
 	int version = storage_copy_root(trigger);
 	int inum = tree_lookup(path);
-	return storage_copy_dir(inum, version);
+	int rv = storage_copy_dir(inum, version);
+	collect();
+	return rv;
 }
 
 int nufs_cpy(const char* path, const char* syscall) {

@@ -13,6 +13,12 @@
 #define MAX_HARD_LINKS 16
 
 #define INODE_COUNT 256
+#define INODE_TOTAL_SIZE (INODE_COUNT * sizeof(inode))
+#define INODE_PAGES (INODE_TOTAL_SIZE / PAGE_SIZE)
+#define INODE_START_PAGE 1
+#define INODE_AFTER_PAGE (INODE_START_PAGE + INODE_PAGES)
+#define INODES_PER_PAGE (PAGE_SIZE / sizeof(inode))
+
 
 typedef struct inode {
     int mode; // permission & type; zero for unused

@@ -7,13 +7,6 @@
 #include "util.h"
 #include "super.h"
 
-#define INODE_COUNT 256
-#define INODE_TOTAL_SIZE (INODE_COUNT * sizeof(inode))
-#define INODE_PAGES (INODE_TOTAL_SIZE / PAGE_SIZE)
-#define INODE_START_PAGE 1
-#define INODE_AFTER_PAGE (INODE_START_PAGE + INODE_PAGES)
-#define INODES_PER_PAGE (PAGE_SIZE / sizeof(inode))
-
 inode*
 get_inode(int inum)
 {
@@ -57,9 +50,6 @@ free_inode(int inum)
     printf("+ free_inode(%d)\n", inum);
 
     inode* node = get_inode(inum);
-    for (int i = 0; node->pages[i]; i++) {
-	    free_page(node->pages[i]);
-    }
 
     memset(node, 0, sizeof(inode));
     get_super()->maps.inode_map.bits[inum] = 0;
