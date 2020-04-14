@@ -14,13 +14,61 @@
 #include "storage.h"
 #include "slist.h"
 #include "util.h"
+#include "directory.h"
+#include "super.h"
+
+int nufs_cpy_actually(const char* path, const char* trigger) {
+	int version = storage_copy_root(trigger);
+	int inum = tree_lookup(path);
+	return storage_copy_dir(inum, version);
+}
+
+int nufs_cpy(const char* path, const char* syscall) {
+
+	// Description: "syscall /path/to/file"
+	const int desc_size = DESC_LEN * sizeof(char);
+	char* trigger = alloca(desc_size);
+	strncpy(trigger, syscall, desc_size);
+	strncat(trigger, " ", desc_size);
+	strncat(trigger, path, desc_size);
+
+	return nufs_cpy_actually(path, trigger);
+}
+
+int nufs_cpy_parent(const char* path, const char* syscall) {
+	if (strlen(path) == 1) {
+		puts("Root has no parent");
+		return -1;
+	}
+
+	char* mutable_path = strdup(path);
+	char* dir_sep = strrchr(mutable_path, '/');
+	*dir_sep = 0;
+	if (mutable_path == dir_sep) {
+		mutable_path[0] = '/';
+		mutable_path[1] = 0;
+	}
+
+	// Description: "syscall /path/to/file"
+	const int desc_size = DESC_LEN * sizeof(char);
+	char* trigger = alloca(desc_size);
+	strncpy(trigger, syscall, desc_size);
+	strncat(trigger, " ", desc_size);
+	strncat(trigger, path, desc_size);
+
+	int rv = nufs_cpy_actually(mutable_path, trigger);
+
+	free(mutable_path);
+
+	return rv;
+}
 
 // implementation for: man 2 access
 // Checks if a file exists.
 int
 nufs_access(const char *path, int mask)
 {
-	int rv = 0;
+	int rv = 0; 
 	printf("access(%s, %04o) -> %d\n", path, mask, rv);
 	return rv;
 }
@@ -30,7 +78,12 @@ nufs_access(const char *path, int mask)
 int
 nufs_getattr(const char *path, struct stat *st)
 {
-	int rv = storage_stat(path, st);
+	// int n = nufs_cpy(path);
+	// if (n < 0) {
+	// 	puts(":(");
+	// 	return n;
+	// }
+	int rv = storage_stat(path, st, 0);
 	printf("getattr(%s) -> (%d) {mode: %04o, size: %ld}\n", path, rv, st->st_mode, st->st_size);
 	return rv;
 }
@@ -41,12 +94,17 @@ int
 nufs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 			 off_t offset, struct fuse_file_info *fi)
 {
+	// int n = nufs_cpy(path);
+	// if (n < 0) {
+	// 	puts(":(");
+	// 	return n;
+	// }
 	const int buflen = 128;
 	struct stat st;
 	char item_path[buflen];
 	int rv;
 
-	rv = storage_stat(path, &st);
+	rv = storage_stat(path, &st, 0);
 	assert(rv == 0);
 
 	filler(buf, ".", &st, 0);
@@ -54,7 +112,7 @@ nufs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 	strcpy(item_path, path);
 	int pathlen = strlen(item_path);
 
-	slist* items = storage_list(path);
+	slist* items = storage_list(path, 0);
 	for (slist* xs = items; xs != 0; xs = xs->next) {
 		printf("+ looking at path: '%s'\n", xs->data);
 
@@ -62,7 +120,7 @@ nufs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 		int nrot = pathlen == 1 ? 0 : 1;
 		strlcpy(item_path + pathlen + nrot, xs->data, buflen - pathlen - 1);
 
-		rv = storage_stat(item_path, &st);
+		rv = storage_stat(item_path, &st, 0);
 		assert(rv == 0);
 		filler(buf, xs->data, &st, 0);
 	}
@@ -77,7 +135,13 @@ nufs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 int
 nufs_mknod(const char *path, mode_t mode, dev_t rdev)
 {
-	int version = storage_get_inc_version();
+	// Special.
+	int n = nufs_cpy_parent(path, "mknod");
+	if (n < 0) {
+		puts(":(");
+		return n;
+	}
+	int version = 0;
 	int rv = storage_mknod(path, mode, 0, version);
 	printf("mknod(%s, %04o) -> %d\n", path, mode, rv);
 	return rv;
@@ -88,7 +152,12 @@ nufs_mknod(const char *path, mode_t mode, dev_t rdev)
 int
 nufs_mkdir(const char *path, mode_t mode)
 {
-	int version = storage_get_inc_version();
+	int n = nufs_cpy_parent(path, "mkdir");
+	if (n < 0) {
+		puts(":(");
+		return n;
+	}
+	int version = 0;
 	int rv = storage_mknod(path, mode, 1, version);
 	printf("mkdir(%s) -> %d\n", path, rv);
 	return rv;
@@ -97,7 +166,12 @@ nufs_mkdir(const char *path, mode_t mode)
 int
 nufs_unlink(const char *path)
 {
-	int version = storage_get_inc_version();
+	int n = nufs_cpy(path, "unlink");
+	if (n < 0) {
+		puts(":(");
+		return n;
+	}
+	int version = 0;
 	int rv = storage_unlink(path, version);
 	printf("unlink(%s) -> %d\n", path, rv);
 	return rv;
@@ -106,7 +180,17 @@ nufs_unlink(const char *path)
 int
 nufs_link(const char *from, const char *to)
 {
-	int version = storage_get_inc_version();
+	int n = nufs_cpy(from, "link");
+	if (n < 0) {
+		puts(":(");
+		return n;
+	}
+	n = nufs_cpy_parent(to, "link");
+	if (n < 0) {
+		puts(":(");
+		return n;
+	}
+	int version = 0;
 	int rv = storage_link(from, to, version);
 	printf("link(%s => %s) -> %d\n", from, to, rv);
 	return rv;
@@ -115,7 +199,12 @@ nufs_link(const char *from, const char *to)
 int
 nufs_rmdir(const char *path)
 {
-	int version = storage_get_inc_version();
+	int n = nufs_cpy(path, "rmdir");
+	if (n < 0) {
+		puts(":(");
+		return n;
+	}
+	int version = 0;
 	int rv = storage_unlink(path, version);
 	printf("rmdir(%s) -> %d\n", path, rv);
 	return rv;
@@ -126,7 +215,12 @@ nufs_rmdir(const char *path)
 int
 nufs_rename(const char *from, const char *to)
 {
-	int version = storage_get_inc_version();
+	int n = nufs_cpy(from, "rename");
+	if (n < 0) {
+		puts(":(");
+		return n;
+	}
+	int version = 0;
 	int rv = storage_rename(from, to, version);
 	printf("rename(%s => %s) -> %d\n", from, to, rv);
 	return rv;
@@ -135,7 +229,12 @@ nufs_rename(const char *from, const char *to)
 int
 nufs_chmod(const char *path, mode_t mode)
 {
-	int version = storage_get_inc_version();
+	int n = nufs_cpy(path, "chmod");
+	if (n < 0) {
+		puts(":(");
+		return n;
+	}
+	int version = 0;
 	int rv = storage_set_mode(path, mode, version);
 	printf("chmod(%s, %04o) -> %d\n", path, mode, rv);
 	return rv;
@@ -144,7 +243,12 @@ nufs_chmod(const char *path, mode_t mode)
 int
 nufs_truncate(const char *path, off_t size)
 {
-	int version = storage_get_inc_version();
+	int n = nufs_cpy(path, "truncate");
+	if (n < 0) {
+		puts(":(");
+		return n;
+	}
+	int version = 0;
 	int rv = storage_truncate(path, size, version);
 	printf("truncate(%s, %ld bytes) -> %d\n", path, size, rv);
 	return rv;
@@ -165,7 +269,12 @@ nufs_open(const char *path, struct fuse_file_info *fi)
 int
 nufs_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi)
 {
-	int rv = storage_read(path, buf, size, offset);
+	// int n = nufs_cpy(path);
+	// if (n < 0) {
+	// 	puts(":(");
+	// 	return n;
+	// }
+	int rv = storage_read(path, buf, size, offset, 0);
 	printf("read(%s, %ld bytes, @+%ld) -> %d\n", path, size, offset, rv);
 	return rv;
 }
@@ -174,7 +283,12 @@ nufs_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_fi
 int
 nufs_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi)
 {
-	int version = storage_get_inc_version();
+	int n = nufs_cpy(path, "write");
+	if (n < 0) {
+		puts(":(");
+		return n;
+	}
+	int version = 0;
 	int rv = storage_write(path, buf, size, offset, version);
 	printf("write(%s, %ld bytes, @+%ld) -> %d\n", path, size, offset, rv);
 	return rv;
@@ -184,7 +298,12 @@ nufs_write(const char *path, const char *buf, size_t size, off_t offset, struct 
 int
 nufs_utimens(const char* path, const struct timespec ts[2])
 {
-	int version = storage_get_inc_version();
+	int n = nufs_cpy(path, "utimens");
+	if (n < 0) {
+		puts(":(");
+		return n;
+	}
+	int version = 0;
 	int rv = storage_set_time(path, ts, version);
 	printf("utimens(%s, [%ld, %ld; %ld %ld]) -> %d\n",
 		   path, ts[0].tv_sec, ts[0].tv_nsec, ts[1].tv_sec, ts[1].tv_nsec, rv);
@@ -192,13 +311,25 @@ nufs_utimens(const char* path, const struct timespec ts[2])
 }
 
 int nufs_readlink(const char* path, char* buf, size_t size) {
-	int rv = storage_readlink(path, buf, size);
+	// int n = nufs_cpy(path);
+	// if (n < 0) {
+	// 	puts(":(");
+	// 	return n;
+	// }
+	int rv = storage_readlink(path, buf, size, 0);
 	printf("readlink(%s, %ld) -> %d\n ==> %s\n", path, size, rv, buf);
 	return rv;
 }
 
 int nufs_symlink(const char* to, const char* from) {
-	int version = storage_get_inc_version();
+	// Special
+	printf("symlink:\nto: %s\nfrom: %s\n", to, from);
+	int n = nufs_cpy_parent(from, "symlink");
+	if (n < 0) {
+		puts(":(");
+		return n;
+	}
+	int version = 0;
 	int rv = storage_symlink(to, from, version);
 	printf("symlink(%s, %s) -> %d\n", to, from, rv);
 	return rv;

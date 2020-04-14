@@ -26,10 +26,14 @@ directory_init(int dirnode, int new, int version)
 	get_super()->maps.inode_map.bits[dirnode] = 1;
 
 	if (new) {
+		// We are root.
 		rn->mode = 0755;
 		rn->last_access = now();
 		rn->last_modified = now();
 		rn->version = version;
+	}
+	for (int i = 0; i < MAX_HARD_LINKS; i++) {
+		rn->in_links[i] = -1;
 	}
 	rn->mode = rn->mode | DIRMODE;
 	rn->directory = 1;

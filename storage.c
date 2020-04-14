@@ -34,11 +34,10 @@ storage_init(const char* path, int create)
 		alloc_inode_pages();
 		directory_init(DEFAULT_ROOT_INODE, 1, 0);
 	}
-	assert(get_root_inum() == DEFAULT_ROOT_INODE);
 }
 
 int
-storage_stat(const char* path, struct stat* st)
+storage_stat(const char* path, struct stat* st, int version)
 {
 	printf("+ storage_stat(%s)\n", path);
 	int inum = tree_lookup(path);
@@ -64,7 +63,7 @@ storage_stat(const char* path, struct stat* st)
 }
 
 int
-storage_read(const char* path, char* buf, size_t size, off_t offset)
+storage_read(const char* path, char* buf, size_t size, off_t offset, int version)
 {
 	int inum = tree_lookup(path);
 	if (inum < 0) {
@@ -102,7 +101,6 @@ storage_write(const char* path, const char* buf, size_t size, off_t offset, int 
 		return inum;
 	}
 
-	inum = storage_copy_file(inum, version);
 
 	int trv = storage_truncate(path, offset + size, version);
 	if (trv < 0) {
@@ -180,7 +178,9 @@ storage_mknod(const char* path, int mode, int dir, int version)
 		return -EEXIST;
 	} // TODO move
 
-	int inum = alloc_inode();
+	int inum = alloc_inode(version);
+
+
 	inode* node = get_inode(inum);
 	node->mode = mode;
 	node->size = 0;
@@ -202,7 +202,7 @@ storage_mknod(const char* path, int mode, int dir, int version)
 }
 
 slist*
-storage_list(const char* path)
+storage_list(const char* path, int version)
 {
 	int dirnode = tree_lookup(path);
 	return directory_list(dirnode);
@@ -277,7 +277,6 @@ int storage_set_mode(const char* path, const int mode, int version) {
 	return 0;
 }
 
-// TODO fix timestamps.
 int
 storage_set_time(const char* path, const struct timespec ts[2], int version)
 {
@@ -306,7 +305,7 @@ int storage_symlink(const char* dest, const char* name, int version) {
 		return parent;
 	}
 
-	int rv = storage_mknod(name, DEFAULT_SYMLINK_MODE, parent, version);
+	int rv = storage_mknod(name, DEFAULT_SYMLINK_MODE, 0, version);
 	if (rv < 0) {
 		return rv;
 	}
@@ -324,28 +323,12 @@ int storage_symlink(const char* dest, const char* name, int version) {
 	return 0;
 }
 
-int storage_readlink(const char* path, char* buf, size_t size) {
-	int rv = storage_read(path, buf, size, 0);
+int storage_readlink(const char* path, char* buf, size_t size, int version) {
+	int rv = storage_read(path, buf, size, 0, version);
 	if (rv < 0) {
 		return rv;
 	}
 	return 0;
-}
-
-int storage_get_inc_version() {
-	int rv;
-	super_block* super = get_super();
-	rv = super->most_recent_version;
-	return rv;
-
-	// version* old_version = &super->versions[*rv % VERSIONS_KEPT];
-	// (*rv)++;
-	// version* new_version = &super->versions[*rv % VERSIONS_KEPT];
-
-	// memcpy(new_version, old_version, sizeof(version));
-
-	// printf("Version: %d\n", *rv);
-	// return rv;
 }
 
 // Copy this and modify (for now) all parents.
@@ -353,10 +336,10 @@ int storage_copy_file(int old_inum, int version) {
 	inode* old_node = get_inode(old_inum);
 	// assert(old_node->directory == 0);
 
-	if (old_node->version >= version) {
-		// assert(old_node->version == version);
-		return old_inum;
-	}
+	// if (old_node->version >= version) {
+	// 	// assert(old_node->version == version);
+	// 	return old_inum;
+	// }
 
 	int new_inum = alloc_inode(version);
 
@@ -393,42 +376,33 @@ int storage_copy_file(int old_inum, int version) {
 
 int storage_copy_dir(int old_inum, int version) {
 	inode* old = get_inode(old_inum);
-	if (old->version >= version) {
-		return old_inum;
-	}
+	// if (old->version >= version) {
+	// 	return old_inum;
+	// }
 	
 
 	// Check if I'm root.
 	super_block* super = get_super();
 	if (get_root_inum() == old_inum) {
 		puts("I am root. ¯\\_(ツ)_/¯");
-		int new_inum = storage_copy_file(old_inum, version);
 
-		super_block* super = get_super();
-
-		super->most_recent_version++;
-
-		struct version* mrv = &super->versions[super->most_recent_version % VERSIONS_KEPT];
-
-		mrv->root = new_inum;
-		mrv->version_number = super->most_recent_version;
-
+		return 0;
 	} else {
 		return storage_copy_file(old_inum, version);
 	}
 
-	// // Copy the dir.
-	// int new_inum = alloc_inode(version);
+}
 
-	// inode* new = get_inode(new_inum);
+int storage_copy_root(const char* trigger) {
+	super_block* super = get_super();
+	int* version = &super->most_recent_version;
 
-	// memcpy(new, old, sizeof(inode));
-	// 
-	// // Copy the entries.
-	// 
-	// // Update the parent, of which there is exactly 1.
-
-	// puts(":(");
-	// abort();
-
+	int new_rnum = storage_copy_file(get_root_inum(), *version + 1);
+	(*version)++;
+	int v = *version % VERSIONS_KEPT;
+	super->versions[v].root = new_rnum;
+	strlcpy(super->versions[v].trigger, trigger, DESC_LEN);
+	super->versions[v].version_number = *version;
+	
+	return *version;
 }

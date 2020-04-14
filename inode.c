@@ -7,6 +7,7 @@
 #include "util.h"
 #include "super.h"
 
+#define INODE_COUNT 256
 #define INODE_TOTAL_SIZE (INODE_COUNT * sizeof(inode))
 #define INODE_PAGES (INODE_TOTAL_SIZE / PAGE_SIZE)
 #define INODE_START_PAGE 1
@@ -16,7 +17,6 @@
 inode*
 get_inode(int inum)
 {
-	assert(0 <= inum && inum < INODE_COUNT);
 	int page_after_start = inum / INODES_PER_PAGE;
 	int pagenum = page_after_start + 1;
 	int first_on_page = page_after_start * INODES_PER_PAGE;
@@ -103,7 +103,13 @@ int inode_add_ref(inode* node, int dirnode) {
 int inode_del_ref(inode* node, int dirnode) {
 	node->refs--;
 	int i;
-	for (i = 0; node->in_links[i] != dirnode; i++);
+	for (i = 0; node->in_links[i] != dirnode; i++) {
+		if (i == MAX_HARD_LINKS) {
+			puts("inode_del_ref overflow, sadness.");
+			// abort();
+			return 0;
+		}
+	}
 	node->in_links[i] = -1;
 	return 0;
 }

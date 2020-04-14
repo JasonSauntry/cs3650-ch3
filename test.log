@@ -4,197 +4,390 @@ make[1]: Entering directory '/home/jason/Documents/2020/cs3650-ch3'
 make[1]: 'disk0.cow' is up to date.
 make[1]: Leaving directory '/home/jason/Documents/2020/cs3650-ch3'
 ./cowmount -s -f mnt disk0.cow
+access(/, 0004) -> 0
++ storage_stat(/.Trash)
+tree_lookup error
+-2
+getattr(/.Trash) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/.Trash-1000)
+tree_lookup error
+-2
+getattr(/.Trash-1000) -> (-2) {mode: 0000, size: 0}
 + storage_stat(/.xdg-volume-info)
 tree_lookup error
 -2
 getattr(/.xdg-volume-info) -> (-2) {mode: 0000, size: 0}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/autorun.inf)
 tree_lookup error
 -2
 getattr(/autorun.inf) -> (-2) {mode: 0000, size: 0}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
+getattr(/) -> (0) {mode: 40755, size: 40}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
++ storage_stat(/); inode 8
+node{mode: 40755, size: 40}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/autorun.inf)
 tree_lookup error
@@ -204,28 +397,29 @@ getattr(/autorun.inf) -> (-2) {mode: 0000, size: 0}
 tree_lookup error
 -2
 getattr(/one.txt) -> (-2) {mode: 0000, size: 0}
-+ mknod create /one.txt [100644] - #1
+I am root. ¯\_(ツ)_/¯
++ mknod create /one.txt [100644] - #12
 + dirent = 'one.txt'
-+ directory_put(..., one.txt, 1) -> 0
-node{mode: 40755, size: 20}
++ directory_put(..., one.txt, 12) -> 0
+node{mode: 40755, size: 60}
 mknod(/one.txt, 100644) -> 0
 + storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
++ storage_stat(/one.txt); inode 12
 node{mode: 100644, size: 0}
 getattr(/one.txt) -> (0) {mode: 100644, size: 0}
 access(/one.txt, 0000) -> 0
 open(/one.txt) -> 0
 ioctl(/one.txt, 21505, ...) -> -1
-+ storage_write inum: 1
++ storage_write inum: 12
 write(/one.txt, 11 bytes, @+0) -> 11
 + storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
++ storage_stat(/one.txt); inode 12
 node{mode: 100644, size: 11}
 getattr(/one.txt) -> (0) {mode: 100644, size: 11}
 access(/one.txt, 0000) -> 0
 open(/one.txt) -> 0
 ioctl(/one.txt, 21505, ...) -> -1
-In link 0:	0
+In link 0:	11
 In link 1:	-1
 In link 2:	-1
 In link 3:	-1
@@ -241,1146 +435,35 @@ In link 12:	-1
 In link 13:	-1
 In link 14:	-1
 In link 15:	-1
-+ storage_read(/one.txt); inode 1
++ storage_read(/one.txt); inode 12
 node{mode: 100644, size: 11}
 read(/one.txt, 4096 bytes, @+0) -> 11
 + storage_stat(/two.txt)
 tree_lookup error
 -2
 getattr(/two.txt) -> (-2) {mode: 0000, size: 0}
-+ mknod create /two.txt [100644] - #2
+I am root. ¯\_(ツ)_/¯
++ mknod create /two.txt [100644] - #17
 + dirent = 'two.txt'
-+ directory_put(..., two.txt, 2) -> 0
-node{mode: 40755, size: 40}
++ directory_put(..., two.txt, 17) -> 0
+node{mode: 40755, size: 80}
 mknod(/two.txt, 100644) -> 0
 + storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 0}
 getattr(/two.txt) -> (0) {mode: 100644, size: 0}
 access(/two.txt, 0000) -> 0
 open(/two.txt) -> 0
 ioctl(/two.txt, 21505, ...) -> -1
-+ storage_write inum: 2
++ storage_write inum: 17
 write(/two.txt, 11 bytes, @+0) -> 11
 + storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
 getattr(/two.txt) -> (0) {mode: 100644, size: 11}
 access(/two.txt, 0000) -> 0
 open(/two.txt) -> 0
 ioctl(/two.txt, 21505, ...) -> -1
-In link 0:	0
-In link 1:	-1
-In link 2:	-1
-In link 3:	-1
-In link 4:	-1
-In link 5:	-1
-In link 6:	-1
-In link 7:	-1
-In link 8:	-1
-In link 9:	-1
-In link 10:	-1
-In link 11:	-1
-In link 12:	-1
-In link 13:	-1
-In link 14:	-1
-In link 15:	-1
-+ storage_read(/two.txt); inode 2
-node{mode: 100644, size: 11}
-read(/two.txt, 4096 bytes, @+0) -> 11
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 40}
-getattr(/) -> (0) {mode: 40755, size: 40}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 40}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/2k.txt)
-tree_lookup error
--2
-getattr(/2k.txt) -> (-2) {mode: 0000, size: 0}
-+ mknod create /2k.txt [100644] - #3
-+ dirent = '2k.txt'
-+ directory_put(..., 2k.txt, 3) -> 0
-node{mode: 40755, size: 60}
-mknod(/2k.txt, 100644) -> 0
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 0}
-getattr(/2k.txt) -> (0) {mode: 100644, size: 0}
-access(/2k.txt, 0000) -> 0
-open(/2k.txt) -> 0
-ioctl(/2k.txt, 21505, ...) -> -1
-+ storage_write inum: 3
-write(/2k.txt, 2001 bytes, @+0) -> 2001
-access(/2k.txt, 0000) -> 0
-open(/2k.txt) -> 0
-ioctl(/2k.txt, 21505, ...) -> -1
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mofusermount -u mnt || true
-de: 100644, size: 2001}
-getattr(/2k.txt) -> (0) {mode: 100644, size: 2001}
-In link 0:	0
-In link 1:	-1
-In link 2:	-1
-In link 3:	-1
-In link 4:	-1
-In link 5:	-1
-In link 6:	-1
-In link 7:	-1
-In link 8:	-1
-In link 9:	-1
-In link 10:	-1
-In link 11:	-1
-In link 12:	-1
-In link 13:	-1
-In link 14:	-1
-In link 15:	-1
-+ storage_read(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-read(/2k.txt, 4096 bytes, @+0) -> 2001
-access(/2k.txt, 0000) -> 0
-open(/2k.txt) -> 0
-ioctl(/2k.txt, 21505, ...) -> -1
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-getattr(/2k.txt) -> (0) {mode: 100644, size: 2001}
-In link 0:	0
-In link 1:	-1
-In link 2:	-1
-In link 3:	-1
-In link 4:	-1
-In link 5:	-1
-In link 6:	-1
-In link 7:	-1
-In link 8:	-1
-In link 9:	-1
-In link 10:	-1
-In link 11:	-1
-In link 12:	-1
-In link 13:	-1
-In link 14:	-1
-In link 15:	-1
-+ storage_read(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-read(/2k.txt, 4096 bytes, @+0) -> 2001
-make disk0.cow
-make[1]: Entering directory '/home/jason/Documents/2020/cs3650-ch3'
-make[1]: 'disk0.cow' is up to date.
-make[1]: Leaving directory '/home/jason/Documents/2020/cs3650-ch3'
-./cowmount -s -f mnt disk0.cow
-+ storage_stat(/.xdg-volume-info)
-tree_lookup error
--2
-getattr(/.xdg-volume-info) -> (-2) {mode: 0000, size: 0}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/autorun.inf)
-tree_lookup error
--2
-getattr(/autorun.inf) -> (-2) {mode: 0000, size: 0}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/autorun.inf)
-tree_lookup error
--2
-getattr(/autorun.inf) -> (-2) {mode: 0000, size: 0}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-+ looking at path: 'one.txt'
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-getattr(/one.txt) -> (0) {mode: 100644, size: 11}
-access(/one.txt, 0000) -> 0
-open(/one.txt) -> 0
-ioctl(/one.txt, 21505, ...) -> -1
-In link 0:	0
-In link 1:	-1
-In link 2:	-1
-In link 3:	-1
-In link 4:	-1
-In link 5:	-1
-In link 6:	-1
-In link 7:	-1
-In link 8:	-1
-In link 9:	-1
-In link 10:	-1
-In link 11:	-1
-In link 12:	-1
-In link 13:	-1
-In link 14:	-1
-In link 15:	-1
-+ storage_read(/one.txt); inode 1
-node{mode: 100644, size: 11}
-read(/one.txt, 4096 bytes, @+0) -> 11
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-getattr(/two.txt) -> (0) {mode: 100644, size: 11}
-access(/two.txt, 0000) -> 0
-open(/two.txt) -> 0
-ioctl(/two.txt, 21505, ...) -> -1
-In link 0:	0
-In link 1:	-1
-In link 2:	-1
-In link 3:	-1
-In link 4:	-1
-In link 5:	-1
-In link 6:	-1
-In link 7:	-1
-In link 8:	-1
-In link 9:	-1
-In link 10:	-1
-In link 11:	-1
-In link 12:	-1
-In link 13:	-1
-In link 14:	-1
-In link 15:	-1
-+ storage_read(/two.txt); inode 2
-node{mode: 100644, size: 11}
-read(/two.txt, 4096 bytes, @+0) -> 11
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 1
-node{mode: 100644, size: 11}
-getattr(/one.txt) -> (0) {mode: 100644, size: 11}
- + directory_delete(one.txt)
-+ free_inode(1)
-unlink(/one.txt) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'two.txt'
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-+ storage_stat(/abc.txt)
-tree_lookup error
--2
-getattr(/abc.txt) -> (-2) {mode: 0000, size: 0}
-+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 2
-node{mode: 100644, size: 11}
-getattr(/two.txt) -> (0) {mode: 100644, size: 11}
-+ storage_stat(/abc.txt)
-tree_lookup error
--2
-getattr(/abc.txt) -> (-2) {mode: 0000, size: 0}
-+ storage_stat(/abc.txt)
-tree_lookup error
--2
-getattr(/abc.txt) -> (-2) {mode: 0000, size: 0}
-+ dirent = 'abc.txt'
-+ directory_put(..., abc.txt, 2) -> 0
-node{mode: 40755, size: 60}
- + directory_delete(two.txt)
-rename(/two.txt => /abc.txt) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 60}
-+ looking at path: '2k.txt'
-+ storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
-node{mode: 100644, size: 2001}
-+ looking at path: 'abc.txt'
-+ storage_stat(/abc.txt)
-+ storage_stat(/abc.txt); inode 2
-node{mode: 100644, size: 11}
-readdir(/) -> 0
-access(/abc.txt, 0000) -> 0
-open(/abc.txt) -> 0
-ioctl(/abc.txt, 21505, ...) -> -1
-+ storage_stat(/abc.txt)
-+ storage_stat(/abc.txt); inode 2
-node{mode: 100644, size: 11}
-getattr(/abc.txt) -> (0) {mode: 100644, size: 11}
-In link 0:	-1
-In link 1:	0
-In link 2:	-1
-In link 3:	-1
-In link 4:	-1
-In link 5:	-1
-In link 6:	-1
-In link 7:	-1
-In link 8:	-1
-In link 9:	-1
-In link 10:	-1
-In link 11:	-1
-In link 12:	-1
-In link 13:	-1
-In link 14:	-1
-In link 15:	-1
-+ storage_read(/abc.txt); inode 2
-node{mode: 100644, size: 11}
-read(/abc.txt, 4096 bytes, @+0) -> 11
-+ storage_stat(/def.txt)
-tree_lookup error
--2
-getattr(/def.txt) -> (-2) {mode: 0000, size: 0}
-+ storage_stat(/abc.txt)
-+ storage_stat(/abc.txt); inode 2
-node{mode: 100644, size: 11}
-getattr(/abc.txt) -> (0) {mode: 100644, size: 11}
-+ storage_stat(/def.txt)
-tree_lookup error
--2
-getattr(/def.txt) -> (-2) {mode: 0000, size: 0}
-+ dirent = 'def.txt'
-+ directory_put(..., def.txt, 2) -> 0
-node{mode: 40755, size: 60}
-link(/abc.txt => /def.txt) -> 0
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
-node{mode: 100644, size: 11}
-getattr(/def.txt) -> (0) {mode: 100644, size: 11}
-access(/def.txt, 0000) -> 0
-open(/def.txt) -> 0
-ioctl(/def.txt, 21505, ...) -> -1
-In link 0:	0
-In link 1:	0
-In link 2:	-1
-In link 3:	-1
-In link 4:	-1
-In link 5:	-1
-In link 6:	-1
-In link 7:	-1
-In link 8:	-1
-In link 9:	-1
-In link 10:	-1
-In link 11:	-1
-In link 12:	-1
-In link 13:	-1
-In link 14:	-1
-In link 15:	-1
-+ storage_read(/def.txt); inode 2
-node{mode: 100644, size: 11}
-read(/def.txt, 4096 bytes, @+0) -> 11
-+ storage_stat(/abc.txt)
-+ storage_stat(/abc.txt); inode 2
-node{mode: 100644, size: 11}
-getattr(/abc.txt) -> (0) {mode: 100644, size: 11}
- + directory_delete(abc.txt)
-unlink(/abc.txt) -> 0
-access(/def.txt, 0000) -> 0
-open(/def.txt) -> 0
-ioctl(/def.txt, 21505, ...) -> -1
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
-node{mode: 100644, size: 11}
-getattr(/def.txt) -> (0) {mode: 100644, size: 11}
-In link 0:	-1
-In link 1:	0
-In link 2:	-1
-In link 3:	-1
-In link 4:	-1
-In link 5:	-1
-In link 6:	-1
-In link 7:	-1
-In link 8:	-1
-In link 9:	-1
-In link 10:	-1
-In link 11:	-1
-In link 12:	-1
-In link 13:	-1
-In link 14:	-1
-In link 15:	-1
-+ storage_read(/def.txt); inode 2
-node{mode: 100644, size: 11}
-read(/def.txt, 4096 bytes, @+0) -> 11
-+ storage_stat(/foo)
-tree_lookup error
--2
-getattr(/foo) -> (-2) {mode: 0000, size: 0}
-+ mknod create /foo [0755] - #1
-+ dirent = 'foo'
-+ directory_put(..., foo, 1) -> 0
-node{mode: 40755, size: 60}
-mkdir(/foo) -> 0
-+ storage_stat(/foo)
-+ storage_stat(/foo); inode 1
-node{mode: 40755, size: 0}
-getattr(/foo) -> (0) {mode: 40755, size: 0}
-+ storage_stat(/foo/abc.txt)
-tree_lookup error
--2
-getattr(/foo/abc.txt) -> (-2) {mode: 0000, size: 0}
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
-node{mode: 100644, size: 11}
-getattr(/def.txt) -> (0) {mode: 100644, size: 11}
-+ storage_stat(/foo/abc.txt)
-tree_lookup error
--2
-getattr(/foo/abc.txt) -> (-2) {mode: 0000, size: 0}
-access(/def.txt, 0000) -> 0
-open(/def.txt) -> 0
-+ storage_stat(/foo/abc.txt)
-tree_lookup error
--2
-getattr(/foo/abc.txt) -> (-2) {mode: 0000, size: 0}
-+ mknod create /foo/abc.txt [100644] - #4
-====== :( VERSION ======
-+ dirent = 'abc.txt'
-+ directory_put(..., abc.txt, 4) -> 0
-node{mode: 40755, size: 20}
-mknod(/foo/abc.txt, 100644) -> 0
-+ storage_stat(/foo/abc.txt)
-+ storage_stat(/foo/abc.txt); inode 4
-node{mode: 100644, size: 0}
-getattr(/foo/abc.txt) -> (0) {mode: 100644, size: 0}
-access(/foo/abc.txt, 0000) -> 0
-open(/foo/abc.txt) -> 0
-In link 0:	-1
-In link 1:	0
-In link 2:	-1
-In link 3:	-1
-In link 4:	-1
-In link 5:	-1
-In link 6:	-1
-In link 7:	-1
-In link 8:	-1
-In link 9:	-1
-In link 10:	-1
-In link 11:	-1
-In link 12:	-1
-In link 13:	-1
-In link 14:	-1
-In link 15:	-1
-+ storage_read(/def.txt); inode 2
-node{mode: 100644, size: 11}
-read(/def.txt, 4096 bytes, @+0) -> 11
-+ storage_write inum: 5
-write(/foo/abc.txt, 11 bytes, @+0) -> 11
-access(/foo/abc.txt, 0000) -> 0
-open(/foo/abc.txt) -> 0
-ioctl(/foo/abc.txt, 21505, ...) -> -1
-+ storage_stat(/foo/abc.txt)
-+ storage_stat(/foo/abc.txt); inode 5
-node{mode: 100644, size: 11}
-getattr(/foo/abc.txt) -> (0) {mode: 100644, size: 11}
-In link 0:	6
-In link 1:	-1
-In link 2:	-1
-In link 3:	-1
-In link 4:	-1
-In link 5:	-1
-In link 6:	-1
-In link 7:	-1
-In link 8:	-1
-In link 9:	-1
-In link 10:	-1
-In link 11:	-1
-In link 12:	-1
-In link 13:	-1
-In link 14:	-1
-In link 15:	-1
-+ storage_read(/foo/abc.txt); inode 5
-node{mode: 100644, size: 11}
-read(/foo/abc.txt, 4096 bytes, @+0) -> 11
-+ storage_stat(/40k.txt)
-tree_lookup error
--2
-getattr(/40k.txt) -> (-2) {mode: 0000, size: 0}
-+ mknod create /40k.txt [100644] - #7
-+ dirent = '40k.txt'
-+ directory_put(..., 40k.txt, 7) -> 0
-node{mode: 40755, size: 80}
-mknod(/40k.txt, 100644) -> 0
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 7
-node{mode: 100644, size: 0}
-getattr(/40k.txt) -> (0) {mode: 100644, size: 0}
-access(/40k.txt, 0000) -> 0
-open(/40k.txt) -> 0
-ioctl(/40k.txt, 21505, ...) -> -1
-+ storage_write inum: 8
-write(/40k.txt, 4096 bytes, @+0) -> 4096
-+ storage_write inum: 8
-write(/40k.txt, 4096 bytes, @+4096) -> 4096
-+ storage_write inum: 8
-write(/40k.txt, 4096 bytes, @+8192) -> 4096
-+ storage_write inum: 8
-write(/40k.txt, 4096 bytes, @+12288) -> 4096
-+ storage_write inum: 8
-write(/40k.txt, 4096 bytes, @+16384) -> 4096
-+ storage_write inum: 8
-write(/40k.txt, 4096 bytes, @+20480) -> 4096
-+ storage_write inum: 8
-write(/40k.txt, 4096 bytes, @+24576) -> 4096
-+ storage_write inum: 8
-write(/40k.txt, 4096 bytes, @+28672) -> 4096
-+ storage_write inum: 8
-write(/40k.txt, 4096 bytes, @+32768) -> 4096
-+ storage_write inum: 8
-write(/40k.txt, 3137 bytes, @+36864) -> 3137
-access(/40k.txt, 0000) -> 0
-open(/40k.txt) -> 0
-ioctl(/40k.txt, 21505, ...) -> -1
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
-getattr(/40k.txt) -> (0) {mode: 100644, size: 40001}
-In link 0:	0
-In link 1:	-1
-In link 2:	-1
-In link 3:	-1
-In link 4:	-1
-In link 5:	-1
-In link 6:	-1
-In link 7:	-1
-In link 8:	-1
-In link 9:	-1
-In link 10:	-1
-In link 11:	-1
-In link 12:	-1
-In link 13:	-1
-In link 14:	-1
-In link 15:	-1
-+ storage_read(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
-read(/40k.txt, 16384 bytes, @+0) -> 16384
-In link 0:	0
-In link 1:	-1
-In link 2:	-1
-In link 3:	-1
-In link 4:	-1
-In link 5:	-1
-In link 6:	-1
-In link 7:	-1
-In link 8:	-1
-In link 9:	-1
-In link 10:	-1
-In link 11:	-1
-In link 12:	-1
-In link 13:	-1
-In link 14:	-1
-In link 15:	-1
-+ storage_read(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
-read(/40k.txt, 24576 bytes, @+16384) -> 23617
-access(/40k.txt, 0000) -> 0
-open(/40k.txt) -> 0
-ioctl(/40k.txt, 21505, ...) -> -1
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
-getattr(/40k.txt) -> (0) {mode: 100644, size: 40001}
-In link 0:	0
-In link 1:	-1
-In link 2:	-1
-In link 3:	-1
-In link 4:	-1
-In link 5:	-1
-In link 6:	-1
-In link 7:	-1
-In link 8:	-1
-In link 9:	-1
-In link 10:	-1
-In link 11:	-1
-In link 12:	-1
-In link 13:	-1
-In link 14:	-1
-In link 15:	-1
-+ storage_read(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
-read(/40k.txt, 12288 bytes, @+4096) -> 12288
-access(/, 0001) -> 0
-+ storage_stat(/dir1)
-tree_lookup error
--2
-getattr(/dir1) -> (-2) {mode: 0000, size: 0}
-+ mknod create /dir1 [0755] - #9
-+ dirent = 'dir1'
-+ directory_put(..., dir1, 9) -> 0
-node{mode: 40755, size: 100}
-mkdir(/dir1) -> 0
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 9
-node{mode: 40755, size: 0}
-getattr(/dir1) -> (0) {mode: 40755, size: 0}
-access(/dir1, 0001) -> 0
-+ storage_stat(/dir1/dir2)
-tree_lookup error
--2
-getattr(/dir1/dir2) -> (-2) {mode: 0000, size: 0}
-+ mknod create /dir1/dir2 [0755] - #10
-====== :( VERSION ======
-+ dirent = 'dir2'
-+ directory_put(..., dir2, 10) -> 0
-node{mode: 40755, size: 20}
-mkdir(/dir1/dir2) -> 0
-+ storage_stat(/dir1/dir2)
-+ storage_stat(/dir1/dir2); inode 10
-node{mode: 40755, size: 0}
-getattr(/dir1/dir2) -> (0) {mode: 40755, size: 0}
-access(/dir1/dir2, 0001) -> 0
-+ storage_stat(/dir1/dir2/dir3)
-tree_lookup error
--2
-getattr(/dir1/dir2/dir3) -> (-2) {mode: 0000, size: 0}
-+ mknod create /dir1/dir2/dir3 [0755] - #11
-====== :( VERSION ======
-+ dirent = 'dir3'
-+ directory_put(..., dir3, 11) -> 0
-node{mode: 40755, size: 20}
-mkdir(/dir1/dir2/dir3) -> 0
-+ storage_stat(/dir1/dir2/dir3)
-+ storage_stat(/dir1/dir2/dir3); inode 11
-node{mode: 40755, size: 0}
-getattr(/dir1/dir2/dir3) -> (0) {mode: 40755, size: 0}
-access(/dir1/dir2/dir3, 0001) -> 0
-+ storage_stat(/dir1/dir2/dir3/dir4)
-tree_lookup error
--2
-getattr(/dir1/dir2/dir3/dir4) -> (-2) {mode: 0000, size: 0}
-+ mknod create /dir1/dir2/dir3/dir4 [0755] - #12
-====== :( VERSION ======
-+ dirent = 'dir4'
-+ directory_put(..., dir4, 12) -> 0
-node{mode: 40755, size: 20}
-mkdir(/dir1/dir2/dir3/dir4) -> 0
-+ storage_stat(/dir1/dir2/dir3/dir4)
-+ storage_stat(/dir1/dir2/dir3/dir4); inode 12
-node{mode: 40755, size: 0}
-getattr(/dir1/dir2/dir3/dir4) -> (0) {mode: 40755, size: 0}
-access(/dir1/dir2/dir3/dir4, 0001) -> 0
-+ storage_stat(/dir1/dir2/dir3/dir4/dir5)
-tree_lookup error
--2
-getattr(/dir1/dir2/dir3/dir4/dir5) -> (-2) {mode: 0000, size: 0}
-+ mknod create /dir1/dir2/dir3/dir4/dir5 [0755] - #13
-====== :( VERSION ======
-+ dirent = 'dir5'
-+ directory_put(..., dir5, 13) -> 0
-node{mode: 40755, size: 20}
-mkdir(/dir1/dir2/dir3/dir4/dir5) -> 0
-+ storage_stat(/dir1/dir2/dir3/dir4/dir5)
-+ storage_stat(/dir1/dir2/dir3/dir4/dir5); inode 13
-node{mode: 40755, size: 0}
-getattr(/dir1/dir2/dir3/dir4/dir5) -> (0) {mode: 40755, size: 0}
-+ storage_stat(/dir1/dir2/dir3/dir4/dir5/hello.txt)
-tree_lookup error
--2
-getattr(/dir1/dir2/dir3/dir4/dir5/hello.txt) -> (-2) {mode: 0000, size: 0}
-+ mknod create /dir1/dir2/dir3/dir4/dir5/hello.txt [100644] - #14
-====== :( VERSION ======
-+ dirent = 'hello.txt'
-+ directory_put(..., hello.txt, 14) -> 0
-node{mode: 40755, size: 20}
-mknod(/dir1/dir2/dir3/dir4/dir5/hello.txt, 100644) -> 0
-+ storage_stat(/dir1/dir2/dir3/dir4/dir5/hello.txt)
-+ storage_stat(/dir1/dir2/dir3/dir4/dir5/hello.txt); inode 14
-node{mode: 100644, size: 0}
-getattr(/dir1/dir2/dir3/dir4/dir5/hello.txt) -> (0) {mode: 100644, size: 0}
-access(/dir1/dir2/dir3/dir4/dir5/hello.txt, 0000) -> 0
-open(/dir1/dir2/dir3/dir4/dir5/hello.txt) -> 0
-ioctl(/dir1/dir2/dir3/dir4/dir5/hello.txt, 21505, ...) -> -1
-+ storage_write inum: 15
-write(/dir1/dir2/dir3/dir4/dir5/hello.txt, 12 bytes, @+0) -> 12
-access(/dir1/dir2/dir3/dir4/dir5/hello.txt, 0000) -> 0
-open(/dir1/dir2/dir3/dir4/dir5/hello.txt) -> 0
-ioctl(/dir1/dir2/dir3/dir4/dir5/hello.txt, 21505, ...) -> -1
-+ storage_stat(/dir1/dir2/dir3/dir4/dir5/hello.txt)
-+ storage_stat(/dir1/dir2/dir3/dir4/dir5/hello.txt); inode 15
-node{mode: 100644, size: 12}
-getattr(/dir1/dir2/dir3/dir4/dir5/hello.txt) -> (0) {mode: 100644, size: 12}
 In link 0:	16
 In link 1:	-1
 In link 2:	-1
@@ -1397,1139 +480,61 @@ In link 12:	-1
 In link 13:	-1
 In link 14:	-1
 In link 15:	-1
-+ storage_read(/dir1/dir2/dir3/dir4/dir5/hello.txt); inode 15
-node{mode: 100644, size: 12}
-read(/dir1/dir2/dir3/dir4/dir5/hello.txt, 4096 bytes, @+0) -> 12
-+ storage_stat(/numbers)
-tree_lookup error
--2
-getattr(/numbers) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers [0755] - #21
-+ dirent = 'numbers'
-+ directory_put(..., numbers, 21) -> 0
-node{mode: 40755, size: 120}
-mkdir(/numbers) -> 0
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 21
-node{mode: 40755, size: 0}
-getattr(/numbers) -> (0) {mode: 40755, size: 0}
-+ storage_stat(/numbers/1.num)
-tree_lookup error
--2
-getattr(/numbers/1.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/1.num [100644] - #22
-====== :( VERSION ======
-+ dirent = '1.num'
-+ directory_put(..., 1.num, 22) -> 0
-node{mode: 40755, size: 20}
-mknod(/numbers/1.num, 100644) -> 0
-+ storage_stat(/numbers/1.num)
-+ storage_stat(/numbers/1.num); inode 22
-node{mode: 100644, size: 0}
-getattr(/numbers/1.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/1.num, 0000) -> 0
-open(/numbers/1.num) -> 0
-ioctl(/numbers/1.num, 21505, ...) -> -1
-+ storage_write inum: 23
-write(/numbers/1.num, 2 bytes, @+0) -> 2
-+ storage_stat(/numbers/2.num)
-tree_lookup error
--2
-getattr(/numbers/2.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/2.num [100644] - #25
-+ dirent = '2.num'
-+ directory_put(..., 2.num, 25) -> 0
-node{mode: 40755, size: 40}
-mknod(/numbers/2.num, 100644) -> 0
-+ storage_stat(/numbers/2.num)
-+ storage_stat(/numbers/2.num); inode 25
-node{mode: 100644, size: 0}
-getattr(/numbers/2.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/2.num, 0000) -> 0
-open(/numbers/2.num) -> 0
-ioctl(/numbers/2.num, 21505, ...) -> -1
-+ storage_write inum: 26
-write(/numbers/2.num, 2 bytes, @+0) -> 2
-+ storage_stat(/numbers/3.num)
-tree_lookup error
--2
-getattr(/numbers/3.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/3.num [100644] - #27
-+ dirent = '3.num'
-+ directory_put(..., 3.num, 27) -> 0
-node{mode: 40755, size: 60}
-mknod(/numbers/3.num, 100644) -> 0
-+ storage_stat(/numbers/3.num)
-+ storage_stat(/numbers/3.num); inode 27
-node{mode: 100644, size: 0}
-getattr(/numbers/3.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/3.num, 0000) -> 0
-open(/numbers/3.num) -> 0
-ioctl(/numbers/3.num, 21505, ...) -> -1
-+ storage_write inum: 28
-write(/numbers/3.num, 2 bytes, @+0) -> 2
-+ storage_stat(/numbers/4.num)
-tree_lookup error
--2
-getattr(/numbers/4.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/4.num [100644] - #29
-+ dirent = '4.num'
-+ directory_put(..., 4.num, 29) -> 0
++ storage_read(/two.txt); inode 17
+node{mode: 100644, size: 11}
+read(/two.txt, 4096 bytes, @+0) -> 11
++ storage_stat(/)
++ storage_stat(/); inode 18
+node{mode: 40755,fusermount -u mnt || true
+ size: 80}
+getattr(/) -> (0) {mode: 40755, size: 80}
++ storage_stat(/)
++ storage_stat(/); inode 18
 node{mode: 40755, size: 80}
-mknod(/numbers/4.num, 100644) -> 0
-+ storage_stat(/numbers/4.num)
-+ storage_stat(/numbers/4.num); inode 29
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
 node{mode: 100644, size: 0}
-getattr(/numbers/4.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/4.num, 0000) -> 0
-open(/numbers/4.num) -> 0
-ioctl(/numbers/4.num, 21505, ...) -> -1
-+ storage_write inum: 30
-write(/numbers/4.num, 2 bytes, @+0) -> 2
-+ storage_stat(/numbers/5.num)
+readdir(/) -> 0
++ storage_stat(/2k.txt)
 tree_lookup error
 -2
-getattr(/numbers/5.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/5.num [100644] - #31
-+ dirent = '5.num'
-+ directory_put(..., 5.num, 31) -> 0
+getattr(/2k.txt) -> (-2) {mode: 0000, size: 0}
+I am root. ¯\_(ツ)_/¯
++ mknod create /2k.txt [100644] - #22
++ dirent = '2k.txt'
++ directory_put(..., 2k.txt, 22) -> 0
 node{mode: 40755, size: 100}
-mknod(/numbers/5.num, 100644) -> 0
-+ storage_stat(/numbers/5.num)
-+ storage_stat(/numbers/5.num); inode 31
+mknod(/2k.txt, 100644) -> 0
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 0}
-getattr(/numbers/5.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/5.num, 0000) -> 0
-open(/numbers/5.num) -> 0
-ioctl(/numbers/5.num, 21505, ...) -> -1
-+ storage_write inum: 32
-write(/numbers/5.num, 2 bytes, @+0) -> 2
-+ storage_stat(/numbers/6.num)
-tree_lookup error
--2
-getattr(/numbers/6.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/6.num [100644] - #33
-+ dirent = '6.num'
-+ directory_put(..., 6.num, 33) -> 0
-node{mode: 40755, size: 120}
-mknod(/numbers/6.num, 100644) -> 0
-+ storage_stat(/numbers/6.num)
-+ storage_stat(/numbers/6.num); inode 33
-node{mode: 100644, size: 0}
-getattr(/numbers/6.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/6.num, 0000) -> 0
-open(/numbers/6.num) -> 0
-ioctl(/numbers/6.num, 21505, ...) -> -1
-+ storage_write inum: 34
-write(/numbers/6.num, 2 bytes, @+0) -> 2
-+ storage_stat(/numbers/7.num)
-tree_lookup error
--2
-getattr(/numbers/7.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/7.num [100644] - #35
-+ dirent = '7.num'
-+ directory_put(..., 7.num, 35) -> 0
-node{mode: 40755, size: 140}
-mknod(/numbers/7.num, 100644) -> 0
-+ storage_stat(/numbers/7.num)
-+ storage_stat(/numbers/7.num); inode 35
-node{mode: 100644, size: 0}
-getattr(/numbers/7.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/7.num, 0000) -> 0
-open(/numbers/7.num) -> 0
-ioctl(/numbers/7.num, 21505, ...) -> -1
-+ storage_write inum: 36
-write(/numbers/7.num, 2 bytes, @+0) -> 2
-+ storage_stat(/numbers/8.num)
-tree_lookup error
--2
-getattr(/numbers/8.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/8.num [100644] - #37
-+ dirent = '8.num'
-+ directory_put(..., 8.num, 37) -> 0
-node{mode: 40755, size: 160}
-mknod(/numbers/8.num, 100644) -> 0
-+ storage_stat(/numbers/8.num)
-+ storage_stat(/numbers/8.num); inode 37
-node{mode: 100644, size: 0}
-getattr(/numbers/8.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/8.num, 0000) -> 0
-open(/numbers/8.num) -> 0
-ioctl(/numbers/8.num, 21505, ...) -> -1
-+ storage_write inum: 38
-write(/numbers/8.num, 2 bytes, @+0) -> 2
-+ storage_stat(/numbers/9.num)
-tree_lookup error
--2
-getattr(/numbers/9.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/9.num [100644] - #39
-+ dirent = '9.num'
-+ directory_put(..., 9.num, 39) -> 0
-node{mode: 40755, size: 180}
-mknod(/numbers/9.num, 100644) -> 0
-+ storage_stat(/numbers/9.num)
-+ storage_stat(/numbers/9.num); inode 39
-node{mode: 100644, size: 0}
-getattr(/numbers/9.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/9.num, 0000) -> 0
-open(/numbers/9.num) -> 0
-ioctl(/numbers/9.num, 21505, ...) -> -1
-+ storage_write inum: 40
-write(/numbers/9.num, 2 bytes, @+0) -> 2
-+ storage_stat(/numbers/10.num)
-tree_lookup error
--2
-getattr(/numbers/10.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/10.num [100644] - #41
-+ dirent = '10.num'
-+ directory_put(..., 10.num, 41) -> 0
-node{mode: 40755, size: 200}
-mknod(/numbers/10.num, 100644) -> 0
-+ storage_stat(/numbers/10.num)
-+ storage_stat(/numbers/10.num); inode 41
-node{mode: 100644, size: 0}
-getattr(/numbers/10.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/10.num, 0000) -> 0
-open(/numbers/10.num) -> 0
-ioctl(/numbers/10.num, 21505, ...) -> -1
-+ storage_write inum: 42
-write(/numbers/10.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/11.num)
-tree_lookup error
--2
-getattr(/numbers/11.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/11.num [100644] - #43
-+ dirent = '11.num'
-+ directory_put(..., 11.num, 43) -> 0
-node{mode: 40755, size: 220}
-mknod(/numbers/11.num, 100644) -> 0
-+ storage_stat(/numbers/11.num)
-+ storage_stat(/numbers/11.num); inode 43
-node{mode: 100644, size: 0}
-getattr(/numbers/11.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/11.num, 0000) -> 0
-open(/numbers/11.num) -> 0
-ioctl(/numbers/11.num, 21505, ...) -> -1
-+ storage_write inum: 44
-write(/numbers/11.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/12.num)
-tree_lookup error
--2
-getattr(/numbers/12.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/12.num [100644] - #45
-+ dirent = '12.num'
-+ directory_put(..., 12.num, 45) -> 0
-node{mode: 40755, size: 240}
-mknod(/numbers/12.num, 100644) -> 0
-+ storage_stat(/numbers/12.num)
-+ storage_stat(/numbers/12.num); inode 45
-node{mode: 100644, size: 0}
-getattr(/numbers/12.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/12.num, 0000) -> 0
-open(/numbers/12.num) -> 0
-ioctl(/numbers/12.num, 21505, ...) -> -1
-+ storage_write inum: 46
-write(/numbers/12.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/13.num)
-tree_lookup error
--2
-getattr(/numbers/13.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/13.num [100644] - #47
-+ dirent = '13.num'
-+ directory_put(..., 13.num, 47) -> 0
-node{mode: 40755, size: 260}
-mknod(/numbers/13.num, 100644) -> 0
-+ storage_stat(/numbers/13.num)
-+ storage_stat(/numbers/13.num); inode 47
-node{mode: 100644, size: 0}
-getattr(/numbers/13.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/13.num, 0000) -> 0
-open(/numbers/13.num) -> 0
-ioctl(/numbers/13.num, 21505, ...) -> -1
-+ storage_write inum: 48
-write(/numbers/13.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/14.num)
-tree_lookup error
--2
-getattr(/numbers/14.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/14.num [100644] - #49
-+ dirent = '14.num'
-+ directory_put(..., 14.num, 49) -> 0
-node{mode: 40755, size: 280}
-mknod(/numbers/14.num, 100644) -> 0
-+ storage_stat(/numbers/14.num)
-+ storage_stat(/numbers/14.num); inode 49
-node{mode: 100644, size: 0}
-getattr(/numbers/14.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/14.num, 0000) -> 0
-open(/numbers/14.num) -> 0
-ioctl(/numbers/14.num, 21505, ...) -> -1
-+ storage_write inum: 50
-write(/numbers/14.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/15.num)
-tree_lookup error
--2
-getattr(/numbers/15.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/15.num [100644] - #51
-+ dirent = '15.num'
-+ directory_put(..., 15.num, 51) -> 0
-node{mode: 40755, size: 300}
-mknod(/numbers/15.num, 100644) -> 0
-+ storage_stat(/numbers/15.num)
-+ storage_stat(/numbers/15.num); inode 51
-node{mode: 100644, size: 0}
-getattr(/numbers/15.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/15.num, 0000) -> 0
-open(/numbers/15.num) -> 0
-ioctl(/numbers/15.num, 21505, ...) -> -1
-+ storage_write inum: 52
-write(/numbers/15.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/16.num)
-tree_lookup error
--2
-getattr(/numbers/16.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/16.num [100644] - #53
-+ dirent = '16.num'
-+ directory_put(..., 16.num, 53) -> 0
-node{mode: 40755, size: 320}
-mknod(/numbers/16.num, 100644) -> 0
-+ storage_stat(/numbers/16.num)
-+ storage_stat(/numbers/16.num); inode 53
-node{mode: 100644, size: 0}
-getattr(/numbers/16.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/16.num, 0000) -> 0
-open(/numbers/16.num) -> 0
-ioctl(/numbers/16.num, 21505, ...) -> -1
-+ storage_write inum: 54
-write(/numbers/16.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/17.num)
-tree_lookup error
--2
-getattr(/numbers/17.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/17.num [100644] - #55
-+ dirent = '17.num'
-+ directory_put(..., 17.num, 55) -> 0
-node{mode: 40755, size: 340}
-mknod(/numbers/17.num, 100644) -> 0
-+ storage_stat(/numbers/17.num)
-+ storage_stat(/numbers/17.num); inode 55
-node{mode: 100644, size: 0}
-getattr(/numbers/17.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/17.num, 0000) -> 0
-open(/numbers/17.num) -> 0
-ioctl(/numbers/17.num, 21505, ...) -> -1
-+ storage_write inum: 56
-write(/numbers/17.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/18.num)
-tree_lookup error
--2
-getattr(/numbers/18.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/18.num [100644] - #57
-+ dirent = '18.num'
-+ directory_put(..., 18.num, 57) -> 0
-node{mode: 40755, size: 360}
-mknod(/numbers/18.num, 100644) -> 0
-+ storage_stat(/numbers/18.num)
-+ storage_stat(/numbers/18.num); inode 57
-node{mode: 100644, size: 0}
-getattr(/numbers/18.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/18.num, 0000) -> 0
-open(/numbers/18.num) -> 0
-ioctl(/numbers/18.num, 21505, ...) -> -1
-+ storage_write inum: 58
-write(/numbers/18.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/19.num)
-tree_lookup error
--2
-getattr(/numbers/19.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/19.num [100644] - #59
-+ dirent = '19.num'
-+ directory_put(..., 19.num, 59) -> 0
-node{mode: 40755, size: 380}
-mknod(/numbers/19.num, 100644) -> 0
-+ storage_stat(/numbers/19.num)
-+ storage_stat(/numbers/19.num); inode 59
-node{mode: 100644, size: 0}
-getattr(/numbers/19.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/19.num, 0000) -> 0
-open(/numbers/19.num) -> 0
-ioctl(/numbers/19.num, 21505, ...) -> -1
-+ storage_write inum: 60
-write(/numbers/19.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/20.num)
-tree_lookup error
--2
-getattr(/numbers/20.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/20.num [100644] - #61
-+ dirent = '20.num'
-+ directory_put(..., 20.num, 61) -> 0
-node{mode: 40755, size: 400}
-mknod(/numbers/20.num, 100644) -> 0
-+ storage_stat(/numbers/20.num)
-+ storage_stat(/numbers/20.num); inode 61
-node{mode: 100644, size: 0}
-getattr(/numbers/20.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/20.num, 0000) -> 0
-open(/numbers/20.num) -> 0
-ioctl(/numbers/20.num, 21505, ...) -> -1
-+ storage_write inum: 62
-write(/numbers/20.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/21.num)
-tree_lookup error
--2
-getattr(/numbers/21.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/21.num [100644] - #63
-+ dirent = '21.num'
-+ directory_put(..., 21.num, 63) -> 0
-node{mode: 40755, size: 420}
-mknod(/numbers/21.num, 100644) -> 0
-+ storage_stat(/numbers/21.num)
-+ storage_stat(/numbers/21.num); inode 63
-node{mode: 100644, size: 0}
-getattr(/numbers/21.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/21.num, 0000) -> 0
-open(/numbers/21.num) -> 0
-ioctl(/numbers/21.num, 21505, ...) -> -1
-+ storage_write inum: 64
-write(/numbers/21.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/22.num)
-tree_lookup error
--2
-getattr(/numbers/22.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/22.num [100644] - #65
-+ dirent = '22.num'
-+ directory_put(..., 22.num, 65) -> 0
-node{mode: 40755, size: 440}
-mknod(/numbers/22.num, 100644) -> 0
-+ storage_stat(/numbers/22.num)
-+ storage_stat(/numbers/22.num); inode 65
-node{mode: 100644, size: 0}
-getattr(/numbers/22.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/22.num, 0000) -> 0
-open(/numbers/22.num) -> 0
-ioctl(/numbers/22.num, 21505, ...) -> -1
-+ storage_write inum: 66
-write(/numbers/22.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/23.num)
-tree_lookup error
--2
-getattr(/numbers/23.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/23.num [100644] - #67
-+ dirent = '23.num'
-+ directory_put(..., 23.num, 67) -> 0
-node{mode: 40755, size: 460}
-mknod(/numbers/23.num, 100644) -> 0
-+ storage_stat(/numbers/23.num)
-+ storage_stat(/numbers/23.num); inode 67
-node{mode: 100644, size: 0}
-getattr(/numbers/23.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/23.num, 0000) -> 0
-open(/numbers/23.num) -> 0
-ioctl(/numbers/23.num, 21505, ...) -> -1
-+ storage_write inum: 68
-write(/numbers/23.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/24.num)
-tree_lookup error
--2
-getattr(/numbers/24.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/24.num [100644] - #69
-+ dirent = '24.num'
-+ directory_put(..., 24.num, 69) -> 0
-node{mode: 40755, size: 480}
-mknod(/numbers/24.num, 100644) -> 0
-+ storage_stat(/numbers/24.num)
-+ storage_stat(/numbers/24.num); inode 69
-node{mode: 100644, size: 0}
-getattr(/numbers/24.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/24.num, 0000) -> 0
-open(/numbers/24.num) -> 0
-ioctl(/numbers/24.num, 21505, ...) -> -1
-+ storage_write inum: 70
-write(/numbers/24.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/25.num)
-tree_lookup error
--2
-getattr(/numbers/25.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/25.num [100644] - #71
-+ dirent = '25.num'
-+ directory_put(..., 25.num, 71) -> 0
-node{mode: 40755, size: 500}
-mknod(/numbers/25.num, 100644) -> 0
-+ storage_stat(/numbers/25.num)
-+ storage_stat(/numbers/25.num); inode 71
-node{mode: 100644, size: 0}
-getattr(/numbers/25.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/25.num, 0000) -> 0
-open(/numbers/25.num) -> 0
-ioctl(/numbers/25.num, 21505, ...) -> -1
-+ storage_write inum: 72
-write(/numbers/25.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/26.num)
-tree_lookup error
--2
-getattr(/numbers/26.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/26.num [100644] - #73
-+ dirent = '26.num'
-+ directory_put(..., 26.num, 73) -> 0
-node{mode: 40755, size: 520}
-mknod(/numbers/26.num, 100644) -> 0
-+ storage_stat(/numbers/26.num)
-+ storage_stat(/numbers/26.num); inode 73
-node{mode: 100644, size: 0}
-getattr(/numbers/26.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/26.num, 0000) -> 0
-open(/numbers/26.num) -> 0
-ioctl(/numbers/26.num, 21505, ...) -> -1
-+ storage_write inum: 74
-write(/numbers/26.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/27.num)
-tree_lookup error
--2
-getattr(/numbers/27.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/27.num [100644] - #75
-+ dirent = '27.num'
-+ directory_put(..., 27.num, 75) -> 0
-node{mode: 40755, size: 540}
-mknod(/numbers/27.num, 100644) -> 0
-+ storage_stat(/numbers/27.num)
-+ storage_stat(/numbers/27.num); inode 75
-node{mode: 100644, size: 0}
-getattr(/numbers/27.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/27.num, 0000) -> 0
-open(/numbers/27.num) -> 0
-ioctl(/numbers/27.num, 21505, ...) -> -1
-+ storage_write inum: 76
-write(/numbers/27.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/28.num)
-tree_lookup error
--2
-getattr(/numbers/28.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/28.num [100644] - #77
-+ dirent = '28.num'
-+ directory_put(..., 28.num, 77) -> 0
-node{mode: 40755, size: 560}
-mknod(/numbers/28.num, 100644) -> 0
-+ storage_stat(/numbers/28.num)
-+ storage_stat(/numbers/28.num); inode 77
-node{mode: 100644, size: 0}
-getattr(/numbers/28.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/28.num, 0000) -> 0
-open(/numbers/28.num) -> 0
-ioctl(/numbers/28.num, 21505, ...) -> -1
-+ storage_write inum: 78
-write(/numbers/28.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/29.num)
-tree_lookup error
--2
-getattr(/numbers/29.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/29.num [100644] - #79
-+ dirent = '29.num'
-+ directory_put(..., 29.num, 79) -> 0
-node{mode: 40755, size: 580}
-mknod(/numbers/29.num, 100644) -> 0
-+ storage_stat(/numbers/29.num)
-+ storage_stat(/numbers/29.num); inode 79
-node{mode: 100644, size: 0}
-getattr(/numbers/29.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/29.num, 0000) -> 0
-open(/numbers/29.num) -> 0
-ioctl(/numbers/29.num, 21505, ...) -> -1
-+ storage_write inum: 80
-write(/numbers/29.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/30.num)
-tree_lookup error
--2
-getattr(/numbers/30.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/30.num [100644] - #81
-+ dirent = '30.num'
-+ directory_put(..., 30.num, 81) -> 0
-node{mode: 40755, size: 600}
-mknod(/numbers/30.num, 100644) -> 0
-+ storage_stat(/numbers/30.num)
-+ storage_stat(/numbers/30.num); inode 81
-node{mode: 100644, size: 0}
-getattr(/numbers/30.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/30.num, 0000) -> 0
-open(/numbers/30.num) -> 0
-ioctl(/numbers/30.num, 21505, ...) -> -1
-+ storage_write inum: 82
-write(/numbers/30.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/31.num)
-tree_lookup error
--2
-getattr(/numbers/31.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/31.num [100644] - #83
-+ dirent = '31.num'
-+ directory_put(..., 31.num, 83) -> 0
-node{mode: 40755, size: 620}
-mknod(/numbers/31.num, 100644) -> 0
-+ storage_stat(/numbers/31.num)
-+ storage_stat(/numbers/31.num); inode 83
-node{mode: 100644, size: 0}
-getattr(/numbers/31.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/31.num, 0000) -> 0
-open(/numbers/31.num) -> 0
-ioctl(/numbers/31.num, 21505, ...) -> -1
-+ storage_write inum: 84
-write(/numbers/31.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/32.num)
-tree_lookup error
--2
-getattr(/numbers/32.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/32.num [100644] - #85
-+ dirent = '32.num'
-+ directory_put(..., 32.num, 85) -> 0
-node{mode: 40755, size: 640}
-mknod(/numbers/32.num, 100644) -> 0
-+ storage_stat(/numbers/32.num)
-+ storage_stat(/numbers/32.num); inode 85
-node{mode: 100644, size: 0}
-getattr(/numbers/32.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/32.num, 0000) -> 0
-open(/numbers/32.num) -> 0
-ioctl(/numbers/32.num, 21505, ...) -> -1
-+ storage_write inum: 86
-write(/numbers/32.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/33.num)
-tree_lookup error
--2
-getattr(/numbers/33.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/33.num [100644] - #87
-+ dirent = '33.num'
-+ directory_put(..., 33.num, 87) -> 0
-node{mode: 40755, size: 660}
-mknod(/numbers/33.num, 100644) -> 0
-+ storage_stat(/numbers/33.num)
-+ storage_stat(/numbers/33.num); inode 87
-node{mode: 100644, size: 0}
-getattr(/numbers/33.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/33.num, 0000) -> 0
-open(/numbers/33.num) -> 0
-ioctl(/numbers/33.num, 21505, ...) -> -1
-+ storage_write inum: 88
-write(/numbers/33.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/34.num)
-tree_lookup error
--2
-getattr(/numbers/34.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/34.num [100644] - #89
-+ dirent = '34.num'
-+ directory_put(..., 34.num, 89) -> 0
-node{mode: 40755, size: 680}
-mknod(/numbers/34.num, 100644) -> 0
-+ storage_stat(/numbers/34.num)
-+ storage_stat(/numbers/34.num); inode 89
-node{mode: 100644, size: 0}
-getattr(/numbers/34.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/34.num, 0000) -> 0
-open(/numbers/34.num) -> 0
-ioctl(/numbers/34.num, 21505, ...) -> -1
-+ storage_write inum: 90
-write(/numbers/34.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/35.num)
-tree_lookup error
--2
-getattr(/numbers/35.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/35.num [100644] - #91
-+ dirent = '35.num'
-+ directory_put(..., 35.num, 91) -> 0
-node{mode: 40755, size: 700}
-mknod(/numbers/35.num, 100644) -> 0
-+ storage_stat(/numbers/35.num)
-+ storage_stat(/numbers/35.num); inode 91
-node{mode: 100644, size: 0}
-getattr(/numbers/35.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/35.num, 0000) -> 0
-open(/numbers/35.num) -> 0
-ioctl(/numbers/35.num, 21505, ...) -> -1
-+ storage_write inum: 92
-write(/numbers/35.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/36.num)
-tree_lookup error
--2
-getattr(/numbers/36.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/36.num [100644] - #93
-+ dirent = '36.num'
-+ directory_put(..., 36.num, 93) -> 0
-node{mode: 40755, size: 720}
-mknod(/numbers/36.num, 100644) -> 0
-+ storage_stat(/numbers/36.num)
-+ storage_stat(/numbers/36.num); inode 93
-node{mode: 100644, size: 0}
-getattr(/numbers/36.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/36.num, 0000) -> 0
-open(/numbers/36.num) -> 0
-ioctl(/numbers/36.num, 21505, ...) -> -1
-+ storage_write inum: 94
-write(/numbers/36.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/37.num)
-tree_lookup error
--2
-getattr(/numbers/37.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/37.num [100644] - #95
-+ dirent = '37.num'
-+ directory_put(..., 37.num, 95) -> 0
-node{mode: 40755, size: 740}
-mknod(/numbers/37.num, 100644) -> 0
-+ storage_stat(/numbers/37.num)
-+ storage_stat(/numbers/37.num); inode 95
-node{mode: 100644, size: 0}
-getattr(/numbers/37.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/37.num, 0000) -> 0
-open(/numbers/37.num) -> 0
-ioctl(/numbers/37.num, 21505, ...) -> -1
-+ storage_write inum: 96
-write(/numbers/37.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/38.num)
-tree_lookup error
--2
-getattr(/numbers/38.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/38.num [100644] - #97
-+ dirent = '38.num'
-+ directory_put(..., 38.num, 97) -> 0
-node{mode: 40755, size: 760}
-mknod(/numbers/38.num, 100644) -> 0
-+ storage_stat(/numbers/38.num)
-+ storage_stat(/numbers/38.num); inode 97
-node{mode: 100644, size: 0}
-getattr(/numbers/38.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/38.num, 0000) -> 0
-open(/numbers/38.num) -> 0
-ioctl(/numbers/38.num, 21505, ...) -> -1
-+ storage_write inum: 98
-write(/numbers/38.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/39.num)
-tree_lookup error
--2
-getattr(/numbers/39.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/39.num [100644] - #99
-+ dirent = '39.num'
-+ directory_put(..., 39.num, 99) -> 0
-node{mode: 40755, size: 780}
-mknod(/numbers/39.num, 100644) -> 0
-+ storage_stat(/numbers/39.num)
-+ storage_stat(/numbers/39.num); inode 99
-node{mode: 100644, size: 0}
-getattr(/numbers/39.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/39.num, 0000) -> 0
-open(/numbers/39.num) -> 0
-ioctl(/numbers/39.num, 21505, ...) -> -1
-+ storage_write inum: 100
-write(/numbers/39.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/40.num)
-tree_lookup error
--2
-getattr(/numbers/40.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/40.num [100644] - #101
-+ dirent = '40.num'
-+ directory_put(..., 40.num, 101) -> 0
-node{mode: 40755, size: 800}
-mknod(/numbers/40.num, 100644) -> 0
-+ storage_stat(/numbers/40.num)
-+ storage_stat(/numbers/40.num); inode 101
-node{mode: 100644, size: 0}
-getattr(/numbers/40.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/40.num, 0000) -> 0
-open(/numbers/40.num) -> 0
-ioctl(/numbers/40.num, 21505, ...) -> -1
-+ storage_write inum: 102
-write(/numbers/40.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/41.num)
-tree_lookup error
--2
-getattr(/numbers/41.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/41.num [100644] - #103
-+ dirent = '41.num'
-+ directory_put(..., 41.num, 103) -> 0
-node{mode: 40755, size: 820}
-mknod(/numbers/41.num, 100644) -> 0
-+ storage_stat(/numbers/41.num)
-+ storage_stat(/numbers/41.num); inode 103
-node{mode: 100644, size: 0}
-getattr(/numbers/41.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/41.num, 0000) -> 0
-open(/numbers/41.num) -> 0
-ioctl(/numbers/41.num, 21505, ...) -> -1
-+ storage_write inum: 104
-write(/numbers/41.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/42.num)
-tree_lookup error
--2
-getattr(/numbers/42.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/42.num [100644] - #105
-+ dirent = '42.num'
-+ directory_put(..., 42.num, 105) -> 0
-node{mode: 40755, size: 840}
-mknod(/numbers/42.num, 100644) -> 0
-+ storage_stat(/numbers/42.num)
-+ storage_stat(/numbers/42.num); inode 105
-node{mode: 100644, size: 0}
-getattr(/numbers/42.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/42.num, 0000) -> 0
-open(/numbers/42.num) -> 0
-ioctl(/numbers/42.num, 21505, ...) -> -1
-+ storage_write inum: 106
-write(/numbers/42.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/43.num)
-tree_lookup error
--2
-getattr(/numbers/43.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/43.num [100644] - #107
-+ dirent = '43.num'
-+ directory_put(..., 43.num, 107) -> 0
-node{mode: 40755, size: 860}
-mknod(/numbers/43.num, 100644) -> 0
-+ storage_stat(/numbers/43.num)
-+ storage_stat(/numbers/43.num); inode 107
-node{mode: 100644, size: 0}
-getattr(/numbers/43.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/43.num, 0000) -> 0
-open(/numbers/43.num) -> 0
-ioctl(/numbers/43.num, 21505, ...) -> -1
-+ storage_write inum: 108
-write(/numbers/43.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/44.num)
-tree_lookup error
--2
-getattr(/numbers/44.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/44.num [100644] - #109
-+ dirent = '44.num'
-+ directory_put(..., 44.num, 109) -> 0
-node{mode: 40755, size: 880}
-mknod(/numbers/44.num, 100644) -> 0
-+ storage_stat(/numbers/44.num)
-+ storage_stat(/numbers/44.num); inode 109
-node{mode: 100644, size: 0}
-getattr(/numbers/44.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/44.num, 0000) -> 0
-open(/numbers/44.num) -> 0
-ioctl(/numbers/44.num, 21505, ...) -> -1
-+ storage_write inum: 110
-write(/numbers/44.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/45.num)
-tree_lookup error
--2
-getattr(/numbers/45.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/45.num [100644] - #111
-+ dirent = '45.num'
-+ directory_put(..., 45.num, 111) -> 0
-node{mode: 40755, size: 900}
-mknod(/numbers/45.num, 100644) -> 0
-+ storage_stat(/numbers/45.num)
-+ storage_stat(/numbers/45.num); inode 111
-node{mode: 100644, size: 0}
-getattr(/numbers/45.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/45.num, 0000) -> 0
-open(/numbers/45.num) -> 0
-ioctl(/numbers/45.num, 21505, ...) -> -1
-+ storage_write inum: 112
-write(/numbers/45.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/46.num)
-tree_lookup error
--2
-getattr(/numbers/46.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/46.num [100644] - #113
-+ dirent = '46.num'
-+ directory_put(..., 46.num, 113) -> 0
-node{mode: 40755, size: 920}
-mknod(/numbers/46.num, 100644) -> 0
-+ storage_stat(/numbers/46.num)
-+ storage_stat(/numbers/46.num); inode 113
-node{mode: 100644, size: 0}
-getattr(/numbers/46.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/46.num, 0000) -> 0
-open(/numbers/46.num) -> 0
-ioctl(/numbers/46.num, 21505, ...) -> -1
-+ storage_write inum: 114
-write(/numbers/46.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/47.num)
-tree_lookup error
--2
-getattr(/numbers/47.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/47.num [100644] - #115
-+ dirent = '47.num'
-+ directory_put(..., 47.num, 115) -> 0
-node{mode: 40755, size: 940}
-mknod(/numbers/47.num, 100644) -> 0
-+ storage_stat(/numbers/47.num)
-+ storage_stat(/numbers/47.num); inode 115
-node{mode: 100644, size: 0}
-getattr(/numbers/47.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/47.num, 0000) -> 0
-open(/numbers/47.num) -> 0
-ioctl(/numbers/47.num, 21505, ...) -> -1
-+ storage_write inum: 116
-write(/numbers/47.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/48.num)
-tree_lookup error
--2
-getattr(/numbers/48.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/48.num [100644] - #117
-+ dirent = '48.num'
-+ directory_put(..., 48.num, 117) -> 0
-node{mode: 40755, size: 960}
-mknod(/numbers/48.num, 100644) -> 0
-+ storage_stat(/numbers/48.num)
-+ storage_stat(/numbers/48.num); inode 117
-node{mode: 100644, size: 0}
-getattr(/numbers/48.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/48.num, 0000) -> 0
-open(/numbers/48.num) -> 0
-ioctl(/numbers/48.num, 21505, ...) -> -1
-+ storage_write inum: 118
-write(/numbers/48.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/49.num)
-tree_lookup error
--2
-getattr(/numbers/49.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/49.num [100644] - #119
-+ dirent = '49.num'
-+ directory_put(..., 49.num, 119) -> 0
-node{mode: 40755, size: 980}
-mknod(/numbers/49.num, 100644) -> 0
-+ storage_stat(/numbers/49.num)
-+ storage_stat(/numbers/49.num); inode 119
-node{mode: 100644, size: 0}
-getattr(/numbers/49.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/49.num, 0000) -> 0
-open(/numbers/49.num) -> 0
-ioctl(/numbers/49.num, 21505, ...) -> -1
-+ storage_write inum: 120
-write(/numbers/49.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers/50.num)
-tree_lookup error
--2
-getattr(/numbers/50.num) -> (-2) {mode: 0000, size: 0}
-+ mknod create /numbers/50.num [100644] - #121
-+ dirent = '50.num'
-+ directory_put(..., 50.num, 121) -> 0
-node{mode: 40755, size: 1000}
-mknod(/numbers/50.num, 100644) -> 0
-+ storage_stat(/numbers/50.num)
-+ storage_stat(/numbers/50.num); inode 121
-node{mode: 100644, size: 0}
-getattr(/numbers/50.num) -> (0) {mode: 100644, size: 0}
-access(/numbers/50.num, 0000) -> 0
-open(/numbers/50.num) -> 0
-ioctl(/numbers/50.num, 21505, ...) -> -1
-+ storage_write inum: 122
-write(/numbers/50.num, 3 bytes, @+0) -> 3
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-getattr(/numbers) -> (0) {mode: 40755, size: 1000}
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: '50.num'
-+ storage_stat(/numbers/50.num)
-+ storage_stat(/numbers/50.num); inode 122
-node{mode: 100644, size: 3}
-+ looking at path: '49.num'
-+ storage_stat(/numbers/49.num)
-+ storage_stat(/numbers/49.num); inode 120
-node{mode: 100644, size: 3}
-+ looking at path: '48.num'
-+ storage_stat(/numbers/48.num)
-+ storage_stat(/numbers/48.num); inode 118
-node{mode: 100644, size: 3}
-+ looking at path: '47.num'
-+ storage_stat(/numbers/47.num)
-+ storage_stat(/numbers/47.num); inode 116
-node{mode: 100644, size: 3}
-+ looking at path: '46.num'
-+ storage_stat(/numbers/46.num)
-+ storage_stat(/numbers/46.num); inode 114
-node{mode: 100644, size: 3}
-+ looking at path: '45.num'
-+ storage_stat(/numbers/45.num)
-+ storage_stat(/numbers/45.num); inode 112
-node{mode: 100644, size: 3}
-+ looking at path: '44.num'
-+ storage_stat(/numbers/44.num)
-+ storage_stat(/numbers/44.num); inode 110
-node{mode: 100644, size: 3}
-+ looking at path: '43.num'
-+ storage_stat(/numbers/43.num)
-+ storage_stat(/numbers/43.num); inode 108
-node{mode: 100644, size: 3}
-+ looking at path: '42.num'
-+ storage_stat(/numbers/42.num)
-+ storage_stat(/numbers/42.num); inode 106
-node{mode: 100644, size: 3}
-+ looking at path: '41.num'
-+ storage_stat(/numbers/41.num)
-+ storage_stat(/numbers/41.num); inode 104
-node{mode: 100644, size: 3}
-+ looking at path: '40.num'
-+ storage_stat(/numbers/40.num)
-+ storage_stat(/numbers/40.num); inode 102
-node{mode: 100644, size: 3}
-+ looking at path: '39.num'
-+ storage_stat(/numbers/39.num)
-+ storage_stat(/numbers/39.num); inode 100
-node{mode: 100644, size: 3}
-+ looking at path: '38.num'
-+ storage_stat(/numbers/38.num)
-+ storage_stat(/numbers/38.num); inode 98
-node{mode: 100644, size: 3}
-+ looking at path: '37.num'
-+ storage_stat(/numbers/37.num)
-+ storage_stat(/numbers/37.num); inode 96
-node{mode: 100644, size: 3}
-+ looking at path: '36.num'
-+ storage_stat(/numbers/36.num)
-+ storage_stat(/numbers/36.num); inode 94
-node{mode: 100644, size: 3}
-+ looking at path: '35.num'
-+ storage_stat(/numbers/35.num)
-+ storage_stat(/numbers/35.num); inode 92
-node{mode: 100644, size: 3}
-+ looking at path: '34.num'
-+ storage_stat(/numbers/34.num)
-+ storage_stat(/numbers/34.num); inode 90
-node{mode: 100644, size: 3}
-+ looking at path: '33.num'
-+ storage_stat(/numbers/33.num)
-+ storage_stat(/numbers/33.num); inode 88
-node{mode: 100644, size: 3}
-+ looking at path: '32.num'
-+ storage_stat(/numbers/32.num)
-+ storage_stat(/numbers/32.num); inode 86
-node{mode: 100644, size: 3}
-+ looking at path: '31.num'
-+ storage_stat(/numbers/31.num)
-+ storage_stat(/numbers/31.num); inode 84
-node{mode: 100644, size: 3}
-+ looking at path: '30.num'
-+ storage_stat(/numbers/30.num)
-+ storage_stat(/numbers/30.num); inode 82
-node{mode: 100644, size: 3}
-+ looking at path: '29.num'
-+ storage_stat(/numbers/29.num)
-+ storage_stat(/numbers/29.num); inode 80
-node{mode: 100644, size: 3}
-+ looking at path: '28.num'
-+ storage_stat(/numbers/28.num)
-+ storage_stat(/numbers/28.num); inode 78
-node{mode: 100644, size: 3}
-+ looking at path: '27.num'
-+ storage_stat(/numbers/27.num)
-+ storage_stat(/numbers/27.num); inode 76
-node{mode: 100644, size: 3}
-+ looking at path: '26.num'
-+ storage_stat(/numbers/26.num)
-+ storage_stat(/numbers/26.num); inode 74
-node{mode: 100644, size: 3}
-+ looking at path: '25.num'
-+ storage_stat(/numbers/25.num)
-+ storage_stat(/numbers/25.num); inode 72
-node{mode: 100644, size: 3}
-+ looking at path: '24.num'
-+ storage_stat(/numbers/24.num)
-+ storage_stat(/numbers/24.num); inode 70
-node{mode: 100644, size: 3}
-+ looking at path: '23.num'
-+ storage_stat(/numbers/23.num)
-+ storage_stat(/numbers/23.num); inode 68
-node{mode: 100644, size: 3}
-+ looking at path: '22.num'
-+ storage_stat(/numbers/22.num)
-+ storage_stat(/numbers/22.num); inode 66
-node{mode: 100644, size: 3}
-+ looking at path: '21.num'
-+ storage_stat(/numbers/21.num)
-+ storage_stat(/numbers/21.num); inode 64
-node{mode: 100644, size: 3}
-+ looking at path: '20.num'
-+ storage_stat(/numbers/20.num)
-+ storage_stat(/numbers/20.num); inode 62
-node{mode: 100644, size: 3}
-+ looking at path: '19.num'
-+ storage_stat(/numbers/19.num)
-+ storage_stat(/numbers/19.num); inode 60
-node{mode: 100644, size: 3}
-+ looking at path: '18.num'
-+ storage_stat(/numbers/18.num)
-+ storage_stat(/numbers/18.num); inode 58
-node{mode: 100644, size: 3}
-+ looking at path: '17.num'
-+ storage_stat(/numbers/17.num)
-+ storage_stat(/numbers/17.num); inode 56
-node{mode: 100644, size: 3}
-+ looking at path: '16.num'
-+ storage_stat(/numbers/16.num)
-+ storage_stat(/numbers/16.num); inode 54
-node{mode: 100644, size: 3}
-+ looking at path: '15.num'
-+ storage_stat(/numbers/15.num)
-+ storage_stat(/numbers/15.num); inode 52
-node{mode: 100644, size: 3}
-+ looking at path: '14.num'
-+ storage_stat(/numbers/14.num)
-+ storage_stat(/numbers/14.num); inode 50
-node{mode: 100644, size: 3}
-+ looking at path: '13.num'
-+ storage_stat(/numbers/13.num)
-+ storage_stat(/numbers/13.num); inode 48
-node{mode: 100644, size: 3}
-+ looking at path: '12.num'
-+ storage_stat(/numbers/12.num)
-+ storage_stat(/numbers/12.num); inode 46
-node{mode: 100644, size: 3}
-+ looking at path: '11.num'
-+ storage_stat(/numbers/11.num)
-+ storage_stat(/numbers/11.num); inode 44
-node{mode: 100644, size: 3}
-+ looking at path: '10.num'
-+ storage_stat(/numbers/10.num)
-+ storage_stat(/numbers/10.num); inode 42
-node{mode: 100644, size: 3}
-+ looking at path: '9.num'
-+ storage_stat(/numbers/9.num)
-+ storage_stat(/numbers/9.num); inode 40
-node{mode: 100644, size: 2}
-+ looking at path: '8.num'
-+ storage_stat(/numbers/8.num)
-+ storage_stat(/numbers/8.num); inode 38
-node{mode: 100644, size: 2}
-+ looking at path: '7.num'
-+ storage_stat(/numbers/7.num)
-+ storage_stat(/numbers/7.num); inode 36
-node{mode: 100644, size: 2}
-+ looking at path: '6.num'
-+ storage_stat(/numbers/6.num)
-+ storage_stat(/numbers/6.num); inode 34
-node{mode: 100644, size: 2}
-+ looking at path: '5.num'
-+ storage_stat(/numbers/5.num)
-+ storage_stat(/numbers/5.num); inode 32
-node{mode: 100644, size: 2}
-+ looking at path: '4.num'
-+ storage_stat(/numbers/4.num)
-+ storage_stat(/numbers/4.num); inode 30
-node{mode: 100644, size: 2}
-+ looking at path: '3.num'
-+ storage_stat(/numbers/3.num)
-+ storage_stat(/numbers/3.num); inode 28
-node{mode: 100644, size: 2}
-+ looking at path: '2.num'
-+ storage_stat(/numbers/2.num)
-+ storage_stat(/numbers/2.num); inode 26
-node{mode: 100644, size: 2}
-+ looking at path: '1.num'
-+ storage_stat(/numbers/1.num)
-+ storage_stat(/numbers/1.num); inode 23
-node{mode: 100644, size: 2}
-readdir(/numbers) -> 0
-access(/numbers/10.num, 0000) -> 0
-open(/numbers/10.num) -> 0
-ioctl(/numbers/10.num, 21505, ...) -> -1
-+ storage_stat(/numbers/10.num)
-+ storage_stat(/numbers/10.num); inode 42
-node{mode: 100644, size: 3}
-getattr(/numbers/10.num) -> (0) {mode: 100644, size: 3}
-In link 0:	24
+getattr(/2k.txt) -> (0) {mode: 100644, size: 0}
+access(/2k.txt, 0000) -> 0
+open(/2k.txt) -> 0
+ioctl(/2k.txt, 21505, ...) -> -1
++ storage_write inum: 22
+write(/2k.txt, 2001 bytes, @+0) -> 2001
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
+getattr(/2k.txt) -> (0) {mode: 100644, size: 2001}
+access(/2k.txt, 0000) -> 0
+open(/2k.txt) -> 0
+ioctl(/2k.txt, 21505, ...) -> -1
+In link 0:	21
 In link 1:	-1
 In link 2:	-1
 In link 3:	-1
@@ -2545,18 +550,17 @@ In link 12:	-1
 In link 13:	-1
 In link 14:	-1
 In link 15:	-1
-+ storage_read(/numbers/10.num); inode 42
-node{mode: 100644, size: 3}
-read(/numbers/10.num, 4096 bytes, @+0) -> 3
-access(/numbers/20.num, 0000) -> 0
-open(/numbers/20.num) -> 0
-ioctl(/numbers/20.num, 21505, ...) -> -1
-+ storage_stat(/numbers/20.num)
-+ storage_stat(/numbers/20.num); inode 62
-node{mode: 100fusermount -u mnt || true
-644, size: 3}
-getattr(/numbers/20.num) -> (0) {mode: 100644, size: 3}
-In link 0:	24
++ storage_read(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
+read(/2k.txt, 4096 bytes, @+0) -> 2001
+access(/2k.txt, 0000) -> 0
+open(/2k.txt) -> 0
+ioctl(/2k.txt, 21505, ...) -> -1
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
+getattr(/2k.txt) -> (0) {mode: 100644, size: 2001}
+In link 0:	21
 In link 1:	-1
 In link 2:	-1
 In link 3:	-1
@@ -2572,124 +576,23 @@ In link 12:	-1
 In link 13:	-1
 In link 14:	-1
 In link 15:	-1
-+ storage_read(/numbers/20.num); inode 62
-node{mode: 100644, size: 3}
-read(/numbers/20.num, 4096 bytes, @+0) -> 3
-access(/numbers/30.num, 0000) -> 0
-open(/numbers/30.num) -> 0
-ioctl(/numbers/30.num, 21505, ...) -> -1
-+ storage_stat(/numbers/30.num)
-+ storage_stat(/numbers/30.num); inode 82
-node{mode: 100644, size: 3}
-getattr(/numbers/30.num) -> (0) {mode: 100644, size: 3}
-In link 0:	24
-In link 1:	-1
-In link 2:	-1
-In link 3:	-1
-In link 4:	-1
-In link 5:	-1
-In link 6:	-1
-In link 7:	-1
-In link 8:	-1
-In link 9:	-1
-In link 10:	-1
-In link 11:	-1
-In link 12:	-1
-In link 13:	-1
-In link 14:	-1
-In link 15:	-1
-+ storage_read(/numbers/30.num); inode 82
-node{mode: 100644, size: 3}
-read(/numbers/30.num, 4096 bytes, @+0) -> 3
-access(/numbers/40.num, 0000) -> 0
-open(/numbers/40.num) -> 0
-ioctl(/numbers/40.num, 21505, ...) -> -1
-+ storage_stat(/numbers/40.num)
-+ storage_stat(/numbers/40.num); inode 102
-node{mode: 100644, size: 3}
-getattr(/numbers/40.num) -> (0) {mode: 100644, size: 3}
-In link 0:	24
-In link 1:	-1
-In link 2:	-1
-In link 3:	-1
-In link 4:	-1
-In link 5:	-1
-In link 6:	-1
-In link 7:	-1
-In link 8:	-1
-In link 9:	-1
-In link 10:	-1
-In link 11:	-1
-In link 12:	-1
-In link 13:	-1
-In link 14:	-1
-In link 15:	-1
-+ storage_read(/numbers/40.num); inode 102
-node{mode: 100644, size: 3}
-read(/numbers/40.num, 4096 bytes, @+0) -> 3
-access(/numbers/50.num, 0000) -> 0
-open(/numbers/50.num) -> 0
-ioctl(/numbers/50.num, 21505, ...) -> -1
-+ storage_stat(/numbers/50.num)
-+ storage_stat(/numbers/50.num); inode 122
-node{mode: 100644, size: 3}
-getattr(/numbers/50.num) -> (0) {mode: 100644, size: 3}
-In link 0:	24
-In link 1:	-1
-In link 2:	-1
-In link 3:	-1
-In link 4:	-1
-In link 5:	-1
-In link 6:	-1
-In link 7:	-1
-In link 8:	-1
-In link 9:	-1
-In link 10:	-1
-In link 11:	-1
-In link 12:	-1
-In link 13:	-1
-In link 14:	-1
-In link 15:	-1
-+ storage_read(/numbers/50.num); inode 122
-node{mode: 100644, size: 3}
-read(/numbers/50.num, 4096 bytes, @+0) -> 3
-+ storage_stat(/numbers/7.num)
-+ storage_stat(/numbers/7.num); inode 36
-node{mode: 100644, size: 2}
-getattr(/numbers/7.num) -> (0) {mode: 100644, size: 2}
-access(/numbers/7.num, 0002) -> 0
- + directory_delete(7.num)
-+ free_inode(36)
-unlink(/numbers/7.num) -> 0
-+ storage_stat(/numbers/14.num)
-+ storage_stat(/numbers/14.num); inode 50
-node{mode: 100644, size: 3}
-getattr(/numbers/14.num) -> (0) {mode: 100644, size: 3}
-access(/numbers/14.num, 0002) -> 0
- + directory_delete(14.num)
-+ free_inode(50)
-unlink(/numbers/14.num) -> 0
-+ storage_stat(/numbers/21.num)
-+ storage_stat(/numbers/21.num); inode 64
-node{mode: 100644, size: 3}
-getattr(/numbers/21.num) -> (0) {mode: 100644, size: 3}
-access(/numbers/21.num, 0002) -> 0
- + directory_delete(21.num)
-+ free_inode(64)
-unlink(/numbers/21.num) -> 0
-+ storage_stat(/numbers/28.num)
-+ storage_stat(/numbers/28.num); inode 78
-node{mode: 100644, size: 3}
-getattr(/numbers/28.num) -> (0) {mode: 100644, size: 3}
-access(/numbers/28.num, 0002) -> 0
- + directory_delete(28.num)
-+ free_inode(78)
-unlink(/numbers/28.num) -> 0
++ storage_read(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
+read(/2k.txt, 4096 bytes, @+0) -> 2001
 make disk0.cow
 make[1]: Entering directory '/home/jason/Documents/2020/cs3650-ch3'
 make[1]: 'disk0.cow' is up to date.
 make[1]: Leaving directory '/home/jason/Documents/2020/cs3650-ch3'
 ./cowmount -s -f mnt disk0.cow
+access(/, 0004) -> 0
++ storage_stat(/.Trash)
+tree_lookup error
+-2
+getattr(/.Trash) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/.Trash-1000)
+tree_lookup error
+-2
+getattr(/.Trash-1000) -> (-2) {mode: 0000, size: 0}
 + storage_stat(/.xdg-volume-info)
 tree_lookup error
 -2
@@ -2699,935 +602,2073 @@ tree_lookup error
 -2
 getattr(/autorun.inf) -> (-2) {mode: 0000, size: 0}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
-+ looking at path: 'def.txt'
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
-node{mode: 40755, size: 20}
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-getattr(/) -> (0) {mode: 40755, size: 120}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
 + storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 120}
-+ looking at path: 'numbers'
-+ storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: 'dir1'
-+ storage_stat(/dir1)
-+ storage_stat(/dir1); inode 20
-node{mode: 40755, size: 20}
-+ looking at path: '40k.txt'
-+ storage_stat(/40k.txt)
-+ storage_stat(/40k.txt); inode 8
-node{mode: 100644, size: 40001}
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
 + looking at path: '2k.txt'
 + storage_stat(/2k.txt)
-+ storage_stat(/2k.txt); inode 3
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/autorun.inf)
+tree_lookup error
+-2
+getattr(/autorun.inf) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
++ storage_stat(/)
++ storage_stat(/); inode 23
+node{mode: 40755, size: 100}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: 'one.txt'
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
+getattr(/one.txt) -> (0) {mode: 100644, size: 11}
+access(/one.txt, 0000) -> 0
+open(/one.txt) -> 0
+ioctl(/one.txt, 21505, ...) -> -1
+In link 0:	11
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/one.txt); inode 12
+node{mode: 100644, size: 11}
+read(/one.txt, 4096 bytes, @+0) -> 11
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
+node{mode: 100644, size: 11}
+getattr(/two.txt) -> (0) {mode: 100644, size: 11}
+access(/two.txt, 0000) -> 0
+open(/two.txt) -> 0
+ioctl(/two.txt, 21505, ...) -> -1
+In link 0:	16
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/two.txt); inode 17
+node{mode: 100644, size: 11}
+read(/two.txt, 4096 bytes, @+0) -> 11
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 12
+node{mode: 100644, size: 11}
+getattr(/one.txt) -> (0) {mode: 100644, size: 11}
+ + directory_delete(one.txt)
+inode_del_ref overflow, sadness.
++ free_inode(12)
+unlink(/one.txt) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 26
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
++ storage_stat(/)
++ storage_stat(/); inode 26
+node{mode: 40755, size: 100}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'two.txt'
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/abc.txt)
+tree_lookup error
+-2
+getattr(/abc.txt) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 17
+node{mode: 100644, size: 11}
+getattr(/two.txt) -> (0) {mode: 100644, size: 11}
++ storage_stat(/abc.txt)
+tree_lookup error
+-2
+getattr(/abc.txt) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/abc.txt)
+tree_lookup error
+-2
+getattr(/abc.txt) -> (-2) {mode: 0000, size: 0}
++ dirent = 'abc.txt'
++ directory_put(..., abc.txt, 17) -> 0
+node{mode: 40755, size: 100}
+ + directory_delete(two.txt)
+rename(/two.txt => /abc.txt) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 12
+node{mode: 40755, size: 100}
+getattr(/) -> (0) {mode: 40755, size: 100}
++ storage_stat(/)
++ storage_stat(/); inode 12
+node{mode: 40755, size: 100}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'abc.txt'
++ storage_stat(/abc.txt)
++ storage_stat(/abc.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
+access(/abc.txt, 0000) -> 0
+open(/abc.txt) -> 0
+ioctl(/abc.txt, 21505, ...) -> -1
++ storage_stat(/abc.txt)
++ storage_stat(/abc.txt); inode 17
+node{mode: 100644, size: 11}
+getattr(/abc.txt) -> (0) {mode: 100644, size: 11}
+In link 0:	16
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/abc.txt); inode 17
+node{mode: 100644, size: 11}
+read(/abc.txt, 4096 bytes, @+0) -> 11
++ storage_stat(/def.txt)
+tree_lookup error
+-2
+getattr(/def.txt) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/abc.txt)
++ storage_stat(/abc.txt); inode 17
+node{mode: 100644, size: 11}
+getattr(/abc.txt) -> (0) {mode: 100644, size: 11}
++ storage_stat(/def.txt)
+tree_lookup error
+-2
+getattr(/def.txt) -> (-2) {mode: 0000, size: 0}
+I am root. ¯\_(ツ)_/¯
++ dirent = 'def.txt'
++ directory_put(..., def.txt, 17) -> 0
+node{mode: 40755, size: 100}
+link(/abc.txt => /def.txt) -> 0
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
+getattr(/def.txt) -> (0) {mode: 100644, size: 11}
+access(/def.txt, 0000) -> 0
+open(/def.txt) -> 0
+ioctl(/def.txt, 21505, ...) -> -1
+In link 0:	16
+In link 1:	34
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/def.txt); inode 17
+node{mode: 100644, size: 11}
+read(/def.txt, 4096 bytes, @+0) -> 11
++ storage_stat(/abc.txt)
++ storage_stat(/abc.txt); inode 17
+node{mode: 100644, size: 11}
+getattr(/abc.txt) -> (0) {mode: 100644, size: 11}
+ + directory_delete(abc.txt)
+inode_del_ref overflow, sadness.
+unlink(/abc.txt) -> 0
+access(/def.txt, 0000) -> 0
+open(/def.txt) -> 0
+ioctl(/def.txt, 21505, ...) -> -1
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
+getattr(/def.txt) -> (0) {mode: 100644, size: 11}
+In link 0:	16
+In link 1:	34
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/def.txt); inode 17
+node{mode: 100644, size: 11}
+read(/def.txt, 4096 bytes, @+0) -> 11
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+getattr(/foo) -> (0) {mode: 100644, size: 0}
++ storage_stat(/40k.txt)
+tree_lookup error
+-2
+getattr(/40k.txt) -> (-2) {mode: 0000, size: 0}
+I am root. ¯\_(ツ)_/¯
++ mknod create /40k.txt [100644] - #40
++ dirent = '40k.txt'
++ directory_put(..., 40k.txt, 40) -> 0
+node{mode: 40755, size: 100}
+mknod(/40k.txt, 100644) -> 0
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 0}
+getattr(/40k.txt) -> (0) {mode: 100644, size: 0}
+access(/40k.txt, 0000) -> 0
+open(/40k.txt) -> 0
+ioctl(/40k.txt, 21505, ...) -> -1
++ storage_write inum: 40
+write(/40k.txt, 4096 bytes, @+0) -> 4096
++ storage_write inum: 40
+write(/40k.txt, 4096 bytes, @+4096) -> 4096
++ storage_write inum: 40
+write(/40k.txt, 4096 bytes, @+8192) -> 4096
++ storage_write inum: 40
+write(/40k.txt, 4096 bytes, @+12288) -> 4096
++ storage_write inum: 40
+write(/40k.txt, 4096 bytes, @+16384) -> 4096
++ storage_write inum: 40
+write(/40k.txt, 4096 bytes, @+20480) -> 4096
++ storage_write inum: 40
+write(/40k.txt, 4096 bytes, @+24576) -> 4096
++ storage_write inum: 40
+write(/40k.txt, 4096 bytes, @+28672) -> 4096
++ storage_write inum: 40
+write(/40k.txt, 4096 bytes, @+32768) -> 4096
++ storage_write inum: 40
+write(/40k.txt, 3137 bytes, @+36864) -> 3137
+access(/40k.txt, 0000) -> 0
+open(/40k.txt) -> 0
+ioctl(/40k.txt, 21505, ...) -> -1
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
+getattr(/40k.txt) -> (0) {mode: 100644, size: 40001}
+In link 0:	39
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
+read(/40k.txt, 16384 bytes, @+0) -> 16384
+In link 0:	39
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
+read(/40k.txt, 24576 bytes, @+16384) -> 23617
+access(/40k.txt, 0000) -> 0
+open(/40k.txt) -> 0
+ioctl(/40k.txt, 21505, ...) -> -1
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
+getattr(/40k.txt) -> (0) {mode: 100644, size: 40001}
+In link 0:	39
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
+read(/40k.txt, 12288 bytes, @+4096) -> 12288
+access(/, 0001) -> 0
++ storage_stat(/dir1)
+tree_lookup error
+-2
+getattr(/dir1) -> (-2) {mode: 0000, size: 0}
+I am root. ¯\_(ツ)_/¯
++ mknod create /dir1 [0755] - #72
++ dirent = 'dir1'
++ directory_put(..., dir1, 72) -> 0
+node{mode: 40755, size: 120}
+mkdir(/dir1) -> 0
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 0}
+getattr(/dir1) -> (0) {mode: 40755, size: 0}
+access(/dir1, 0001) -> 0
++ storage_stat(/dir1/dir2)
+tree_lookup error
+-2
+getattr(/dir1/dir2) -> (-2) {mode: 0000, size: 0}
++ mknod create /dir1/dir2 [0755] - #76
++ dirent = 'dir2'
++ directory_put(..., dir2, 76) -> 0
+node{mode: 40755, size: 20}
+mkdir(/dir1/dir2) -> 0
++ storage_stat(/dir1/dir2)
++ storage_stat(/dir1/dir2); inode 76
+node{mode: 40755, size: 0}
+getattr(/dir1/dir2) -> (0) {mode: 40755, size: 0}
+access(/dir1/dir2, 0001) -> 0
++ storage_stat(/dir1/dir2/dir3)
+tree_lookup error
+-2
+getattr(/dir1/dir2/dir3) -> (-2) {mode: 0000, size: 0}
++ mknod create /dir1/dir2/dir3 [0755] - #81
++ dirent = 'dir3'
++ directory_put(..., dir3, 81) -> 0
+node{mode: 40755, size: 20}
+mkdir(/dir1/dir2/dir3) -> 0
++ storage_stat(/dir1/dir2/dir3)
++ storage_stat(/dir1/dir2/dir3); inode 81
+node{mode: 40755, size: 0}
+getattr(/dir1/dir2/dir3) -> (0) {mode: 40755, size: 0}
+access(/dir1/dir2/dir3, 0001) -> 0
++ storage_stat(/dir1/dir2/dir3/dir4)
+tree_lookup error
+-2
+getattr(/dir1/dir2/dir3/dir4) -> (-2) {mode: 0000, size: 0}
++ mknod create /dir1/dir2/dir3/dir4 [0755] - #87
++ dirent = 'dir4'
++ directory_put(..., dir4, 87) -> 0
+node{mode: 40755, size: 20}
+mkdir(/dir1/dir2/dir3/dir4) -> 0
++ storage_stat(/dir1/dir2/dir3/dir4)
++ storage_stat(/dir1/dir2/dir3/dir4); inode 87
+node{mode: 40755, size: 0}
+getattr(/dir1/dir2/dir3/dir4) -> (0) {mode: 40755, size: 0}
+access(/dir1/dir2/dir3/dir4, 0001) -> 0
++ storage_stat(/dir1/dir2/dir3/dir4/dir5)
+tree_lookup error
+-2
+getattr(/dir1/dir2/dir3/dir4/dir5) -> (-2) {mode: 0000, size: 0}
++ mknod create /dir1/dir2/dir3/dir4/dir5 [0755] - #94
++ dirent = 'dir5'
++ directory_put(..., dir5, 94) -> 0
+node{mode: 40755, size: 20}
+mkdir(/dir1/dir2/dir3/dir4/dir5) -> 0
++ storage_stat(/dir1/dir2/dir3/dir4/dir5)
++ storage_stat(/dir1/dir2/dir3/dir4/dir5); inode 94
+node{mode: 40755, size: 0}
+getattr(/dir1/dir2/dir3/dir4/dir5) -> (0) {mode: 40755, size: 0}
++ storage_stat(/dir1/dir2/dir3/dir4/dir5/hello.txt)
+tree_lookup error
+-2
+getattr(/dir1/dir2/dir3/dir4/dir5/hello.txt) -> (-2) {mode: 0000, size: 0}
++ mknod create /dir1/dir2/dir3/dir4/dir5/hello.txt [100644] - #102
++ dirent = 'hello.txt'
++ directory_put(..., hello.txt, 102) -> 0
+node{mode: 40755, size: 20}
+mknod(/dir1/dir2/dir3/dir4/dir5/hello.txt, 100644) -> 0
++ storage_stat(/dir1/dir2/dir3/dir4/dir5/hello.txt)
++ storage_stat(/dir1/dir2/dir3/dir4/dir5/hello.txt); inode 102
+node{mode: 100644, size: 0}
+getattr(/dir1/dir2/dir3/dir4/dir5/hello.txt) -> (0) {mode: 100644, size: 0}
+access(/dir1/dir2/dir3/dir4/dir5/hello.txt, 0000) -> 0
+open(/dir1/dir2/dir3/dir4/dir5/hello.txt) -> 0
+ioctl(/dir1/dir2/dir3/dir4/dir5/hello.txt, 21505, ...) -> -1
++ storage_write inum: 102
+write(/dir1/dir2/dir3/dir4/dir5/hello.txt, 12 bytes, @+0) -> 12
+access(/dir1/dir2/dir3/dir4/dir5/hello.txt, 0000) -> 0
+open(/dir1/dir2/dir3/dir4/dir5/hello.txt) -> 0
+ioctl(/dir1/dir2/dir3/dir4/dir5/hello.txt, 21505, ...) -> -1
++ storage_stat(/dir1/dir2/dir3/dir4/dir5/hello.txt)
++ storage_stat(/dir1/dir2/dir3/dir4/dir5/hello.txt); inode 102
+node{mode: 100644, size: 12}
+getattr(/dir1/dir2/dir3/dir4/dir5/hello.txt) -> (0) {mode: 100644, size: 12}
+In link 0:	94
+In link 1:	-1
+In link 2:	-1
+In link 3:	-1
+In link 4:	-1
+In link 5:	-1
+In link 6:	-1
+In link 7:	-1
+In link 8:	-1
+In link 9:	-1
+In link 10:	-1
+In link 11:	-1
+In link 12:	-1
+In link 13:	-1
+In link 14:	-1
+In link 15:	-1
++ storage_read(/dir1/dir2/dir3/dir4/dir5/hello.txt); inode 102
+node{mode: 100644, size: 12}
+read(/dir1/dir2/dir3/dir4/dir5/hello.txt, 4096 bytes, @+0) -> 12
++ storage_stat(/numbers)
+tree_lookup error
+-2
+getattr(/numbers) -> (-2) {mode: 0000, size: 0}
+I am root. ¯\_(ツ)_/¯
++ mknod create /numbers [0755] - #112
++ dirent = 'numbers'
++ directory_put(..., numbers, 112) -> 0
+node{mode: 40755, size: 140}
+mkdir(/numbers) -> 0
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 0}
+getattr(/numbers) -> (0) {mode: 40755, size: 0}
++ storage_stat(/numbers/1.num)
+tree_lookup error
+-2
+getattr(/numbers/1.num) -> (-2) {mode: 0000, size: 0}
++ mknod create /numbers/1.num [100644] - #116
++ dirent = '1.num'
++ directory_put(..., 1.num, 116) -> 0
+node{mode: 40755, size: 20}
+mknod(/numbers/1.num, 100644) -> 0
++ storage_stat(/numbers/1.num)
++ storage_stat(/numbers/1.num); inode 116
+node{mode: 100644, size: 0}
+getattr(/numbers/1.num) -> (0) {mode: 100644, size: 0}
+access(/numbers/1.num, 0000) -> 0
+open(/numbers/1.num) -> 0
+ioctl(/numbers/1.num, 21505, ...) -> -1
++ storage_write inum: 116
+write(/numbers/1.num, 2 bytes, @+0) -> 2
++ storage_stat(/numbers/2.num)
+tree_lookup error
+-2
+getattr(/numbers/2.num) -> (-2) {mode: 0000, size: 0}
++ mknod create /numbers/2.num [100644] - #124
++ dirent = '2.num'
++ directory_put(..., 2.num, 124) -> 0
+node{mode: 40755, size: 40}
+mknod(/numbers/2.num, 100644) -> 0
++ storage_stat(/numbers/2.num)
++ storage_stat(/numbers/2.num); inode 124
+node{mode: 100644, size: 0}
+getattr(/numbers/2.num) -> (0) {mode: 100644, size: 0}
+access(/numbers/2.num, 0000) -> 0
+open(/numbers/2.num) -> 0
+ioctl(/numbers/2.num, 21505Makefile:29: recipe for target 'mount' failed
+make: *** [mount] Segmentation fault (core dumped)
+fusermount -u mnt || true
+make disk0.cow
+make[1]: Entering directory '/home/jason/Documents/2020/cs3650-ch3'
+make[1]: 'disk0.cow' is up to date.
+make[1]: Leaving directory '/home/jason/Documents/2020/cs3650-ch3'
+./cowmount -s -f mnt disk0.cow
+access(/, 0004) -> 0
++ storage_stat(/.Trash)
+tree_lookup error
+-2
+getattr(/.Trash) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/.Trash-1000)
+tree_lookup error
+-2
+getattr(/.Trash-1000) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/.xdg-volume-info)
+tree_lookup error
+-2
+getattr(/.xdg-volume-info) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/autorun.inf)
+tree_lookup error
+-2
+getattr(/autorun.inf) -> (-2) {mode: 0000, size: 0}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
 node{mode: 100644, size: 2001}
 + looking at path: 'def.txt'
 + storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 2
++ storage_stat(/def.txt); inode 17
 node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
 + looking at path: 'foo'
 + storage_stat(/foo)
-+ storage_stat(/foo); inode 6
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
 node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
+readdir(/) -> 0
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
+getattr(/) -> (0) {mode: 40755, size: 140}
++ storage_stat(/)
++ storage_stat(/); inode 157
+node{mode: 40755, size: 140}
++ looking at path: 'numbers'
++ storage_stat(/numbers)
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
++ looking at path: 'dir1'
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 72
+node{mode: 40755, size: 20}
++ looking at path: '2k.txt'
++ storage_stat(/2k.txt)
++ storage_stat(/2k.txt); inode 22
+node{mode: 100644, size: 2001}
++ looking at path: 'def.txt'
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 17
+node{mode: 100644, size: 11}
++ looking at path: '40k.txt'
++ storage_stat(/40k.txt)
++ storage_stat(/40k.txt); inode 40
+node{mode: 100644, size: 40001}
++ looking at path: 'bar'
++ storage_stat(/bar)
++ storage_stat(/bar); inode 7
+node{mode: 100644, size: 3}
++ looking at path: 'foo'
++ storage_stat(/foo)
++ storage_stat(/foo); inode 2
+node{mode: 100644, size: 0}
 readdir(/) -> 0
 + storage_stat(/autorun.inf)
 tree_lookup error
 -2
 getattr(/autorun.inf) -> (-2) {mode: 0000, size: 0}
 + storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-getattr(/numbers) -> (0) {mode: 40755, size: 1000}
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
+getattr(/numbers) -> (0) {mode: 40755, size: 120}
 + storage_stat(/numbers)
-+ storage_stat(/numbers); inode 24
-node{mode: 40755, size: 1000}
-+ looking at path: '50.num'
-+ storage_stat(/numbers/50.num)
-+ storage_stat(/numbers/50.num); inode 122
-node{mode: 100644, size: 3}
-+ looking at path: '49.num'
-+ storage_stat(/numbers/49.num)
-+ storage_stat(/numbers/49.num); inode 120
-node{mode: 100644, size: 3}
-+ looking at path: '48.num'
-+ storage_stat(/numbers/48.num)
-+ storage_stat(/numbers/48.num); inode 118
-node{mode: 100644, size: 3}
-+ looking at path: '47.num'
-+ storage_stat(/numbers/47.num)
-+ storage_stat(/numbers/47.num); inode 116
-node{mode: 100644, size: 3}
-+ looking at path: '46.num'
-+ storage_stat(/numbers/46.num)
-+ storage_stat(/numbers/46.num); inode 114
-node{mode: 100644, size: 3}
-+ looking at path: '45.num'
-+ storage_stat(/numbers/45.num)
-+ storage_stat(/numbers/45.num); inode 112
-node{mode: 100644, size: 3}
-+ looking at path: '44.num'
-+ storage_stat(/numbers/44.num)
-+ storage_stat(/numbers/44.num); inode 110
-node{mode: 100644, size: 3}
-+ looking at path: '43.num'
-+ storage_stat(/numbers/43.num)
-+ storage_stat(/numbers/43.num); inode 108
-node{mode: 100644, size: 3}
-+ looking at path: '42.num'
-+ storage_stat(/numbers/42.num)
-+ storage_stat(/numbers/42.num); inode 106
-node{mode: 100644, size: 3}
-+ looking at path: '41.num'
-+ storage_stat(/numbers/41.num)
-+ storage_stat(/numbers/41.num); inode 104
-node{mode: 100644, size: 3}
-+ looking at path: '40.num'
-+ storage_stat(/numbers/40.num)
-+ storage_stat(/numbers/40.num); inode 102
-node{mode: 100644, size: 3}
-+ looking at path: '39.num'
-+ storage_stat(/numbers/39.num)
-+ storage_stat(/numbers/39.num); inode 100
-node{mode: 100644, size: 3}
-+ looking at path: '38.num'
-+ storage_stat(/numbers/38.num)
-+ storage_stat(/numbers/38.num); inode 98
-node{mode: 100644, size: 3}
-+ looking at path: '37.num'
-+ storage_stat(/numbers/37.num)
-+ storage_stat(/numbers/37.num); inode 96
-node{mode: 100644, size: 3}
-+ looking at path: '36.num'
-+ storage_stat(/numbers/36.num)
-+ storage_stat(/numbers/36.num); inode 94
-node{mode: 100644, size: 3}
-+ looking at path: '35.num'
-+ storage_stat(/numbers/35.num)
-+ storage_stat(/numbers/35.num); inode 92
-node{mode: 100644, size: 3}
-+ looking at path: '34.num'
-+ storage_stat(/numbers/34.num)
-+ storage_stat(/numbers/34.num); inode 90
-node{mode: 100644, size: 3}
-+ looking at path: '33.num'
-+ storage_stat(/numbers/33.num)
-+ storage_stat(/numbers/33.num); inode 88
-node{mode: 100644, size: 3}
-+ looking at path: '32.num'
-+ storage_stat(/numbers/32.num)
-+ storage_stat(/numbers/32.num); inode 86
-node{mode: 100644, size: 3}
-+ looking at path: '31.num'
-+ storage_stat(/numbers/31.num)
-+ storage_stat(/numbers/31.num); inode 84
-node{mode: 100644, size: 3}
-+ looking at path: '30.num'
-+ storage_stat(/numbers/30.num)
-+ storage_stat(/numbers/30.num); inode 82
-node{mode: 100644, size: 3}
-+ looking at path: '29.num'
-+ storage_stat(/numbers/29.num)
-+ storage_stat(/numbers/29.num); inode 80
-node{mode: 100644, size: 3}
-+ looking at path: '27.num'
-+ storage_stat(/numbers/27.num)
-+ storage_stat(/numbers/27.num); inode 76
-node{mode: 100644, size: 3}
-+ looking at path: '26.num'
-+ storage_stat(/numbers/26.num)
-+ storage_stat(/numbers/26.num); inode 74
-node{mode: 100644, size: 3}
-+ looking at path: '25.num'
-+ storage_stat(/numbers/25.num)
-+ storage_stat(/numbers/25.num); inode 72
-node{mode: 100644, size: 3}
-+ looking at path: '24.num'
-+ storage_stat(/numbers/24.num)
-+ storage_stat(/numbers/24.num); inode 70
-node{mode: 100644, size: 3}
-+ looking at path: '23.num'
-+ storage_stat(/numbers/23.num)
-+ storage_stat(/numbers/23.num); inode 68
-node{mode: 100644, size: 3}
-+ looking at pfusermount -u mnt || true
-ath: '22.num'
-+ storage_stat(/numbers/22.num)
-+ storage_stat(/numbers/22.num); inode 66
-node{mode: 100644, size: 3}
-+ looking at path: '20.num'
-+ storage_stat(/numbers/20.num)
-+ storage_stat(/numbers/20.num); inode 62
-node{mode: 100644, size: 3}
-+ looking at path: '19.num'
-+ storage_stat(/numbers/19.num)
-+ storage_stat(/numbers/19.num); inode 60
-node{mode: 100644, size: 3}
-+ looking at path: '18.num'
-+ storage_stat(/numbers/18.num)
-+ storage_stat(/numbers/18.num); inode 58
-node{mode: 100644, size: 3}
-+ looking at path: '17.num'
-+ storage_stat(/numbers/17.num)
-+ storage_stat(/numbers/17.num); inode 56
-node{mode: 100644, size: 3}
-+ looking at path: '16.num'
-+ storage_stat(/numbers/16.num)
-+ storage_stat(/numbers/16.num); inode 54
-node{mode: 100644, size: 3}
-+ looking at path: '15.num'
-+ storage_stat(/numbers/15.num)
-+ storage_stat(/numbers/15.num); inode 52
-node{mode: 100644, size: 3}
-+ looking at path: '13.num'
-+ storage_stat(/numbers/13.num)
-+ storage_stat(/numbers/13.num); inode 48
-node{mode: 100644, size: 3}
-+ looking at path: '12.num'
-+ storage_stat(/numbers/12.num)
-+ storage_stat(/numbers/12.num); inode 46
-node{mode: 100644, size: 3}
-+ looking at path: '11.num'
-+ storage_stat(/numbers/11.num)
-+ storage_stat(/numbers/11.num); inode 44
-node{mode: 100644, size: 3}
-+ looking at path: '10.num'
-+ storage_stat(/numbers/10.num)
-+ storage_stat(/numbers/10.num); inode 42
-node{mode: 100644, size: 3}
-+ looking at path: '9.num'
-+ storage_stat(/numbers/9.num)
-+ storage_stat(/numbers/9.num); inode 40
-node{mode: 100644, size: 2}
-+ looking at path: '8.num'
-+ storage_stat(/numbers/8.num)
-+ storage_stat(/numbers/8.num); inode 38
-node{mode: 100644, size: 2}
++ storage_stat(/numbers); inode 112
+node{mode: 40755, size: 120}
 + looking at path: '6.num'
 + storage_stat(/numbers/6.num)
-+ storage_stat(/numbers/6.num); inode 34
++ storage_stat(/numbers/6.num); inode 156
 node{mode: 100644, size: 2}
 + looking at path: '5.num'
 + storage_stat(/numbers/5.num)
-+ storage_stat(/numbers/5.num); inode 32
++ storage_stat(/numbers/5.num); inode 148
 node{mode: 100644, size: 2}
 + looking at path: '4.num'
 + storage_stat(/numbers/4.num)
-+ storage_stat(/numbers/4.num); inode 30
++ storage_stat(/numbers/4.num); inode 140
 node{mode: 100644, size: 2}
 + looking at path: '3.num'
 + storage_stat(/numbers/3.num)
-+ storage_stat(/numbers/3.num); inode 28
++ storage_stat(/numbers/3.num); inode 132
 node{mode: 100644, size: 2}
 + looking at path: '2.num'
 + storage_stat(/numbers/2.num)
-+ storage_stat(/numbers/2.num); inode 26
++ storage_stat(/numbers/2.num); inode 124
 node{mode: 100644, size: 2}
 + looking at path: '1.num'
 + storage_stat(/numbers/1.num)
-+ storage_stat(/numbers/1.num); inode 23
++ storage_stat(/numbers/1.num); inode 116
 node{mode: 100644, size: 2}
-readdir(/numbers) -> 0
+rfusermount -u mnt || true
+eaddir(/numbers) -> 0
