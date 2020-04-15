@@ -107,6 +107,7 @@ main(int argc, char* argv[])
 	storage_init(img, 0);
 
 	if (streq(cmd, "ls")) {
+		printf("List for %s", img);
 		slist* xs = image_ls_tree("/");
 		for (slist* it = xs; it != 0; it = it->next) {
 			//printf("%s\n", it->data);

@@ -340,25 +340,70 @@ int get_most_recent_inum(int inum) {
 	}
 }
 
+int trace_path_helper(const char* path) {
+	int root = get_root_inum();
+	int inum;
+	if (streq(path, "")) {
+		inum = root;
+	} else {
+		inum = tree_lookup(path);
+	}
+
+	if (inum == root) {
+		printf("%d", inum);
+	} else {
+		char* abbreviated = strdup(path);
+		char* last_sep = strrchr(abbreviated, '/');
+		*last_sep = 0;
+
+		int pnum = trace_path_helper(abbreviated);
+		inode* node = get_inode(inum);
+		// inode* parent = get_inode(pnum);
+
+		int check = 0;
+		for (int i = 0; i < MAX_HARD_LINKS; i++) {
+			if (node->in_links[i] != -1 && 
+					get_most_recent_inum(node->in_links[i]) == (pnum)) {
+				check = 1;
+			}
+		}
+		assert(check);
+
+		free(abbreviated);
+		printf(" --> %d", inum);
+	}
+	return inum;
+}
+
+void trace_path(const char* path) {
+	int rv = tree_lookup(path);
+	if (rv > 0) {
+		printf("Path for %s: ", path);
+		trace_path_helper(path);
+		printf("\n");
+	} else {
+		printf("DNE: %s", path);
+	}
+}
+
 // Copy this and modify (for now) all parents.
 int storage_copy_file(int old_inum, int version) {
 	inode* old_node = get_inode(old_inum);
 
 	int new_inum = alloc_inode(version);
 
-	inode* new_node = get_inode(new_inum);
+	inode* new_node = get_inode(new_inum); 
+	memcpy(new_node, old_node, sizeof(inode)); 
 
-	memcpy(new_node, old_node, sizeof(inode));
-
-	new_node->version = version;
-	new_node->next = 0;
-	old_node->next = new_inum;
+	new_node->version = version; 
+	new_node->next = 0; 
+	old_node->next = new_inum; 
 
 	printf("+ cpy file %d to %d\n", old_inum, new_inum);
 	for (int i = 0; i < MAX_HARD_LINKS; i++) {
 		int parent_node = new_node->in_links[i];
 		if (parent_node != -1) {
-		//	parent_node = get_most_recent_inum(parent_node);
+			parent_node = get_most_recent_inum(parent_node);
 			parent_node = storage_copy_dir(parent_node, version);
 
 			// Update parent's link.
@@ -390,7 +435,8 @@ int storage_copy_dir(int old_inum, int version) {
 	super_block* super = get_super();
 	int root = get_root_inum();
 	printf("+ copy dir %d -> looking for root %d\n", old_inum, root);
-	if (root == old_inum) {
+	// if (root == old_inum) {
+	if (old->refs == 0) {
 		puts("I am root. ¯\\_(ツ)_/¯");
 
 		return root;

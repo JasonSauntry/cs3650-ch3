@@ -19,10 +19,16 @@
 #include "garbage.h"
 
 int nufs_cpy_actually(const char* path, const char* trigger) {
+	printf("Copying %s ...\n", path);
+	trace_path(path);
+	int old_inum = tree_lookup(path);
 	collect();
 	int version = storage_copy_root(trigger);
 	int inum = tree_lookup(path);
 	int rv = storage_copy_dir(inum, version);
+	int new_inum = tree_lookup(path);
+	trace_path(path);
+	printf("Copy %s %d --> %d == %d\n", path, old_inum, rv, new_inum);
 	return rv;
 }
 
@@ -88,6 +94,7 @@ nufs_getattr(const char *path, struct stat *st)
 	// }
 	int rv = storage_stat(path, st, 0);
 	printf("getattr(%s) -> (%d) {mode: %04o, size: %ld}\n", path, rv, st->st_mode, st->st_size);
+	trace_path(path);
 	return rv;
 }
 
@@ -130,6 +137,7 @@ nufs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 	s_free(items);
 
 	printf("readdir(%s) -> %d\n", path, rv);
+	trace_path(path);
 	return 0;
 }
 
@@ -147,6 +155,7 @@ nufs_mknod(const char *path, mode_t mode, dev_t rdev)
 	int version = 0;
 	int rv = storage_mknod(path, mode, 0, version);
 	printf("mknod(%s, %04o) -> %d\n", path, mode, rv);
+	trace_path(path);
 	return rv;
 }
 
@@ -163,6 +172,7 @@ nufs_mkdir(const char *path, mode_t mode)
 	int version = 0;
 	int rv = storage_mknod(path, mode, 1, version);
 	printf("mkdir(%s) -> %d\n", path, rv);
+	trace_path(path);
 	return rv;
 }
 
@@ -177,6 +187,7 @@ nufs_unlink(const char *path)
 	int version = 0;
 	int rv = storage_unlink(path, version);
 	printf("unlink(%s) -> %d\n", path, rv);
+	trace_path(path);
 	return rv;
 }
 
@@ -196,6 +207,8 @@ nufs_link(const char *from, const char *to)
 	int version = 0;
 	int rv = storage_link(from, to, version);
 	printf("link(%s => %s) -> %d\n", from, to, rv);
+	trace_path(from);
+	trace_path(to);
 	return rv;
 }
 
@@ -210,6 +223,7 @@ nufs_rmdir(const char *path)
 	int version = 0;
 	int rv = storage_unlink(path, version);
 	printf("rmdir(%s) -> %d\n", path, rv);
+	trace_path(path);
 	return rv;
 }
 
@@ -226,6 +240,8 @@ nufs_rename(const char *from, const char *to)
 	int version = 0;
 	int rv = storage_rename(from, to, version);
 	printf("rename(%s => %s) -> %d\n", from, to, rv);
+	trace_path(from);
+	trace_path(to);
 	return rv;
 }
 
@@ -240,6 +256,7 @@ nufs_chmod(const char *path, mode_t mode)
 	int version = 0;
 	int rv = storage_set_mode(path, mode, version);
 	printf("chmod(%s, %04o) -> %d\n", path, mode, rv);
+	trace_path(path);
 	return rv;
 }
 
@@ -254,6 +271,7 @@ nufs_truncate(const char *path, off_t size)
 	int version = 0;
 	int rv = storage_truncate(path, size, version);
 	printf("truncate(%s, %ld bytes) -> %d\n", path, size, rv);
+	trace_path(path);
 	return rv;
 }
 
@@ -265,6 +283,7 @@ nufs_open(const char *path, struct fuse_file_info *fi)
 {
 	int rv = nufs_access(path, 0);
 	printf("open(%s) -> %d\n", path, rv);
+	trace_path(path);
 	return rv;
 }
 
@@ -279,6 +298,7 @@ nufs_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_fi
 	// }
 	int rv = storage_read(path, buf, size, offset, 0);
 	printf("read(%s, %ld bytes, @+%ld) -> %d\n", path, size, offset, rv);
+	trace_path(path);
 	return rv;
 }
 
@@ -294,6 +314,7 @@ nufs_write(const char *path, const char *buf, size_t size, off_t offset, struct 
 	int version = 0;
 	int rv = storage_write(path, buf, size, offset, version);
 	printf("write(%s, %ld bytes, @+%ld) -> %d\n", path, size, offset, rv);
+	trace_path(path);
 	return rv;
 }
 
@@ -310,6 +331,7 @@ nufs_utimens(const char* path, const struct timespec ts[2])
 	int rv = storage_set_time(path, ts, version);
 	printf("utimens(%s, [%ld, %ld; %ld %ld]) -> %d\n",
 		   path, ts[0].tv_sec, ts[0].tv_nsec, ts[1].tv_sec, ts[1].tv_nsec, rv);
+	trace_path(path);
 	  return rv;
 }
 
@@ -321,6 +343,7 @@ int nufs_readlink(const char* path, char* buf, size_t size) {
 	// }
 	int rv = storage_readlink(path, buf, size, 0);
 	printf("readlink(%s, %ld) -> %d\n ==> %s\n", path, size, rv, buf);
+	trace_path(path);
 	return rv;
 }
 
@@ -335,6 +358,8 @@ int nufs_symlink(const char* to, const char* from) {
 	int version = 0;
 	int rv = storage_symlink(to, from, version);
 	printf("symlink(%s, %s) -> %d\n", to, from, rv);
+	trace_path(to);
+	trace_path(from);
 	return rv;
 }
 
