@@ -318,7 +318,6 @@ ok(!disk_contains("/mknod.txt"), "mknod rollback");
 # Test write
 
 $ver0 = get_vers();
-say $ver0;
 
 mount();
 $txt0 = read_text("x3.txt");

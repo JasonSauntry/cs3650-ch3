@@ -86,13 +86,11 @@ void delete_unused(bitmaps* b) {
 	bitmaps* global = &get_super()->maps;
 	for (int i = 0; i < BITMAP_LEN; i++) {
 		if (!b->block_bitmap.bits[i]) {
-			//	printf("garbage free page %d\n", i);
 			free_page(i);
 		}
 		assert(b->block_bitmap.bits[i] == global->block_bitmap.bits[i]);
 
 		if (!b->inode_map.bits[i]) {
-			// printf("garbage free inode %d\n", i);
 			free_inode(i);
 		}
 		assert(b->inode_map.bits[i] == global->inode_map.bits[i]);

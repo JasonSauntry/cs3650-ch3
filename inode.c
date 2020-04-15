@@ -36,9 +36,12 @@ alloc_inode(int version)
 		inode* node = get_inode(i);
 		node->refs = 0;
 		node->version = version;
-		node->next = 0;
 		for (int i = 0; i < MAX_HARD_LINKS; i++) {
 			node->in_links[i] = -1;
+		}
+		
+		for (int i = 0; i < PAGE_ARRAY_SIZE; i++) {
+			node->pages[i] = 0;
 		}
 		return i;
 	}
@@ -48,10 +51,7 @@ alloc_inode(int version)
 void
 free_inode(int inum)
 {
-   // printf("+ free_inode(%d)\n", inum);
-
     inode* node = get_inode(inum);
-		node->next = 0;
 
     // memset(node, 0, sizeof(inode));
     get_super()->maps.inode_map.bits[inum] = 0;

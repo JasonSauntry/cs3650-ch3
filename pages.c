@@ -84,5 +84,5 @@ int map_page() {
 void free_page(int i) {
 	get_super()->maps.block_bitmap.bits[i] = 0;
 	void* page = pages_get_page(i);
-	// memset(page, 0, PAGE_SIZE);
+	//memset(page, 0, PAGE_SIZE);
 }

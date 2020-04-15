@@ -177,7 +177,7 @@ storage_mknod(const char* path, int mode, int dir, int version)
 	if (directory_lookup(parent_inode(path), name) != -ENOENT) {
 		printf("mknod fail: already exist\n");
 		return -EEXIST;
-	} // TODO move
+	} 
 
 	int inum = alloc_inode(version);
 
@@ -359,17 +359,7 @@ int trace_path_helper(const char* path) {
 
 		int pnum = trace_path_helper(abbreviated);
 		inode* node = get_inode(inum);
-		// inode* parent = get_inode(pnum);
-
-		// int check = 0;
-		// for (int i = 0; i < MAX_HARD_LINKS; i++) {
-		// 	if (node->in_links[i] != -1 && 
-		// 			get_most_recent_inum(node->in_links[i]) == (pnum)) {
-		// 		check = 1;
-		// 	}
-		// }
-		// assert(check);
-
+	
 		free(abbreviated);
 		printf(" --> %d", inum);
 	}
@@ -377,6 +367,9 @@ int trace_path_helper(const char* path) {
 }
 
 void trace_path(const char* path) {
+	if (path[0] != '/') {
+		return;
+	}
 	int rv = tree_lookup(path);
 	if (rv > 0) {
 		printf("Path for %s: ", path);
@@ -458,9 +451,7 @@ int storage_copy_file(int old_inum, int version) {
 
 int storage_copy_dir(int old_inum, int version) {
 	inode* old = get_inode(old_inum);
-	// if (old->version >= version) {
-	// 	return old_inum;
-	// }
+
 	// Check if I'm root.
 	super_block* super = get_super();
 	int root = get_root_inum();
