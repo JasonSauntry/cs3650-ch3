@@ -19,10 +19,10 @@
 #include "garbage.h"
 
 int nufs_cpy_actually(const char* path, const char* trigger) {
+	collect();
 	int version = storage_copy_root(trigger);
 	int inum = tree_lookup(path);
 	int rv = storage_copy_dir(inum, version);
-	collect();
 	return rv;
 }
 

@@ -31,6 +31,7 @@ typedef struct inode {
     // -1 if inused.
     int in_links[MAX_HARD_LINKS]; // All inodes that point to us.
     int version;
+    int next;
     
     /**
      * The pages containing the data. No indirect links as of now. 0 is null.

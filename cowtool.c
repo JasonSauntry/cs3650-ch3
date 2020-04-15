@@ -62,10 +62,23 @@ int versions() {
 
 	return 0;
 }
+
+void del_next_refs(int inum) {
+	inode* node = get_inode(inum);
+	node->next = 0;
+	if (node->directory) {
+		int items = node->size / ENT_SIZE;
+		for (int i = 0; i < items; i++) {
+			del_next_refs(directory_get(inum, i)->inode_num);
+		}
+	}
+}
 		
 void rollback(int vnum) {
 	super_block* super = get_super();
 	super->most_recent_version = vnum;
+	int root = super->versions[vnum % VERSIONS_KEPT].root;
+	del_next_refs(root);
 }
 
 int

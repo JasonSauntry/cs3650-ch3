@@ -36,6 +36,7 @@ alloc_inode(int version)
 		inode* node = get_inode(i);
 		node->refs = 0;
 		node->version = version;
+		node->next = 0;
 		for (int i = 0; i < MAX_HARD_LINKS; i++) {
 			node->in_links[i] = -1;
 		}

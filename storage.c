@@ -173,7 +173,7 @@ storage_mknod(const char* path, int mode, int dir, int version)
 
 	const char* name = strrchr(path, '/') + 1;
 
-	if (directory_lookup(1, name) != -ENOENT) {
+	if (directory_lookup(parent_inode(path), name) != -ENOENT) {
 		printf("mknod fail: already exist\n");
 		return -EEXIST;
 	} // TODO move
@@ -331,6 +331,15 @@ int storage_readlink(const char* path, char* buf, size_t size, int version) {
 	return 0;
 }
 
+int get_most_recent_inum(int inum) {
+	inode* node = get_inode(inum);
+	if (node->next) {
+		return get_most_recent_inum(node->next);
+	} else {
+		return inum;
+	}
+}
+
 // Copy this and modify (for now) all parents.
 int storage_copy_file(int old_inum, int version) {
 	inode* old_node = get_inode(old_inum);
@@ -348,10 +357,13 @@ int storage_copy_file(int old_inum, int version) {
 	memcpy(new_node, old_node, sizeof(inode));
 
 	new_node->version = version;
+	new_node->next = 0;
+	old_node->next = new_inum;
 
 	for (int i = 0; i < MAX_HARD_LINKS; i++) {
 		int parent_node = new_node->in_links[i];
 		if (parent_node != -1) {
+			parent_node = get_most_recent_inum(parent_node);
 			parent_node = storage_copy_dir(parent_node, version);
 
 			// Update parent's link.
@@ -383,10 +395,11 @@ int storage_copy_dir(int old_inum, int version) {
 
 	// Check if I'm root.
 	super_block* super = get_super();
-	if (get_root_inum() == old_inum) {
+	int root = get_root_inum();
+	if (root == old_inum) {
 		puts("I am root. ¯\\_(ツ)_/¯");
 
-		return 0;
+		return root;
 	} else {
 		return storage_copy_file(old_inum, version);
 	}

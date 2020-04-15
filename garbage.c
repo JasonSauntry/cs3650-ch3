@@ -6,10 +6,16 @@
 #include "super.h"
 #include "inode.h"
 #include "directory.h"
+#include "util.h"
 
 void mark_pages(bitmaps* b, inode* node) {
-	int item_count = node->size / ENT_SIZE;
-	int page_count = item_count / ENT_PER_PAGE;
+	int page_count;
+	if (node->directory) {
+		page_count = div_up(node->size, ENT_SIZE * ENT_PER_PAGE);
+		// page_count = div_up(node->size, PAGE_SIZE);
+	} else {
+		page_count = div_up(node->size, PAGE_SIZE);
+	}
 	for (int i = 0; i < page_count; i++) {
 		int pagenum = node->pages[i];
 		b->block_bitmap.bits[pagenum] = 1;
@@ -29,12 +35,16 @@ void mark_used_from_directory(bitmaps* b, int inum) {
 	for (int i = 0; i < item_count; i++) {
 		dir_ent* ent = directory_get(inum, i);
 		int childnum = ent->inode_num;
-		if (!b->inode_map.bits[childnum]) {
+		if (childnum != -1) {
 			b->inode_map.bits[childnum] = 1;
 			inode* childnode = get_inode(childnum);
+			mark_pages(b, childnode);
 			if (childnode->directory) {
 				mark_used_from_directory(b, childnum);
 			}
+		} else {
+			puts("Bad");
+			abort();
 		}
 	}
 }
@@ -64,13 +74,17 @@ void mark_used(bitmaps* b) {
 void delete_unused(bitmaps* b) {
 	bitmaps* global = &get_super()->maps;
 	for (int i = 0; i < BITMAP_LEN; i++) {
-		if (!b->block_bitmap.bits[i] && global->block_bitmap.bits[i]) {
+		if (!b->block_bitmap.bits[i]) {
+			printf("garbage free page %d\n", i);
 			free_page(i);
 		}
+		assert(b->block_bitmap.bits[i] == global->block_bitmap.bits[i]);
 
-		if (!b->inode_map.bits[i] && global->inode_map.bits[i]) {
+		if (!b->inode_map.bits[i]) {
+			printf("garbage free inode %d\n", i);
 			free_inode(i);
 		}
+		assert(b->inode_map.bits[i] == global->inode_map.bits[i]);
 	}
 }
 
