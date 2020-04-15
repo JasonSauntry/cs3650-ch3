@@ -8,46 +8,59 @@
 #include "directory.h"
 #include "util.h"
 
+// Given a node, mark it's pages as used.
 void mark_pages(bitmaps* b, inode* node) {
-	int page_count;
+	int page;
 	if (node->directory) {
-		page_count = div_up(node->size, ENT_SIZE * ENT_PER_PAGE);
-		// page_count = div_up(node->size, PAGE_SIZE);
+		page = div_up(node->size , (ENT_SIZE * ENT_PER_PAGE));
 	} else {
-		page_count = div_up(node->size, PAGE_SIZE);
+		page = div_up(node->size, PAGE_SIZE);
 	}
-	for (int i = 0; i < page_count; i++) {
-		int pagenum = node->pages[i];
-		b->block_bitmap.bits[pagenum] = 1;
+
+	for (int i = 0; i < page; i++) {
+		int pnum = node->pages[i];
+		b->block_bitmap.bits[pnum] = 1;
 	}
 }
 
-// Invariant: inum must refer to a directory.
-void mark_used_from_directory(bitmaps* b, int inum) {
+// Given a node, mark it and it's pages as used.
+void mark_node(bitmaps* b, int inum) {
 	inode* node = get_inode(inum);
-	assert(node->directory);
-	
-	// Pages
+	b->inode_map.bits[inum] = 1;
 	mark_pages(b, node);
-	
-	// Children
-	int item_count = node->size / ENT_SIZE;
-	for (int i = 0; i < item_count; i++) {
+}
+
+// Given a dir, mark it's children as used.
+void mark_children(bitmaps* b, int inum) {
+	inode* node = get_inode(inum);
+	int count = node->size / ENT_SIZE;
+	for (int i = 0; i < count; i++) {
 		dir_ent* ent = directory_get(inum, i);
-		int childnum = ent->inode_num;
-		if (childnum != -1) {
-			b->inode_map.bits[childnum] = 1;
-			inode* childnode = get_inode(childnum);
-			mark_pages(b, childnode);
-			if (childnode->directory) {
-				mark_used_from_directory(b, childnum);
-			}
-		} else {
-			puts("Bad");
-			abort();
+		int cnum = ent->inode_num;
+		inode* c = get_inode(cnum);
+		mark_node(b, cnum);
+		if (c->directory) {
+			mark_children(b, cnum);
 		}
 	}
 }
+
+void mark_roots(bitmaps* b) {
+	super_block* super = get_super();
+	int max_versions = super->most_recent_version;
+	version* versions = super->versions;
+	for (int i = super->most_recent_version; i >= 0; i--) {
+		int index = i % VERSIONS_KEPT;
+		int named_version = versions[index].version_number;
+		if (named_version != i) {
+			break;
+		}
+		
+		mark_node(b, versions[index].root);
+		mark_children(b, versions[index].root);
+	}
+}
+
 
 void mark_reserved(bitmaps* b) {
 	for (int i = 0; i < INODE_AFTER_PAGE; i++) {
@@ -62,13 +75,7 @@ void mark_used(bitmaps* b) {
 	init_bitmaps(b);
 	mark_reserved(b);
 
-	super_block* super = get_super();
-	for (int i = 0; i < VERSIONS_KEPT && i <= super->most_recent_version; i++) {
-		int rnum = super->versions[i].root;
-		mark_pages(b, get_inode(rnum));
-		b->inode_map.bits[rnum] = 1;
-		mark_used_from_directory(b, rnum);
-	}
+	mark_roots(b);
 }
 
 void delete_unused(bitmaps* b) {
