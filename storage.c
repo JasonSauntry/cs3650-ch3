@@ -22,6 +22,7 @@
 #include "bitmaps.h"
 #include "super.h"
 #include "file.h"
+#include "svec.h"
 
 void
 storage_init(const char* path, int create)
@@ -360,14 +361,14 @@ int trace_path_helper(const char* path) {
 		inode* node = get_inode(inum);
 		// inode* parent = get_inode(pnum);
 
-		int check = 0;
-		for (int i = 0; i < MAX_HARD_LINKS; i++) {
-			if (node->in_links[i] != -1 && 
-					get_most_recent_inum(node->in_links[i]) == (pnum)) {
-				check = 1;
-			}
-		}
-		assert(check);
+		// int check = 0;
+		// for (int i = 0; i < MAX_HARD_LINKS; i++) {
+		// 	if (node->in_links[i] != -1 && 
+		// 			get_most_recent_inum(node->in_links[i]) == (pnum)) {
+		// 		check = 1;
+		// 	}
+		// }
+		// assert(check);
 
 		free(abbreviated);
 		printf(" --> %d", inum);
@@ -386,6 +387,30 @@ void trace_path(const char* path) {
 	}
 }
 
+void get_parent_inodes(int root, int searching_for, svec* vec) {
+	inode* node = get_inode(root);
+	assert(node->directory);
+	int items = node->size / ENT_SIZE;
+
+	for (int i = 0; i < items; i++) {
+		dir_ent* ent = directory_get(root, i);
+		if (ent->inode_num != -1) {
+			inode* ent_node = get_inode(ent->inode_num);
+
+			if (ent->inode_num == searching_for) {
+				// Found a parent.
+				if (!svec_contains(vec, root)) {
+					svec_push_back(vec, root);
+				}
+			}
+
+			if (ent_node->directory) {
+				get_parent_inodes(ent->inode_num, searching_for, vec);
+			}
+		}
+	}
+}
+
 // Copy this and modify (for now) all parents.
 int storage_copy_file(int old_inum, int version) {
 	inode* old_node = get_inode(old_inum);
@@ -400,19 +425,24 @@ int storage_copy_file(int old_inum, int version) {
 	old_node->next = new_inum; 
 
 	printf("+ cpy file %d to %d\n", old_inum, new_inum);
-	for (int i = 0; i < MAX_HARD_LINKS; i++) {
-		int parent_node = new_node->in_links[i];
-		if (parent_node != -1) {
-			parent_node = get_most_recent_inum(parent_node);
-			parent_node = storage_copy_dir(parent_node, version);
 
-			// Update parent's link.
-			directory_replace_ref(parent_node, old_inum, new_inum);
+	svec* parents = make_svec();
+	get_parent_inodes(get_root_inum(), old_inum, parents);
 
-			// Update my link.
-			new_node->in_links[i] = parent_node;
-		}
+	for (int i = 0; i < parents->size; i++) {
+		int parent_node = svec_get(parents, i);
+		assert(parent_node != -1);
+
+		parent_node = storage_copy_dir(parent_node, version);
+
+		// Update parent's link.
+		directory_replace_ref(parent_node, old_inum, new_inum);
+
+		// Update my link.
+		new_node->in_links[i] = parent_node;
 	}
+
+	free_svec(parents);
 
 	// Now copy data.
 	if (1) {
