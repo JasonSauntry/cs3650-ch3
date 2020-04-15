@@ -1,8 +1,8 @@
 make: Nothing to be done for 'all'.
 make disk0.cow
-make[1]: Entering directory '/home/jason/Documents/2020/cs3650-ch3'
+make[1]: Entering directory '/home/kelly/Documents/cs3650-ch3'
 make[1]: 'disk0.cow' is up to date.
-make[1]: Leaving directory '/home/jason/Documents/2020/cs3650-ch3'
+make[1]: Leaving directory '/home/kelly/Documents/cs3650-ch3'
 ./cowmount -s -f mnt disk0.cow
 access(/, 0004) -> 0
 + storage_stat(/.Trash)
@@ -17,7 +17,37 @@ tree_lookup error
 getattr(/.Trash-1000) -> (-2) {mode: 0000, size: 0}
 tree_lookup error
 -2
-DNE: /.Trash-1000+ storage_stat(/.xdg-volume-info)
+DNE: /.Trash-1000+ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
+DNE: /+ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
+DNE: /+ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
+DNE: /+ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
+DNE: /+ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+getattr(/) -> (0) {mode: 40755, size: 0}
+DNE: /+ storage_stat(/)
++ storage_stat(/); inode 0
+node{mode: 40755, size: 0}
+readdir(/) -> 0
+DNE: /+ storage_stat(/BDMV)
+tree_lookup error
+-2
+getattr(/BDMV) -> (-2) {mode: 0000, size: 0}
+tree_lookup error
+-2
+DNE: /BDMV+ storage_stat(/.xdg-volume-info)
 tree_lookup error
 -2
 getattr(/.xdg-volume-info) -> (-2) {mode: 0000, size: 0}
@@ -30,30 +60,6 @@ getattr(/autorun.inf) -> (-2) {mode: 0000, size: 0}
 tree_lookup error
 -2
 DNE: /autorun.inf+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
-DNE: /+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-readdir(/) -> 0
-DNE: /+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
-DNE: /+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-readdir(/) -> 0
-DNE: /+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-getattr(/) -> (0) {mode: 40755, size: 0}
-DNE: /+ storage_stat(/)
-+ storage_stat(/); inode 0
-node{mode: 40755, size: 0}
-readdir(/) -> 0
-DNE: /+ storage_stat(/)
 + storage_stat(/); inode 0
 node{mode: 40755, size: 0}
 getattr(/) -> (0) {mode: 40755, size: 0}
@@ -292,6 +298,11 @@ In link 15:	-1
 node{mode: 100644, size: 11}
 read(/one.txt, 4096 bytes, @+0) -> 11
 Path for /one.txt: 3 --> 4
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 4
+node{mode: 100644, size: 11}
+getattr(/one.txt) -> (0) {mode: 100644, size: 11}
+Path for /one.txt: 3 --> 4
 + storage_stat(/two.txt)
 tree_lookup error
 -2
@@ -374,6 +385,11 @@ In link 15:	-1
 + storage_read(/two.txt); inode 8
 node{mode: 100644, size: 11}
 read(/two.txt, 4096 bytes, @+0) -> 11
+Path for /two.txt: 7 --> 8
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 8
+node{mode: 100644, size: 11}
+getattr(/two.txt) -> (0) {mode: 100644, size: 11}
 Path for /two.txt: 7 --> 8
 + storage_stat(/)
 + storage_stat(/); inode 7
@@ -480,7 +496,8 @@ In link 7:	-1
 In link 8:	-1
 In link 9:	-1
 In link 10:	-1
-In link 11:	-1
+In linkfusermount -u mnt || true
+ 11:	-1
 In link 12:	-1
 In link 13:	-1
 In link 14:	-1
@@ -489,16 +506,15 @@ In link 15:	-1
 node{mode: 100644, size: 2001}
 read(/2k.txt, 4096 bytes, @+0) -> 2001
 Path for /2k.txt: 11 --> 12
-access(/2k.txt, 0000) -> 0
-open(/2k.txt) -> 0
-Path for /2k.txt: 11 --> 12
-ioctl(/2k.txt, 21505, ...) -> -1
 + storage_stat(/2k.txt)
 + storage_stat(/2k.txt); inode 12
 node{mode: 100644, size: 2001}
 getattr(/2k.txt) -> (0) {mode: 100644, size: 2001}
-Pafusermount -u mnt || true
-th for /2k.txt: 11 --> 12
+Path for /2k.txt: 11 --> 12
+access(/2k.txt, 0000) -> 0
+open(/2k.txt) -> 0
+Path for /2k.txt: 11 --> 12
+ioctl(/2k.txt, 21505, ...) -> -1
 In link 0:	11
 In link 1:	-1
 In link 2:	-1
@@ -520,10 +536,17 @@ node{mode: 100644, size: 2001}
 read(/2k.txt, 4096 bytes, @+0) -> 2001
 Path for /2k.txt: 11 --> 12
 make disk0.cow
-make[1]: Entering directory '/home/jason/Documents/2020/cs3650-ch3'
+make[1]: Entering directory '/home/kelly/Documents/cs3650-ch3'
 make[1]: 'disk0.cow' is up to date.
-make[1]: Leaving directory '/home/jason/Documents/2020/cs3650-ch3'
+make[1]: Leaving directory '/home/kelly/Documents/cs3650-ch3'
 ./cowmount -s -f mnt disk0.cow
++ storage_stat(/BDMV)
+tree_lookup error
+-2
+getattr(/BDMV) -> (-2) {mode: 0000, size: 0}
+tree_lookup error
+-2
+DNE: /BDMVaccess(/, 0004) -> 0
 + storage_stat(/.xdg-volume-info)
 tree_lookup error
 -2
@@ -536,13 +559,7 @@ tree_lookup error
 getattr(/autorun.inf) -> (-2) {mode: 0000, size: 0}
 tree_lookup error
 -2
-DNE: /autorun.infaccess(/, 0004) -> 0
-+ storage_stat(/)
-+ storage_stat(/); inode 11
-node{mode: 40755, size: 60}
-getattr(/) -> (0) {mode: 40755, size: 60}
-Path for /: 11
-+ storage_stat(/.Trash)
+DNE: /autorun.inf+ storage_stat(/.Trash)
 tree_lookup error
 -2
 getattr(/.Trash) -> (-2) {mode: 0000, size: 0}
@@ -555,6 +572,11 @@ getattr(/.Trash-1000) -> (-2) {mode: 0000, size: 0}
 tree_lookup error
 -2
 DNE: /.Trash-1000+ storage_stat(/)
++ storage_stat(/); inode 11
+node{mode: 40755, size: 60}
+getattr(/) -> (0) {mode: 40755, size: 60}
+Path for /: 11
++ storage_stat(/)
 + storage_stat(/); inode 11
 node{mode: 40755, size: 60}
 + looking at path: '2k.txt'
@@ -1112,6 +1134,11 @@ In link 15:	-1
 node{mode: 100644, size: 11}
 read(/one.txt, 4096 bytes, @+0) -> 11
 Path for /one.txt: 11 --> 4
++ storage_stat(/one.txt)
++ storage_stat(/one.txt); inode 4
+node{mode: 100644, size: 11}
+getattr(/one.txt) -> (0) {mode: 100644, size: 11}
+Path for /one.txt: 11 --> 4
 + storage_stat(/two.txt)
 + storage_stat(/two.txt); inode 8
 node{mode: 100644, size: 11}
@@ -1141,11 +1168,11 @@ In link 15:	-1
 node{mode: 100644, size: 11}
 read(/two.txt, 4096 bytes, @+0) -> 11
 Path for /two.txt: 11 --> 8
-+ storage_stat(/one.txt)
-+ storage_stat(/one.txt); inode 4
++ storage_stat(/two.txt)
++ storage_stat(/two.txt); inode 8
 node{mode: 100644, size: 11}
-getattr(/one.txt) -> (0) {mode: 100644, size: 11}
-Path for /one.txt: 11 --> 4
+getattr(/two.txt) -> (0) {mode: 100644, size: 11}
+Path for /two.txt: 11 --> 8
 Copying /one.txt ...
 Path for /one.txt: 11 --> 4
 garbage mark node 11
@@ -1203,12 +1230,7 @@ tree_lookup error
 getattr(/abc.txt) -> (-2) {mode: 0000, size: 0}
 tree_lookup error
 -2
-DNE: /abc.txt+ storage_stat(/two.txt)
-+ storage_stat(/two.txt); inode 8
-node{mode: 100644, size: 11}
-getattr(/two.txt) -> (0) {mode: 100644, size: 11}
-Path for /two.txt: 13 --> 8
-+ storage_stat(/abc.txt)
+DNE: /abc.txt+ storage_stat(/abc.txt)
 tree_lookup error
 -2
 getattr(/abc.txt) -> (-2) {mode: 0000, size: 0}
@@ -1307,18 +1329,18 @@ In link 15:	-1
 node{mode: 100644, size: 11}
 read(/abc.txt, 4096 bytes, @+0) -> 11
 Path for /abc.txt: 14 --> 15
++ storage_stat(/abc.txt)
++ storage_stat(/abc.txt); inode 15
+node{mode: 100644, size: 11}
+getattr(/abc.txt) -> (0) {mode: 100644, size: 11}
+Path for /abc.txt: 14 --> 15
 + storage_stat(/def.txt)
 tree_lookup error
 -2
 getattr(/def.txt) -> (-2) {mode: 0000, size: 0}
 tree_lookup error
 -2
-DNE: /def.txt+ storage_stat(/abc.txt)
-+ storage_stat(/abc.txt); inode 15
-node{mode: 100644, size: 11}
-getattr(/abc.txt) -> (0) {mode: 100644, size: 11}
-Path for /abc.txt: 14 --> 15
-+ storage_stat(/def.txt)
+DNE: /def.txt+ storage_stat(/def.txt)
 tree_lookup error
 -2
 getattr(/def.txt) -> (-2) {mode: 0000, size: 0}
@@ -1353,7 +1375,7 @@ garbage mark node 2
 + cpy file 14 to 0
 + copy dir 15 -> looking for root 0
 + cpy file 15 to 16
-+ copy dir 14 -> looking for root 0
++ copy dir 0 -> looking for root 0
 I am root. ¯\_(ツ)_/¯
 + replace_ref 15 with 16
 Path for /abc.txt: 0 --> 16
@@ -1424,6 +1446,11 @@ In link 15:	-1
 node{mode: 100644, size: 11}
 read(/def.txt, 4096 bytes, @+0) -> 11
 Path for /def.txt: 1 --> 16
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 16
+node{mode: 100644, size: 11}
+getattr(/def.txt) -> (0) {mode: 100644, size: 11}
+Path for /def.txt: 1 --> 16
 + storage_stat(/abc.txt)
 + storage_stat(/abc.txt); inode 16
 node{mode: 100644, size: 11}
@@ -1477,11 +1504,6 @@ DNE: /abc.txtaccess(/def.txt, 0000) -> 0
 open(/def.txt) -> 0
 Path for /def.txt: 2 --> 3
 ioctl(/def.txt, 21505, ...) -> -1
-+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 3
-node{mode: 100644, size: 11}
-getattr(/def.txt) -> (0) {mode: 100644, size: 11}
-Path for /def.txt: 2 --> 3
 In link 0:	-1
 In link 1:	2
 In link 2:	-1
@@ -1501,6 +1523,11 @@ In link 15:	-1
 + storage_read(/def.txt); inode 3
 node{mode: 100644, size: 11}
 read(/def.txt, 4096 bytes, @+0) -> 11
+Path for /def.txt: 2 --> 3
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 3
+node{mode: 100644, size: 11}
+getattr(/def.txt) -> (0) {mode: 100644, size: 11}
 Path for /def.txt: 2 --> 3
 + storage_stat(/foo)
 tree_lookup error
@@ -1559,12 +1586,7 @@ tree_lookup error
 getattr(/foo/abc.txt) -> (-2) {mode: 0000, size: 0}
 tree_lookup error
 -2
-DNE: /foo/abc.txt+ storage_stat(/def.txt)
-+ storage_stat(/def.txt); inode 3
-node{mode: 100644, size: 11}
-getattr(/def.txt) -> (0) {mode: 100644, size: 11}
-Path for /def.txt: 5 --> 3
-+ storage_stat(/foo/abc.txt)
+DNE: /foo/abc.txt+ storage_stat(/foo/abc.txt)
 tree_lookup error
 -2
 getattr(/foo/abc.txt) -> (-2) {mode: 0000, size: 0}
@@ -1696,6 +1718,11 @@ Copy /foo/abc.txt 18 --> 10 == 10
 + storage_write inum: 10
 write(/foo/abc.txt, 11 bytes, @+0) -> 11
 Path for /foo/abc.txt: 9 --> 19 --> 10
++ storage_stat(/def.txt)
++ storage_stat(/def.txt); inode 3
+node{mode: 100644, size: 11}
+getattr(/def.txt) -> (0) {mode: 100644, size: 11}
+Path for /def.txt: 9 --> 3
 access(/foo/abc.txt, 0000) -> 0
 open(/foo/abc.txt) -> 0
 Path for /foo/abc.txt: 9 --> 19 --> 10
@@ -1724,6 +1751,11 @@ In link 15:	-1
 + storage_read(/foo/abc.txt); inode 10
 node{mode: 100644, size: 11}
 read(/foo/abc.txt, 4096 bytes, @+0) -> 11
+Path for /foo/abc.txt: 9 --> 19 --> 10
++ storage_stat(/foo/abc.txt)
++ storage_stat(/foo/abc.txt); inode 10
+node{mode: 100644, size: 11}
+getattr(/foo/abc.txt) -> (0) {mode: 100644, size: 11}
 Path for /foo/abc.txt: 9 --> 19 --> 10
 + storage_stat(/40k.txt)
 tree_lookup error
@@ -1922,7 +1954,7 @@ garbage mark node 12
 + cpy file 14 to 0
 + copy dir 15 -> looking for root 0
 + cpy file 15 to 20
-+ copy dir 14 -> looking for root 0
++ copy dir 0 -> looking for root 0
 I am root. ¯\_(ツ)_/¯
 + replace_ref 15 with 20
 Path for /40k.txt: 0 --> 20
@@ -2392,15 +2424,15 @@ In link 15:	-1
 node{mode: 100644, size: 40001}
 read(/40k.txt, 24576 bytes, @+16384) -> 23617
 Path for /40k.txt: 8 --> 13
-access(/40k.txt, 0000) -> 0
-open(/40k.txt) -> 0
-Path for /40k.txt: 8 --> 13
-ioctl(/40k.txt, 21505, ...) -> -1
 + storage_stat(/40k.txt)
 + storage_stat(/40k.txt); inode 13
 node{mode: 100644, size: 40001}
 getattr(/40k.txt) -> (0) {mode: 100644, size: 40001}
 Path for /40k.txt: 8 --> 13
+access(/40k.txt, 0000) -> 0
+open(/40k.txt) -> 0
+Path for /40k.txt: 8 --> 13
+ioctl(/40k.txt, 21505, ...) -> -1
 In link 0:	8
 In link 1:	-1
 In link 2:	-1
@@ -2555,7 +2587,7 @@ garbage mark node 16
 + cpy file 14 to 0
 + copy dir 15 -> looking for root 0
 + cpy file 15 to 20
-+ copy dir 14 -> looking for root 0
++ copy dir 0 -> looking for root 0
 I am root. ¯\_(ツ)_/¯
 + replace_ref 15 with 20
 Path for /dir1: 0 --> 20
@@ -3068,6 +3100,11 @@ In link 15:	-1
 node{mode: 100644, size: 12}
 read(/dir1/dir2/dir3/dir4/dir5/hello.txt, 4096 bytes, @+0) -> 12
 Path for /dir1/dir2/dir3/dir4/dir5/hello.txt: 9 --> 41 --> 40 --> 39 --> 38 --> 37 --> 18
++ storage_stat(/dir1/dir2/dir3/dir4/dir5/hello.txt)
++ storage_stat(/dir1/dir2/dir3/dir4/dir5/hello.txt); inode 18
+node{mode: 100644, size: 12}
+getattr(/dir1/dir2/dir3/dir4/dir5/hello.txt) -> (0) {mode: 100644, size: 12}
+Path for /dir1/dir2/dir3/dir4/dir5/hello.txt: 9 --> 41 --> 40 --> 39 --> 38 --> 37 --> 18
 + storage_stat(/numbers)
 tree_lookup error
 -2
@@ -3491,7 +3528,7 @@ garbage mark node 24
 + cpy file 14 to 0
 + copy dir 44 -> looking for root 0
 + cpy file 44 to 20
-+ copy dir 14 -> looking for root 0
++ copy dir 0 -> looking for root 0
 I am root. ¯\_(ツ)_/¯
 + replace_ref 44 with 20
 Path for /numbers: 0 --> 20
@@ -4779,7 +4816,7 @@ garbage mark node 16
 + cpy file 33 to 20
 + copy dir 32 -> looking for root 0
 + cpy file 32 to 22
-+ copy dir 14 -> looking for root 0
++ copy dir 0 -> looking for root 0
 I am root. ¯\_(ツ)_/¯
 + replace_ref 32 with 22
 + replace_ref 33 with 20
@@ -6391,7 +6428,7 @@ garbage mark node 34
 + cpy file 14 to 0
 + copy dir 33 -> looking for root 0
 + cpy file 33 to 22
-+ copy dir 14 -> looking for root 0
++ copy dir 0 -> looking for root 0
 I am root. ¯\_(ツ)_/¯
 + replace_ref 33 with 22
 Path for /numbers: 0 --> 22
@@ -8334,7 +8371,7 @@ garbage mark node 23
 + cpy file 47 to 22
 + copy dir 33 -> looking for root 0
 + cpy file 33 to 43
-+ copy dir 14 -> looking for root 0
++ copy dir 0 -> looking for root 0
 I am root. ¯\_(ツ)_/¯
 + replace_ref 33 with 43
 + replace_ref 47 with 22
@@ -10594,7 +10631,7 @@ garbage mark node 48
 + cpy file 14 to 0
 + copy dir 47 -> looking for root 0
 + cpy file 47 to 43
-+ copy dir 14 -> looking for root 0
++ copy dir 0 -> looking for root 0
 I am root. ¯\_(ツ)_/¯
 + replace_ref 47 with 43
 Path for /numbers: 0 --> 43
@@ -13185,7 +13222,7 @@ garbage mark node 34
 + cpy file 56 to 43
 + copy dir 47 -> looking for root 0
 + cpy file 47 to 52
-+ copy dir 14 -> looking for root 0
++ copy dir 0 -> looking for root 0
 I am root. ¯\_(ツ)_/¯
 + replace_ref 47 with 52
 + replace_ref 56 with 43
@@ -16093,7 +16130,7 @@ garbage mark node 57
 + cpy file 14 to 0
 + copy dir 56 -> looking for root 0
 + cpy file 56 to 52
-+ copy dir 14 -> looking for root 0
++ copy dir 0 -> looking for root 0
 I am root. ¯\_(ツ)_/¯
 + replace_ref 56 with 52
 Path for /numbers: 0 --> 52
@@ -19332,7 +19369,7 @@ garbage mark node 48
 + cpy file 65 to 52
 + copy dir 56 -> looking for root 0
 + cpy file 56 to 61
-+ copy dir 14 -> looking for root 0
++ copy dir 0 -> looking for root 0
 I am root. ¯\_(ツ)_/¯
 + replace_ref 56 with 61
 + replace_ref 65 with 52
@@ -22888,7 +22925,7 @@ garbage mark node 66
 + cpy file 14 to 0
 + copy dir 65 -> looking for root 0
 + cpy file 65 to 61
-+ copy dir 14 -> looking for root 0
++ copy dir 0 -> looking for root 0
 I am root. ¯\_(ツ)_/¯
 + replace_ref 65 with 61
 Path for /numbers: 0 --> 61
@@ -26775,7 +26812,7 @@ garbage mark node 57
 + cpy file 74 to 61
 + copy dir 65 -> looking for root 0
 + cpy file 65 to 70
-+ copy dir 14 -> looking for root 0
++ copy dir 0 -> looking for root 0
 I am root. ¯\_(ツ)_/¯
 + replace_ref 65 with 70
 + replace_ref 74 with 61
@@ -30979,7 +31016,7 @@ garbage mark node 75
 + cpy file 14 to 0
 + copy dir 74 -> looking for root 0
 + cpy file 74 to 70
-+ copy dir 14 -> looking for root 0
++ copy dir 0 -> looking for root 0
 I am root. ¯\_(ツ)_/¯
 + replace_ref 74 with 70
 Path for /numbers: 0 --> 70
@@ -34488,6 +34525,11 @@ Copy /numbers/50.num 82 --> 69 == 69
 + storage_write inum: 69
 write(/numbers/50.num, 3 bytes, @+0) -> 3
 Path for /numbers/50.num: 8 --> 78 --> 69
++ storage_stat(/dir1)
++ storage_stat(/dir1); inode 41
+node{mode: 40755, size: 20}
+getattr(/dir1) -> (0) {mode: 40755, size: 20}
+Path for /dir1: 8 --> 41
 + storage_stat(/numbers)
 + storage_stat(/numbers); inode 78
 node{mode: 40755, size: 1000}
@@ -34642,44 +34684,32 @@ node{mode: 100644, size: 3}
 node{mode: 100644, size: 3}
 + looking at path: '14.num'
 + storage_stat(/numbers/14.num)
-+ storage_stat(/numbers/14.num); inode 31
-node{mode: 100644, size: 3}
-+ looking at path: '13.num'
-+ storage_stat(/numbers/13.num)
-+ storage_stat(/numbers/13.num); inode 28
-node{mode: 100644, size: 3}
-+ looking at path: '12.num'
-+ storage_stat(/numbers/12.num)
-+ storage_stat(/numbers/12.num); inode 25
-node{mode: 100644, size: 3}
-+ looking at path: '11.num'
-+ storage_stat(/numbers/11.num)
-+ storage_stat(/numbers/11.num); inode 23
-node{mode: 100644, size: 3}
-+ looking at path: '10.num'
-+ storage_stat(/numbers/10.num)
-+ storage_stat(/numbers/10.num); inode 32
-node{mode: 100644, size: 3}
-+ looking at path: '9.num'
-+ storage_stat(/numbers/9.num)
-+ storage_stat(/numbers/9.num); inode 11
-node{mode: 100644, size: 2}
-+ looking at path: '8.num'
-+ storage_stat(/numbers/8.num)
-+ storage_stat(/numbers/8.num); inode 17
-node{mode: 100644, size: 2}
-+ looking at path: '7.num'
-+ storage_stat(/numbers/7.num)
-+ storage_stat(/numbers/7.num); inode 21
-node{mode:Makefile:29: recipe for target 'mount' failed
-fusermount -u mnt || true
++ storage_stat(/numbers/14.nfusermount -u mnt || true
 make disk0.cow
-make[1]: Entering directory '/home/jason/Documents/2020/cs3650-ch3'
+make[1]: Entering directory '/home/kelly/Documents/cs3650-ch3'
 make[1]: 'disk0.cow' is up to date.
-make[1]: Leaving directory '/home/jason/Documents/2020/cs3650-ch3'
+make[1]: Leaving directory '/home/kelly/Documents/cs3650-ch3'
 ./cowmount -s -f mnt disk0.cow
 access(/, 0004) -> 0
-+ storage_stat(/.Trash)
++ storage_stat(/BDMV)
+tree_lookup error
+-2
+getattr(/BDMV) -> (-2) {mode: 0000, size: 0}
+tree_lookup error
+-2
+DNE: /BDMV+ storage_stat(/.xdg-volume-info)
+tree_lookup error
+-2
+getattr(/.xdg-volume-info) -> (-2) {mode: 0000, size: 0}
+tree_lookup error
+-2
+DNE: /.xdg-volume-info+ storage_stat(/autorun.inf)
+tree_lookup error
+-2
+getattr(/autorun.inf) -> (-2) {mode: 0000, size: 0}
+tree_lookup error
+-2
+DNE: /autorun.inf+ storage_stat(/.Trash)
 tree_lookup error
 -2
 getattr(/.Trash) -> (-2) {mode: 0000, size: 0}
@@ -34691,24 +34721,12 @@ tree_lookup error
 getattr(/.Trash-1000) -> (-2) {mode: 0000, size: 0}
 tree_lookup error
 -2
-DNE: /.Trash-1000+ storage_stat(/.xdg-volume-info)
-tree_lookup error
--2
-getattr(/.xdg-volume-info) -> (-2) {mode: 0000, size: 0}
-tree_lookup error
--2
-DNE: /.xdg-volume-info+ storage_stat(/)
+DNE: /.Trash-1000+ storage_stat(/)
 + storage_stat(/); inode 8
 node{mode: 40755, size: 120}
 getattr(/) -> (0) {mode: 40755, size: 120}
 Path for /: 8
-+ storage_stat(/autorun.inf)
-tree_lookup error
--2
-getattr(/autorun.inf) -> (-2) {mode: 0000, size: 0}
-tree_lookup error
--2
-DNE: /autorun.inf+ storage_stat(/)
++ storage_stat(/)
 + storage_stat(/); inode 8
 node{mode: 40755, size: 120}
 + looking at path: 'numbers'
@@ -35695,10 +35713,10 @@ node{mode: 100644, size: 2}
 + storage_stat(/numbers/2.num)
 + storage_stat(/numbers/2.num); inode 16
 node{mode: 100644, size: 2}
-+ looking at path: '1.num'
++ looking at path: '1.fusermount -u mnt || true
+num'
 + storage_stat(/numbers/1.num)
 + storage_stat(/numbers/1.num); inode 15
 node{mode: 100644, size: 2}
-readdir(/numbefusermount -u mnt || true
-rs) -> 0
+readdir(/numbers) -> 0
 Path for /numbers: 8 --> 78

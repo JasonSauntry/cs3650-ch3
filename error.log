@@ -1,2 +1,2 @@
 cowmount: storage.c:370: trace_path_helper: Assertion `check' failed.
-make: *** [mount] Aborted (core dumped)
+make: *** [Makefile:30: mount] Aborted

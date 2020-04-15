@@ -333,7 +333,7 @@ int storage_readlink(const char* path, char* buf, size_t size, int version) {
 
 int get_most_recent_inum(int inum) {
 	inode* node = get_inode(inum);
-	if (node->next) {
+	if (node->next != -1) {
 		return get_most_recent_inum(node->next);
 	} else {
 		return inum;
@@ -396,7 +396,7 @@ int storage_copy_file(int old_inum, int version) {
 	memcpy(new_node, old_node, sizeof(inode)); 
 
 	new_node->version = version; 
-	new_node->next = 0; 
+	new_node->next = -1; 
 	old_node->next = new_inum; 
 
 	printf("+ cpy file %d to %d\n", old_inum, new_inum);

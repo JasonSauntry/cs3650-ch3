@@ -204,53 +204,53 @@ my $mm = `ls mnt/numbers | wc -l`;
 ok($mm == 46, "deleted 4 files");
 
 unmount();
-
-sub run_tool {
-    my ($cmd, $arg1) = @_;
-    $arg1 ||= "";
-    my $cmd1 = "./cowtool $cmd disk0.cow $arg1";
-    #say "# $cmd1";
-    my $text = `timeout -k 5 2 $cmd1`;
-    if ($?) {
-        say "# command failed: $cmd1";
-        exit(1);
-    }
-    return $text;
-}
-
-sub get_vers {
-    my $text = run_tool("versions");
-    my @lines = split /\n/, $text;
-    (scalar @lines > 1) or return -2;
-    $lines[1] =~ /^(\d+)\s/ or return -1;
-    return +$1;
-}
-
-sub set_vers {
-    my ($v1) = @_;
-    run_tool("rollback", $v1);
-}
-
-sub get_list() {
-    my $text = run_tool("ls");
-    my @lines = split /\n/, $text;
-    my $ii = 0;
-    $ii++ until (!$lines[$ii] || $lines[$ii] =~ /^List for/);
-    my @ys = ();
-    for ($ii++; $ii < scalar @lines; ++$ii) {
-        push @ys, $lines[$ii];
-    }
-    return @ys;
-}
-
-sub disk_contains {
-    my ($path) = @_;
-    my @paths = get_list();
-    for my $pp (@paths) {
-        return 1 if $path eq $pp;
-    }
-    return 0;
-}
+#
+#sub run_tool {
+#    my ($cmd, $arg1) = @_;
+#    $arg1 ||= "";
+#    my $cmd1 = "./cowtool $cmd disk0.cow $arg1";
+#    #say "# $cmd1";
+#    my $text = `timeout -k 5 2 $cmd1`;
+#    if ($?) {
+#        say "# command failed: $cmd1";
+#        exit(1);
+#    }
+#    return $text;
+#}
+#
+#sub get_vers {
+#    my $text = run_tool("versions");
+#    my @lines = split /\n/, $text;
+#    (scalar @lines > 1) or return -2;
+#    $lines[1] =~ /^(\d+)\s/ or return -1;
+#    return +$1;
+#}
+#
+#sub set_vers {
+#    my ($v1) = @_;
+#    run_tool("rollback", $v1);
+#}
+#
+#sub get_list() {
+#    my $text = run_tool("ls");
+#    my @lines = split /\n/, $text;
+#    my $ii = 0;
+#    $ii++ until (!$lines[$ii] || $lines[$ii] =~ /^List for/);
+#    my @ys = ();
+#    for ($ii++; $ii < scalar @lines; ++$ii) {
+#        push @ys, $lines[$ii];
+#    }
+#    return @ys;
+#}
+#
+#sub disk_contains {
+#    my ($path) = @_;
+#    my @paths = get_list();
+#    for my $pp (@paths) {
+#        return 1 if $path eq $pp;
+#    }
+#    return 0;
+#}
 # 
 # my $size = `wc -c disk0.cow`;
 # ok($size =~ /^(\d+)/ && +$1 == 1048576, "correct size disk image");
