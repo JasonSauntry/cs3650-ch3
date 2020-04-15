@@ -67,7 +67,7 @@ void shrink(inode* node, size_t size) {
 
 	// Free all unneeded pages.
 	for (int i = pages_needed; node->pages[i]; i++) {
-		free_page(node->pages[i]);
+		// free_page(node->pages[i]);
 	}
 
 	// Set unused data in the last page to 0.

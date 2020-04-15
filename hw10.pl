@@ -122,17 +122,17 @@ system("rm -f mnt/one.txt");
 $files = `ls mnt`;
 ok($files !~ /one\.txt/, "deleted one.txt");
 
-# system("mv mnt/two.txt mnt/abc.txt");
-# $files = `ls mnt`;
-# ok($files !~ /two\.txt/, "moved two.txt");
-# ok($files =~ /abc\.txt/, "have abc.txt");
-# 
-# my $msg4 = read_text("abc.txt");
-# say "# '$msg2' eq '$msg4'?";
-# ok($msg2 eq $msg4, "Read back data after rename.");
-# 
-# say "#           == Less Basic Tests ==";
-# 
+system("mv mnt/two.txt mnt/abc.txt");
+$files = `ls mnt`;
+ok($files !~ /two\.txt/, "moved two.txt");
+ok($files =~ /abc\.txt/, "have abc.txt");
+
+my $msg4 = read_text("abc.txt");
+say "# '$msg2' eq '$msg4'?";
+ok($msg2 eq $msg4, "Read back data after rename.");
+
+say "#           == Less Basic Tests ==";
+
 # system("ln mnt/abc.txt mnt/def.txt");
 # my $msg5 = read_text("def.txt");
 # say "# '$msg2' eq '$msg5'?";

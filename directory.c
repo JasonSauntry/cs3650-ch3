@@ -201,11 +201,11 @@ directory_delete(int dirnode, const char* name, int version)
 	int dinum = ent->inode_num;
 	ent->inode_num = -1;
 	ent->filename[0] = 0;
-	if (file_inode->refs == 0) {
-		inode* node = file_inode;
-		assert(node->refs == 0);
-		free_inode(dinum);
-	}
+	// if (file_inode->refs == 0) {
+	// 	inode* node = file_inode;
+	// 	assert(node->refs == 0);
+	// 	free_inode(dinum);
+	// }
 
 	return 0;
 }
