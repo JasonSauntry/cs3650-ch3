@@ -6,7 +6,7 @@
 #define SUPER_PAGE 0
 
 #define DESC_LEN 32
-#define VERSIONS_KEPT 2
+#define VERSIONS_KEPT 8
 
 typedef struct version {
 	int root;

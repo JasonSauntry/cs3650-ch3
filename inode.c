@@ -48,9 +48,10 @@ alloc_inode(int version)
 void
 free_inode(int inum)
 {
-    printf("+ free_inode(%d)\n", inum);
+   // printf("+ free_inode(%d)\n", inum);
 
     inode* node = get_inode(inum);
+		node->next = 0;
 
     // memset(node, 0, sizeof(inode));
     get_super()->maps.inode_map.bits[inum] = 0;

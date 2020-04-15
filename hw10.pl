@@ -41,9 +41,9 @@ sub read_text_slice {
     return $data;
 }
 
-system("rm -f data.cow test.log");
+system("rm -f disk0.cow test.log");
 system("(make 2>&1) > test.log");
-system("./cowtool new data.cow");
+system("./cowtool new disk0.cow");
 
 say "#           == Basic Tests ==";
 mount();
@@ -133,71 +133,71 @@ ok($msg2 eq $msg4, "Read back data after rename.");
 
 say "#           == Less Basic Tests ==";
 
-# system("ln mnt/abc.txt mnt/def.txt");
-# my $msg5 = read_text("def.txt");
-# say "# '$msg2' eq '$msg5'?";
-# ok($msg2 eq $msg5, "Read back data after link.");
-# 
-# system("rm -f mnt/abc.txt");
-# my $msg6 = read_text("def.txt");
-# say "# '$msg2' eq '$msg6'?";
-# ok($msg2 eq $msg6, "Read back data after other link deleted.");
-# 
-# system("mkdir mnt/foo");
-# ok(-d "mnt/foo", "Made a directory");
-# 
-# system("cp mnt/def.txt mnt/foo/abc.txt");
-# my $msg7 = read_text("foo/abc.txt");
-# say "# '$msg2' eq '$msg7'?";
-# ok($msg2 eq $msg7, "Read back data from copy in subdir.");
-# 
-# my $huge0 = "=This string is fourty characters long.=" x 1000;
-# write_text("40k.txt", $huge0);
-# my $huge1 = read_text("40k.txt");
-# ok($huge0 eq $huge1, "Read back 40k correctly.");
-# 
-# my $huge2 = read_text_slice("40k.txt", 10, 8050);
-# $right = "ng is four";
-# ok($huge2 eq $right, "Read with offset & length");
-# 
-# system("mkdir -p mnt/dir1/dir2/dir3/dir4/dir5");
-# my $hi0 = "hello there";
-# write_text("dir1/dir2/dir3/dir4/dir5/hello.txt", $hi0);
-# my $hi1 = read_text("dir1/dir2/dir3/dir4/dir5/hello.txt");
-# ok($hi0 eq $hi1, "nested directories");
-# 
-# system("mkdir mnt/numbers");
-# for my $ii (1..50) {
-#     write_text("numbers/$ii.num", "$ii");
-# }
-# 
-# my $nn = `ls mnt/numbers | wc -l`;
-# ok($nn == 50, "created 50 files");
-# 
-# for my $ii (1..5) {
-#     my $xx = $ii * 10;
-#     my $yy = read_text("numbers/$xx.num") || -10;
-#     ok($xx == $yy, "check value $xx");
-# }
-# 
-# for my $ii (1..4) {
-#     my $xx = $ii * 7;
-#     system("rm mnt/numbers/$xx.num");
-# }
-# 
-# unmount();
-# 
-# ok(!-d "mnt/numbers", "numbers dir doesn't exist after umount");
-# 
-# mount();
-# 
-# my $mm = `ls mnt/numbers | wc -l`;
-# ok($mm == 46, "deleted 4 files");
-# 
-# unmount();
-# 
-# my $size = `wc -c data.cow`;
-# ok($size =~ /^(\d+)/ && +$1 == 1048576, "correct size disk image");
-# 
-# my $list = `timeout -k 5 2 ./cowtool ls data.cow`;
-# ok($list =~ /25\.num/, "cowtool ls shows nesting");
+system("ln mnt/abc.txt mnt/def.txt");
+my $msg5 = read_text("def.txt");
+say "# '$msg2' eq '$msg5'?";
+ok($msg2 eq $msg5, "Read back data after link.");
+
+system("rm -f mnt/abc.txt");
+my $msg6 = read_text("def.txt");
+say "# '$msg2' eq '$msg6'?";
+ok($msg2 eq $msg6, "Read back data after other link deleted.");
+
+system("mkdir mnt/foo");
+ok(-d "mnt/foo", "Made a directory");
+
+system("cp mnt/def.txt mnt/foo/abc.txt");
+my $msg7 = read_text("foo/abc.txt");
+say "# '$msg2' eq '$msg7'?";
+ok($msg2 eq $msg7, "Read back data from copy in subdir.");
+
+my $huge0 = "=This string is fourty characters long.=" x 1000;
+write_text("40k.txt", $huge0);
+my $huge1 = read_text("40k.txt");
+ok($huge0 eq $huge1, "Read back 40k correctly.");
+
+my $huge2 = read_text_slice("40k.txt", 10, 8050);
+$right = "ng is four";
+ok($huge2 eq $right, "Read with offset & length");
+
+system("mkdir -p mnt/dir1/dir2/dir3/dir4/dir5");
+my $hi0 = "hello there";
+write_text("dir1/dir2/dir3/dir4/dir5/hello.txt", $hi0);
+my $hi1 = read_text("dir1/dir2/dir3/dir4/dir5/hello.txt");
+ok($hi0 eq $hi1, "nested directories");
+
+system("mkdir mnt/numbers");
+for my $ii (1..50) {
+    write_text("numbers/$ii.num", "$ii");
+}
+
+my $nn = `ls mnt/numbers | wc -l`;
+ok($nn == 50, "created 50 files");
+
+for my $ii (1..5) {
+    my $xx = $ii * 10;
+    my $yy = read_text("numbers/$xx.num") || -10;
+    ok($xx == $yy, "check value $xx");
+}
+
+for my $ii (1..4) {
+    my $xx = $ii * 7;
+    system("rm mnt/numbers/$xx.num");
+}
+
+unmount();
+
+ok(!-d "mnt/numbers", "numbers dir doesn't exist after umount");
+
+mount();
+
+my $mm = `ls mnt/numbers | wc -l`;
+ok($mm == 46, "deleted 4 files");
+
+unmount();
+
+my $size = `wc -c disk0.cow`;
+ok($size =~ /^(\d+)/ && +$1 == 1048576, "correct size disk image");
+
+my $list = `timeout -k 5 2 ./cowtool ls disk0.cow`;
+ok($list =~ /25\.num/, "cowtool ls shows nesting");

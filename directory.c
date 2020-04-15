@@ -220,6 +220,7 @@ int directory_replace_ref(int dirnode, int old_node, int new_node) {
 		dir_ent* ent = directory_get(dirnode, i);
 		if (ent->inode_num == old_node) {
 			ent->inode_num = new_node;
+			printf("+ replace_ref %d with %d\n", old_node, new_node);
 		}
 		assert(directory_get(dirnode, i)->inode_num != old_node);
 	}

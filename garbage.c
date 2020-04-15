@@ -20,6 +20,7 @@ void mark_pages(bitmaps* b, inode* node) {
 	for (int i = 0; i < page; i++) {
 		int pnum = node->pages[i];
 		b->block_bitmap.bits[pnum] = 1;
+	//	printf("garbage mark \t page %d\n", i);
 	}
 }
 
@@ -27,6 +28,7 @@ void mark_pages(bitmaps* b, inode* node) {
 void mark_node(bitmaps* b, int inum) {
 	inode* node = get_inode(inum);
 	b->inode_map.bits[inum] = 1;
+	printf("garbage mark node %d\n", inum);
 	mark_pages(b, node);
 }
 
@@ -37,10 +39,12 @@ void mark_children(bitmaps* b, int inum) {
 	for (int i = 0; i < count; i++) {
 		dir_ent* ent = directory_get(inum, i);
 		int cnum = ent->inode_num;
-		inode* c = get_inode(cnum);
-		mark_node(b, cnum);
-		if (c->directory) {
-			mark_children(b, cnum);
+		if (cnum != -1) {
+			inode* c = get_inode(cnum);
+			mark_node(b, cnum);
+			if (c->directory) {
+				mark_children(b, cnum);
+			}
 		}
 	}
 }
@@ -82,7 +86,7 @@ void delete_unused(bitmaps* b) {
 	bitmaps* global = &get_super()->maps;
 	for (int i = 0; i < BITMAP_LEN; i++) {
 		if (!b->block_bitmap.bits[i]) {
-			printf("garbage free page %d\n", i);
+		//	printf("garbage free page %d\n", i);
 			free_page(i);
 		}
 		assert(b->block_bitmap.bits[i] == global->block_bitmap.bits[i]);
