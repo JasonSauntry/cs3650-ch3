@@ -33,12 +33,12 @@ storage_init(const char* path, int create)
 		init_super(get_super());
 		// Since the filesystem is fresh, we can assume 0 is available.
 		alloc_inode_pages();
-		directory_init(DEFAULT_ROOT_INODE, 1, 0);
+		directory_init(DEFAULT_ROOT_INODE, 1);
 	}
 }
 
 int
-storage_stat(const char* path, struct stat* st, int version)
+storage_stat(const char* path, struct stat* st)
 {
 	printf("+ storage_stat(%s)\n", path);
 	int inum = tree_lookup(path);
@@ -64,16 +64,13 @@ storage_stat(const char* path, struct stat* st, int version)
 }
 
 int
-storage_read(const char* path, char* buf, size_t size, off_t offset, int version)
+storage_read(const char* path, char* buf, size_t size, off_t offset)
 {
 	int inum = tree_lookup(path);
 	if (inum < 0) {
 		return inum;
 	}
 	inode* node = get_inode(inum);
-	for (int i = 0; i < MAX_HARD_LINKS; i++) {
-		printf("In link %d:\t%d\n", i, node->in_links[i]);
-	}
 	node->last_access = now();
 	printf("+ storage_read(%s); inode %d\n", path, inum);
 	print_inode(node);
@@ -95,7 +92,7 @@ storage_read(const char* path, char* buf, size_t size, off_t offset, int version
 }
 
 int
-storage_write(const char* path, const char* buf, size_t size, off_t offset, int version)
+storage_write(const char* path, const char* buf, size_t size, off_t offset)
 {
 	int inum = tree_lookup(path);
 	if (inum < 0) {
@@ -103,16 +100,13 @@ storage_write(const char* path, const char* buf, size_t size, off_t offset, int 
 	}
 
 
-	int trv = storage_truncate(path, offset + size, version);
+	int trv = storage_truncate(path, offset + size);
 	if (trv < 0) {
 		return trv;
 	}
 
 	inode* node = get_inode(inum);
 	printf("+ storage_write inum: %d\n", inum);
-	if (node->version < version) {
-		puts("====== :( VERSION ======");
-	}
 
 	size_t size_bytes = size * sizeof(char);
 	size_t offset_bytes = offset * sizeof(char);
@@ -125,7 +119,7 @@ storage_write(const char* path, const char* buf, size_t size, off_t offset, int 
 }
 
 int
-storage_truncate(const char *path, off_t newsize, int version)
+storage_truncate(const char *path, off_t newsize)
 {
 	int inum = tree_lookup(path);
 	if (inum < 0) {
@@ -133,9 +127,7 @@ storage_truncate(const char *path, off_t newsize, int version)
 	}
 
 	inode* node = get_inode(inum);
-	if (node->version < version) {
-		puts("====== :( VERSION ======");
-	}
+	
 	off_t oldsize = node->size;
 	if (newsize == oldsize) { }
 	else if (newsize < oldsize) {
@@ -165,7 +157,7 @@ int parent_inode(const char* cpath) {
 }
 
 int
-storage_mknod(const char* path, int mode, int dir, int version)
+storage_mknod(const char* path, int mode, int dir)
 {
 	char* tmp1 = alloca(strlen(path));
 	char* tmp2 = alloca(strlen(path));
@@ -179,7 +171,7 @@ storage_mknod(const char* path, int mode, int dir, int version)
 		return -EEXIST;
 	} 
 
-	int inum = alloc_inode(version);
+	int inum = alloc_inode();
 
 
 	inode* node = get_inode(inum);
@@ -188,7 +180,7 @@ storage_mknod(const char* path, int mode, int dir, int version)
 	node->directory = dir;
 	node->last_modified = node->last_access = now();
 	if (dir) {
-		directory_init(inum, 0, version);
+		directory_init(inum, 0);
 	}
 
 	printf("+ mknod create %s [%04o] - #%d\n", path, mode, inum);
@@ -199,28 +191,28 @@ storage_mknod(const char* path, int mode, int dir, int version)
 		return -ENOENT;
 	}
 
-	return directory_put(parent, name, inum, version);
+	return directory_put(parent, name, inum);
 }
 
 slist*
-storage_list(const char* path, int version)
+storage_list(const char* path)
 {
 	int dirnode = tree_lookup(path);
 	return directory_list(dirnode);
 }
 
 int
-storage_unlink(const char* path, int version)
+storage_unlink(const char* path)
 {
 	int parent_inum = parent_inode(path);
 	const char* name = strrchr(path, '/') + 1;
-	return directory_delete(parent_inum, name, version);
+	return directory_delete(parent_inum, name);
 }
 
 // The arguments meant the exact opposite of what I thought they did. So I
 // swapped them.
 int
-storage_link(const char* to, const char* from, int version)
+storage_link(const char* to, const char* from)
 {
 	int tarinum = (tree_lookup(to));
 	int from_parent = (parent_inode(from));
@@ -233,7 +225,7 @@ storage_link(const char* to, const char* from, int version)
 
 	char* from_name = strrchr(from, '/') + 1;
 
-	int rv = directory_put(from_parent, from_name, tarinum, version);
+	int rv = directory_put(from_parent, from_name, tarinum);
 	if (rv < 0) {
 		return rv;
 	}
@@ -242,15 +234,14 @@ storage_link(const char* to, const char* from, int version)
 }
 
 int
-storage_rename(const char* from, const char* to, int version)
+storage_rename(const char* from, const char* to)
 {
-	// TODO what if it's a dir?
-	int rv = storage_link(from, to, version);
+	int rv = storage_link(from, to);
 	if (rv < 0) {
 		return rv;
 	}
 
-	rv = storage_unlink(from, version);
+	rv = storage_unlink(from);
 	if (rv < 0) {
 		return rv;
 	}
@@ -258,15 +249,12 @@ storage_rename(const char* from, const char* to, int version)
 	return rv;
 }
 
-int storage_set_mode(const char* path, const int mode, int version) {
+int storage_set_mode(const char* path, const int mode) {
 	int inum = tree_lookup(path);
 	if (inum < 0) {
 		return inum;
 	}
 	inode* node = get_inode(inum);
-	if (node->version < version) {
-		puts("====== :( VERSION ======");
-	}
 
 	node->mode = mode;
 	if (node->directory) {
@@ -279,7 +267,7 @@ int storage_set_mode(const char* path, const int mode, int version) {
 }
 
 int
-storage_set_time(const char* path, const struct timespec ts[2], int version)
+storage_set_time(const char* path, const struct timespec ts[2])
 {
 	int inum = tree_lookup(path);
 	if (inum < 0) {
@@ -287,9 +275,6 @@ storage_set_time(const char* path, const struct timespec ts[2], int version)
 	}
 
 	inode* node = get_inode(inum);
-	if (node->version < version) {
-		puts("====== :( VERSION ======");
-	}
 	node->last_access = ts[0];
 	node->last_modified = ts[0];
 
@@ -300,46 +285,39 @@ bitmaps* get_bitmaps() {
 	return &get_super()->maps;
 }
 
-int storage_symlink(const char* dest, const char* name, int version) {
+int storage_symlink(const char* dest, const char* name) {
 	int parent = parent_inode(name);
 	if (parent < 0) {
 		return parent;
 	}
 
-	int rv = storage_mknod(name, DEFAULT_SYMLINK_MODE, 0, version);
+	int rv = storage_mknod(name, DEFAULT_SYMLINK_MODE, 0);
 	if (rv < 0) {
 		return rv;
 	}
 
 	long len = strlen(dest) + 1; // Include the null-terminator!
-	rv = storage_truncate(name, len, version);
+	rv = storage_truncate(name, len);
 	if (rv < 0) {
 		return rv;
 	}
 
-	rv = storage_write(name, dest, len, 0, version);
-	if (rv < 0) {
-		return rv;
-	}
-	return 0;
-}
-
-int storage_readlink(const char* path, char* buf, size_t size, int version) {
-	int rv = storage_read(path, buf, size, 0, version);
+	rv = storage_write(name, dest, len, 0);
 	if (rv < 0) {
 		return rv;
 	}
 	return 0;
 }
 
-int get_most_recent_inum(int inum) {
-	inode* node = get_inode(inum);
-	if (node->next) {
-		return get_most_recent_inum(node->next);
-	} else {
-		return inum;
+int storage_readlink(const char* path, char* buf, size_t size) {
+	int rv = storage_read(path, buf, size, 0);
+	if (rv < 0) {
+		return rv;
 	}
+	return 0;
 }
+
+
 
 int trace_path_helper(const char* path) {
 	int root = get_root_inum();
@@ -405,17 +383,13 @@ void get_parent_inodes(int root, int searching_for, svec* vec) {
 }
 
 // Copy this and modify (for now) all parents.
-int storage_copy_file(int old_inum, int version) {
+int storage_copy_file(int old_inum) {
 	inode* old_node = get_inode(old_inum);
 
-	int new_inum = alloc_inode(version);
+	int new_inum = alloc_inode();
 
 	inode* new_node = get_inode(new_inum); 
 	memcpy(new_node, old_node, sizeof(inode)); 
-
-	new_node->version = version; 
-	new_node->next = 0; 
-	old_node->next = new_inum; 
 
 	printf("+ cpy file %d to %d\n", old_inum, new_inum);
 
@@ -426,30 +400,25 @@ int storage_copy_file(int old_inum, int version) {
 		int parent_node = svec_get(parents, i);
 		assert(parent_node != -1);
 
-		parent_node = storage_copy_dir(parent_node, version);
+		parent_node = storage_copy_dir(parent_node);
 
 		// Update parent's link.
 		directory_replace_ref(parent_node, old_inum, new_inum);
 
 		// Update my link.
-		new_node->in_links[i] = parent_node;
 	}
 
 	free_svec(parents);
 
 	// Now copy data.
-	if (1) {
-		// TODO don't do this if unneccesary.
-		for (int i = 0; i < PAGE_ARRAY_SIZE && new_node->pages[i]; i++) {
-			new_node->pages[i] = pages_cpy(new_node->pages[i]);
-		}
-
+	for (int i = 0; i < PAGE_ARRAY_SIZE && new_node->pages[i]; i++) {
+		new_node->pages[i] = pages_cpy(new_node->pages[i]);
 	}
 
 	return new_inum;
 }
 
-int storage_copy_dir(int old_inum, int version) {
+int storage_copy_dir(int old_inum) {
 	inode* old = get_inode(old_inum);
 
 	// Check if I'm root.
@@ -462,21 +431,20 @@ int storage_copy_dir(int old_inum, int version) {
 
 		return root;
 	} else {
-		return storage_copy_file(old_inum, version);
+		return storage_copy_file(old_inum);
 	}
 
 }
 
-int storage_copy_root(const char* trigger) {
+void storage_copy_root(const char* trigger) {
 	super_block* super = get_super();
 	int* version = &super->most_recent_version;
 
-	int new_rnum = storage_copy_file(get_root_inum(), *version + 1);
+	int new_rnum = storage_copy_file(get_root_inum());
 	(*version)++;
 	int v = *version % VERSIONS_KEPT;
 	super->versions[v].root = new_rnum;
 	strlcpy(super->versions[v].trigger, trigger, DESC_LEN);
 	super->versions[v].version_number = *version;
 	
-	return *version;
 }

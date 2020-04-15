@@ -23,7 +23,7 @@ get_inode(int inum)
 }
 
 int
-alloc_inode(int version)
+alloc_inode()
 {
 	bitmap* inode_bitmap = &(get_super()->maps.inode_map);
 	int i;
@@ -35,10 +35,6 @@ alloc_inode(int version)
 		inode_bitmap->bits[i] = 1;
 		inode* node = get_inode(i);
 		node->refs = 0;
-		node->version = version;
-		for (int i = 0; i < MAX_HARD_LINKS; i++) {
-			node->in_links[i] = -1;
-		}
 		
 		for (int i = 0; i < PAGE_ARRAY_SIZE; i++) {
 			node->pages[i] = 0;
@@ -78,31 +74,13 @@ void alloc_inode_pages() {
 
 int inode_add_ref(inode* node, int dirnode) {
 	assert(dirnode >= 0);
-	if (node->refs >= MAX_HARD_LINKS) {
-		// TODO indirect refs?
-		puts("No more hard links!");
-		return -1;
-	}
 	node->refs++;
-	int i;
-	for (i = 0; node->in_links[i] != -1; i++);
-	assert(i < MAX_HARD_LINKS);
-	node->in_links[i] = dirnode;
 
 	return 0;
 }
 
 int inode_del_ref(inode* node, int dirnode) {
 	node->refs--;
-	int i;
-	for (i = 0; node->in_links[i] != dirnode; i++) {
-		if (i == MAX_HARD_LINKS) {
-			puts("inode_del_ref overflow, sadness.");
-			// abort();
-			return 0;
-		}
-	}
-	node->in_links[i] = -1;
 	return 0;
 }
 

@@ -20,7 +20,7 @@
 
 // Only called on init.
 void
-directory_init(int dirnode, int new, int version)
+directory_init(int dirnode, int new)
 {
 	inode* rn = get_inode(dirnode);
 	get_super()->maps.inode_map.bits[dirnode] = 1;
@@ -30,11 +30,8 @@ directory_init(int dirnode, int new, int version)
 		rn->mode = 0755;
 		rn->last_access = now();
 		rn->last_modified = now();
-		rn->version = version;
 	}
-	for (int i = 0; i < MAX_HARD_LINKS; i++) {
-		rn->in_links[i] = -1;
-	}
+	
 	rn->mode = rn->mode | DIRMODE;
 	rn->directory = 1;
 	// Don't allocate any data pages yet.
@@ -128,13 +125,10 @@ tree_lookup(const char* path)
 }
 
 int
-directory_put(int dirnode, const char* name, int inum, int version)
+directory_put(int dirnode, const char* name, int inum)
 {
-	// TODO use empty slots if available.
 	inode* node = get_inode(dirnode);
-	if (node->version < version) {
-		puts("====== :( VERSION ======");
-	}
+	
 	node->last_access = node->last_modified = now();
 	int cur_objs = node->size / ENT_SIZE;
 	int first_empty;
@@ -161,8 +155,6 @@ directory_put(int dirnode, const char* name, int inum, int version)
 		index = new_index;
 	}
 
-	// dir_page* page = pages_get_page(node->pages[page_number]);
-
 	dir_ent* entity = directory_get(dirnode, index);
 	entity->inode_num = inum;
 	strlcpy(entity->filename, name, NAME_LEN);
@@ -182,7 +174,7 @@ directory_put(int dirnode, const char* name, int inum, int version)
 }
 
 int
-directory_delete(int dirnode, const char* name, int version)
+directory_delete(int dirnode, const char* name)
 {
 	printf(" + directory_delete(%s)\n", name);
 
@@ -190,22 +182,16 @@ directory_delete(int dirnode, const char* name, int version)
 	if (index < 0) {
 		return index;
 	}
+
 	dir_ent* ent = directory_get(dirnode, index);
 	inode* dir = get_inode(dirnode);
-	if (dir->version < version) {
-		puts("====== :( VERSION ======");
-	}
+	
 	dir->last_access = dir->last_modified = now();
 	inode* file_inode = get_inode(ent->inode_num);
 	inode_del_ref(file_inode, dirnode);
 	int dinum = ent->inode_num;
 	ent->inode_num = -1;
 	ent->filename[0] = 0;
-	// if (file_inode->refs == 0) {
-	// 	inode* node = file_inode;
-	// 	assert(node->refs == 0);
-	// 	free_inode(dinum);
-	// }
 
 	return 0;
 }
@@ -230,7 +216,6 @@ int directory_replace_ref(int dirnode, int old_node, int new_node) {
 slist*
 directory_list(int dirnode)
 {
-	// printf("+ directory_list()\n");
 	slist* ys = 0;
 
 	inode* node = get_inode(dirnode);
@@ -240,7 +225,6 @@ directory_list(int dirnode)
 	for (int ii = 0; ii < entries; ++ii) {
 		char* ent = directory_get(dirnode, ii)->filename;
 		if (ent[0]) {
-			// printf(" - %d: %s [%d]\n", ii, ent, ii);
 			ys = s_cons(ent, ys);
 		}
 	}

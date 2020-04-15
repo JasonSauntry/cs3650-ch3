@@ -13,7 +13,7 @@
 #include "super.h"
 
 slist* build_ls_tree(slist* list, const char* dir) {
-	slist* contents = storage_list(dir, 0);
+	slist* contents = storage_list(dir);
 	for (slist* xs = contents; xs; xs = xs->next) {
 		const size_t size = 256;
 		char* text = alloca(size);
@@ -65,7 +65,6 @@ int versions() {
 
 void del_next_refs(int inum) {
 	inode* node = get_inode(inum);
-	node->next = 0;
 	if (node->directory) {
 		int items = node->size / ENT_SIZE;
 		for (int i = 0; i < items; i++) {

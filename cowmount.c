@@ -23,9 +23,9 @@ int nufs_cpy_actually(const char* path, const char* trigger) {
 	trace_path(path);
 	int old_inum = tree_lookup(path);
 	collect();
-	int version = storage_copy_root(trigger);
+	storage_copy_root(trigger);
 	int inum = tree_lookup(path);
-	int rv = storage_copy_dir(inum, version);
+	int rv = storage_copy_dir(inum);
 	int new_inum = tree_lookup(path);
 	trace_path(path);
 	printf("Copy %s %d --> %d == %d\n", path, old_inum, rv, new_inum);
@@ -92,7 +92,7 @@ nufs_getattr(const char *path, struct stat *st)
 	// 	puts(":(");
 	// 	return n;
 	// }
-	int rv = storage_stat(path, st, 0);
+	int rv = storage_stat(path, st);
 	printf("getattr(%s) -> (%d) {mode: %04o, size: %ld}\n", path, rv, st->st_mode, st->st_size);
 	trace_path(path);
 	return rv;
@@ -104,17 +104,12 @@ int
 nufs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 			 off_t offset, struct fuse_file_info *fi)
 {
-	// int n = nufs_cpy(path);
-	// if (n < 0) {
-	// 	puts(":(");
-	// 	return n;
-	// }
 	const int buflen = 128;
 	struct stat st;
 	char item_path[buflen];
 	int rv;
 
-	rv = storage_stat(path, &st, 0);
+	rv = storage_stat(path, &st);
 	assert(rv == 0);
 
 	filler(buf, ".", &st, 0);
@@ -122,7 +117,7 @@ nufs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 	strcpy(item_path, path);
 	int pathlen = strlen(item_path);
 
-	slist* items = storage_list(path, 0);
+	slist* items = storage_list(path);
 	for (slist* xs = items; xs != 0; xs = xs->next) {
 		printf("+ looking at path: '%s'\n", xs->data);
 
@@ -130,7 +125,7 @@ nufs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 		int nrot = pathlen == 1 ? 0 : 1;
 		strlcpy(item_path + pathlen + nrot, xs->data, buflen - pathlen - 1);
 
-		rv = storage_stat(item_path, &st, 0);
+		rv = storage_stat(item_path, &st);
 		assert(rv == 0);
 		filler(buf, xs->data, &st, 0);
 	}
@@ -152,8 +147,7 @@ nufs_mknod(const char *path, mode_t mode, dev_t rdev)
 		puts(":(");
 		return n;
 	}
-	int version = 0;
-	int rv = storage_mknod(path, mode, 0, version);
+	int rv = storage_mknod(path, mode, 0);
 	printf("mknod(%s, %04o) -> %d\n", path, mode, rv);
 	trace_path(path);
 	return rv;
@@ -169,8 +163,7 @@ nufs_mkdir(const char *path, mode_t mode)
 		puts(":(");
 		return n;
 	}
-	int version = 0;
-	int rv = storage_mknod(path, mode, 1, version);
+	int rv = storage_mknod(path, mode, 1);
 	printf("mkdir(%s) -> %d\n", path, rv);
 	trace_path(path);
 	return rv;
@@ -184,8 +177,8 @@ nufs_unlink(const char *path)
 		puts(":(");
 		return n;
 	}
-	int version = 0;
-	int rv = storage_unlink(path, version);
+
+	int rv = storage_unlink(path);
 	printf("unlink(%s) -> %d\n", path, rv);
 	trace_path(path);
 	return rv;
@@ -204,8 +197,8 @@ nufs_link(const char *from, const char *to)
 		puts(":(");
 		return n;
 	}
-	int version = 0;
-	int rv = storage_link(from, to, version);
+
+	int rv = storage_link(from, to);
 	printf("link(%s => %s) -> %d\n", from, to, rv);
 	trace_path(from);
 	trace_path(to);
@@ -220,8 +213,8 @@ nufs_rmdir(const char *path)
 		puts(":(");
 		return n;
 	}
-	int version = 0;
-	int rv = storage_unlink(path, version);
+
+	int rv = storage_unlink(path);
 	printf("rmdir(%s) -> %d\n", path, rv);
 	trace_path(path);
 	return rv;
@@ -237,8 +230,8 @@ nufs_rename(const char *from, const char *to)
 		puts(":(");
 		return n;
 	}
-	int version = 0;
-	int rv = storage_rename(from, to, version);
+
+	int rv = storage_rename(from, to);
 	printf("rename(%s => %s) -> %d\n", from, to, rv);
 	trace_path(from);
 	trace_path(to);
@@ -253,8 +246,8 @@ nufs_chmod(const char *path, mode_t mode)
 		puts(":(");
 		return n;
 	}
-	int version = 0;
-	int rv = storage_set_mode(path, mode, version);
+
+	int rv = storage_set_mode(path, mode);
 	printf("chmod(%s, %04o) -> %d\n", path, mode, rv);
 	trace_path(path);
 	return rv;
@@ -268,8 +261,8 @@ nufs_truncate(const char *path, off_t size)
 		puts(":(");
 		return n;
 	}
-	int version = 0;
-	int rv = storage_truncate(path, size, version);
+
+	int rv = storage_truncate(path, size);
 	printf("truncate(%s, %ld bytes) -> %d\n", path, size, rv);
 	trace_path(path);
 	return rv;
@@ -291,12 +284,7 @@ nufs_open(const char *path, struct fuse_file_info *fi)
 int
 nufs_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi)
 {
-	// int n = nufs_cpy(path);
-	// if (n < 0) {
-	// 	puts(":(");
-	// 	return n;
-	// }
-	int rv = storage_read(path, buf, size, offset, 0);
+	int rv = storage_read(path, buf, size, offset);
 	printf("read(%s, %ld bytes, @+%ld) -> %d\n", path, size, offset, rv);
 	trace_path(path);
 	return rv;
@@ -311,8 +299,8 @@ nufs_write(const char *path, const char *buf, size_t size, off_t offset, struct 
 		puts(":(");
 		return n;
 	}
-	int version = 0;
-	int rv = storage_write(path, buf, size, offset, version);
+	
+	int rv = storage_write(path, buf, size, offset);
 	printf("write(%s, %ld bytes, @+%ld) -> %d\n", path, size, offset, rv);
 	trace_path(path);
 	return rv;
@@ -327,8 +315,8 @@ nufs_utimens(const char* path, const struct timespec ts[2])
 		puts(":(");
 		return n;
 	}
-	int version = 0;
-	int rv = storage_set_time(path, ts, version);
+
+	int rv = storage_set_time(path, ts);
 	printf("utimens(%s, [%ld, %ld; %ld %ld]) -> %d\n",
 		   path, ts[0].tv_sec, ts[0].tv_nsec, ts[1].tv_sec, ts[1].tv_nsec, rv);
 	trace_path(path);
@@ -336,12 +324,7 @@ nufs_utimens(const char* path, const struct timespec ts[2])
 }
 
 int nufs_readlink(const char* path, char* buf, size_t size) {
-	// int n = nufs_cpy(path);
-	// if (n < 0) {
-	// 	puts(":(");
-	// 	return n;
-	// }
-	int rv = storage_readlink(path, buf, size, 0);
+	int rv = storage_readlink(path, buf, size);
 	printf("readlink(%s, %ld) -> %d\n ==> %s\n", path, size, rv, buf);
 	trace_path(path);
 	return rv;
@@ -355,8 +338,8 @@ int nufs_symlink(const char* to, const char* from) {
 		puts(":(");
 		return n;
 	}
-	int version = 0;
-	int rv = storage_symlink(to, from, version);
+
+	int rv = storage_symlink(to, from);
 	printf("symlink(%s, %s) -> %d\n", to, from, rv);
 	trace_path(to);
 	trace_path(from);
