@@ -1,5 +1,12 @@
+# COW Filesystem
 
-File System Layout:
+This code is the solution to NEU's CS-3650 Challenge 3 for the Spring 2020
+semester. The challenge was to implement a virtual filesystem implementing COW
+functionality, allowing a user to easily undo recent filesystem actions.
+
+## Design
+
+### File System Layout:
 
 *	1MB = 256 pages (4k blocks)
 *	4096 byte pages
